@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Project-TOAM-Frontend"
+    }
+  },
+  "defaultProject": "Project-TOAM-Frontend",
+  "cli": {
+    "analytics": false
+  }
 }
