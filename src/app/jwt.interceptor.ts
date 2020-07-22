@@ -6,6 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {User} from './model/user';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -13,7 +14,7 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor() {
   }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<User>> {
 
     if (!request.url.endsWith('authenticate')) {
       const token = localStorage.getItem('ACCESS_TOKEN');
