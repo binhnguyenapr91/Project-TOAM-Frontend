@@ -129,9 +129,7 @@
   },
   "defaultProject": "Project-TOAM-Frontend",
   "cli": {
-
     "analytics": false
   }
 }
-
 
