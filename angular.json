@@ -28,9 +28,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +129,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Project-TOAM-Frontend"
+    }
+  },
+  "defaultProject": "Project-TOAM-Frontend",
+  "cli": {
+    "analytics": "c38d860c-7cbe-4290-ac16-abb500e06855"
+  }
 }
