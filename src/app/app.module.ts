@@ -3,7 +3,9 @@ import {NgModule} from '@angular/core';
 
 
 
+
 import { LoginComponent } from './component/login/login.component';
+
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -14,6 +16,7 @@ import {RegisterComponent} from './register/register.component';
 import {IndexComponent} from './index/index.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,6 @@ import {IndexComponent} from './index/index.component';
     PropertiesComponent,
     RegisterComponent,
     IndexComponent
-
   ],
   imports: [
     BrowserModule,
