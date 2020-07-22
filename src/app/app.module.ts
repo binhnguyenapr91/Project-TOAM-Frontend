@@ -18,10 +18,8 @@ import {IndexComponent} from './index/index.component';
   declarations: [
     AppComponent,
     LoginComponent,
-
     PropertiesComponent,
     RegisterComponent,
-
     IndexComponent
 
   ],
