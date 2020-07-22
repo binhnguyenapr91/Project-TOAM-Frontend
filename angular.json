@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Project-TOAM-Frontend": {
+    "form-angular": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Project-TOAM-Frontend",
+            "outputPath": "dist/form-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Project-TOAM-Frontend:build"
+            "browserTarget": "form-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Project-TOAM-Frontend:build:production"
+              "browserTarget": "form-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Project-TOAM-Frontend:build"
+            "browserTarget": "form-angular:build"
           }
         },
         "test": {
@@ -98,7 +94,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -120,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Project-TOAM-Frontend:serve"
+            "devServerTarget": "form-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Project-TOAM-Frontend:serve:production"
+              "devServerTarget": "form-angular:serve:production"
             }
           }
         }
@@ -133,6 +129,7 @@
   },
   "defaultProject": "Project-TOAM-Frontend",
   "cli": {
-    "analytics": "c38d860c-7cbe-4290-ac16-abb500e06855"
+    "analytics": false
   }
 }
+
