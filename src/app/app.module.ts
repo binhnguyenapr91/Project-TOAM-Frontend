@@ -14,6 +14,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PropertiesComponent} from './properties/properties.component';
 import {RegisterComponent} from './register/register.component';
 import {IndexComponent} from './index/index.component';
+import {LayoutHeaderComponent} from './layout-header/layout-header.component';
+import {LayoutFooterComponent} from './layout-footer/layout-footer.component';
 
 
 
@@ -23,7 +25,9 @@ import {IndexComponent} from './index/index.component';
     LoginComponent,
     PropertiesComponent,
     RegisterComponent,
-    IndexComponent
+    IndexComponent,
+    LayoutHeaderComponent,
+    LayoutFooterComponent
   ],
   imports: [
     BrowserModule,
