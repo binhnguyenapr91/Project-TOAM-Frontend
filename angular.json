@@ -128,9 +128,8 @@
     }
   },
   "defaultProject": "Project-TOAM-Frontend",
-  "cli": {"analytics": false}
-}
-    "analytics": "c38d860c-7cbe-4290-ac16-abb500e06855"
+  "cli": {
+    "analytics": false
   }
 }
 
