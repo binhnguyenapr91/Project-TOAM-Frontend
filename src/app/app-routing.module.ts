@@ -10,12 +10,15 @@ import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './index/index.component';
 
 import {LoginComponent} from './component/login/login.component';
+import {DetailsComponent} from "./component/details/details.component";
+import {AuthGuard} from "./_helpers/auth.guard";
 
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    component: IndexComponent,
+    canActivate:[AuthGuard],
   },
   {
     path: 'admin',
@@ -29,10 +32,8 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
-  {
-    path: 'detail',
-    component: PropertyDetailComponent
-  }
+  { path:'detail',component:DetailsComponent}
+
 ];
 
 @NgModule({

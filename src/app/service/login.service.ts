@@ -1,33 +1,23 @@
-import {Injectable} from '@angular/core';
-import {User} from '../model/user';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+import {environment} from "../../environments/environment";
+import {IAccount} from "../interface/IAccount";
+
+@Injectable({ providedIn: 'root' })
 export class LoginService {
-  private readonly API_URL = 'http://localhost:8080';
-  private userSubject: BehaviorSubject<User>;
-  public user: Observable<User>;
+  constructor(private http: HttpClient) { }
 
-  constructor(
-    private router: Router,
-    private http: HttpClient
-  ) {
-    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
-    this.user = this.userSubject.asObservable();
+  getAll() {
+    return this.http.get<IAccount[]>(`${environment.RegisterUrl}`);
   }
 
-  login(username, password): Observable<User> {
-    return this.http.post<User>(`${this.API_URL}/authenticate`, {username, password})
-      .pipe(map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
-        this.userSubject.next(user);
-        return user;
-      }));
+  register(user: IAccount) {
+    return this.http.post(`${environment.RegisterUrl}`, user);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${environment.RegisterUrl}/${id}`);
   }
 }
