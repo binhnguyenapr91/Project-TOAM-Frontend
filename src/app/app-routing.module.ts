@@ -4,13 +4,16 @@ import {IndexComponent} from './index/index.component';
 
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './component/login/login.component';
+import {DetailsComponent} from "./component/details/details.component";
+import {AuthGuard} from "./_helpers/auth.guard";
 
 
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    component: IndexComponent,
+    canActivate:[AuthGuard],
   },
   {
     path: 'login',
@@ -19,7 +22,9 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
-  }
+  },
+  { path:'detail',component:DetailsComponent}
+
 ];
 
 @NgModule({

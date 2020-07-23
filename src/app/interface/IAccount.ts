@@ -7,5 +7,6 @@ export interface IAccount {
   password: string;
   status: boolean;
   role: IRole;
+  token: string; // thuan
 }
 

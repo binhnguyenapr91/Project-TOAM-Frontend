@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {User} from '../../model/user';
+import {IAccount} from '../../interface/IAccount';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LoginService} from '../../service/login.service';
-import {AlertService} from '../../service/alert.service';
 import {first} from 'rxjs/operators';
+import {Store} from "@ngrx/store";
+import {AuthenticationService} from "../../service/authentication.service";
+
 
 @Component({
   selector: 'app-login',
@@ -21,9 +22,12 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private loginService: LoginService,
-    private alertService: AlertService
+    private authenticationService: AuthenticationService,
   ) {
+    // redirect to home if already logged in
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   ngOnInit(): void {
@@ -33,11 +37,11 @@ export class LoginComponent implements OnInit {
     });
     // update form state
     this.loginForm.patchValue({
-      username: 'foofoo',
-      password: 'foofoo'
+      username: '123456@abc',
+      password: '123456@abc'
     });
 
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get Field(): FormGroup {
@@ -46,20 +50,22 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.alertService.clear();
     if (this.loginForm.invalid) {
       return;
     }
+
     this.loading = true;
-    this.loginService.login(this.Field.controls.username.value, this.Field.controls.password.value)
+
+    this.authenticationService.login(this.Field.controls.username.value, this.Field.controls.password.value)
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]).then(r => console.log(r));
+          this.router.navigate(['detail']);
+          // this.router.navigate(["detail"]);
         },
         error => {
-          this.alertService.error(error);
           this.loading = false;
+          console.log(error);
         });
 
   }

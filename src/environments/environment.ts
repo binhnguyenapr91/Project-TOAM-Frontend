@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  RegisterUrl: 'http://localhost:8080/api/account'
+  RegisterUrl: 'http://localhost:8080/api/account',
+  apiUrl: 'http://localhost:8080/'
 };
 
 /*
