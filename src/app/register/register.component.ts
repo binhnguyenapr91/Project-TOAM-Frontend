@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AccountService} from '../service/account.service';
 import {IRole} from '../interface/IRole';
 import {RoleService} from '../service/role.service';
@@ -12,8 +12,8 @@ import {RoleService} from '../service/role.service';
 export class RegisterComponent implements OnInit {
   form: FormGroup;
   message: string;
+  role: string;
   roles: IRole [] = [];
-
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
@@ -28,9 +28,12 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.minLength(10)]],
+      role: ['']
     });
     this.roleService.getAllRole().subscribe(result => {
       this.roles = result;
+      console.log(this.roles);
+
     }, error => {
       this.roles = [];
     });

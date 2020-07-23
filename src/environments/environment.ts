@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   RegisterUrl: 'http://localhost:8080/api/account',
-  apiUrl: 'http://localhost:8080/'
+  accountUrl: 'http://localhost:8080/api/role/host',
+  idAccountUrl: 'http://localhost:8080/api/role/renter'
 };
 
 /*
