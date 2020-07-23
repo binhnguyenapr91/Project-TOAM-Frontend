@@ -125,19 +125,13 @@
           }
         }
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> 49e725379c68bc973f137b3b8d02cc6021addd1c
     }
   },
   "defaultProject": "Project-TOAM-Frontend",
   "cli": {
-<<<<<<< HEAD
+
     "analytics": false
-=======
-    "analytics": "c38d860c-7cbe-4290-ac16-abb500e06855"
->>>>>>> 49e725379c68bc973f137b3b8d02cc6021addd1c
   }
 }
 

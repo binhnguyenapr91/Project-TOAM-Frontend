@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PropertiesComponent} from './properties/properties.component';
 import {RegisterComponent} from './register/register.component';
 import {IndexComponent} from './index/index.component';
+import { RoleComponent } from './role/role.component';
 
 
 
@@ -23,7 +24,8 @@ import {IndexComponent} from './index/index.component';
     LoginComponent,
     PropertiesComponent,
     RegisterComponent,
-    IndexComponent
+    IndexComponent,
+    RoleComponent,
   ],
   imports: [
     BrowserModule,

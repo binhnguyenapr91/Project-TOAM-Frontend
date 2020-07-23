@@ -1,19 +1,25 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {IAccount} from '../interface/IAccount';
 import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private readonly API_URL = 'http://localhost:8080/api/property';
+  private registerURL = environment.RegisterUrl;
 
   constructor(private  httpClient: HttpClient) {
   }
 
   Register(account: IAccount): Observable<IAccount> {
-    return this.httpClient.post<IAccount>(this.API_URL, account);
+    console.log(account);
+    return this.httpClient.post<IAccount>(this.registerURL, account, httpOptions);
   }
 }
