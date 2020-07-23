@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {User} from '../../model/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../service/login.service';
-import {AlertService} from '../../service/alert.service';
 import {first} from 'rxjs/operators';
 
 @Component({
@@ -22,7 +20,6 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private loginService: LoginService,
-    private alertService: AlertService
   ) {
   }
 
@@ -46,7 +43,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.alertService.clear();
     if (this.loginForm.invalid) {
       return;
     }
@@ -58,8 +54,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]).then(r => console.log(r));
         },
         error => {
-          this.alertService.error(error);
           this.loading = false;
+          console.log(error);
         });
 
   }

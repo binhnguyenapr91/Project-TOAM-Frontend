@@ -14,7 +14,7 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor() {
   }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<User>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (!request.url.endsWith('authenticate')) {
       const token = localStorage.getItem('ACCESS_TOKEN');
