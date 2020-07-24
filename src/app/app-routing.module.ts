@@ -29,7 +29,13 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: LayoutAdminComponent
+    component: LayoutAdminComponent,
+    children: [
+      {
+        path: 'admin/account',
+        component: PropertyDetailComponent,
+      },
+    ],
   },
   {
     path: 'login',
