@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {AccountService} from "../service/account.service";
-import {IAccount} from "../interface/IAccount";
+import {AccountService} from "../../service/account.service";
+import {IAccount} from "../../interface/IAccount";
 
 @Component({
   selector: 'app-register',
