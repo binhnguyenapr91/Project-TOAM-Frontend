@@ -60,9 +60,15 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          alert("Login Successful")
-          this.router.navigate(['login']);
-          console.log(data);
+          alert("Login Successful");
+          this.router.navigate(['']);
+          // if (data.currentUserValue.role == "ADMIN") {
+          //   this.router.navigate(['admin']);
+          // }
+          // else {
+          //   this.router.navigate([''])
+          // }
+            console.log(data);
         },
         error => {
           this.loading = false;
@@ -73,5 +79,4 @@ export class LoginComponent implements OnInit {
   }
 
 
-  currentUser: IAccount;
 }
