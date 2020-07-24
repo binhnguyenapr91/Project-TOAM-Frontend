@@ -4,7 +4,7 @@ import {IndexComponent} from './index/index.component';
 
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './component/login/login.component';
-
+import {PropertiesComponent} from "./properties/properties.component";
 
 
 const routes: Routes = [
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'property',
+    component: PropertiesComponent
   }
 ];
 
