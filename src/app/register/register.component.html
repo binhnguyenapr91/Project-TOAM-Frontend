@@ -34,23 +34,28 @@
 <!--    </form>-->
 <!--  </div>-->
 <!--</nav>-->
-<h1>{{message}}</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-6" style="border: 1px solid blue;background-color: powderblue; margin-left: 300px;margin-top: 50px">
+
+<div class="container col-md-6 offset-md-3">
+  <h1 class=" col-md-6 offset-md-3">{{message}}</h1>
+  <div class="row btn btn-light col-md-6 offset-md-3">
+    <div>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <h3 style="text-align: center">Đăng Kí Tài Khoản</h3>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Name</label>
-            <input type="text" class="form-control" placeholder="Name" formControlName="name">
+            <label>
+              <input type="text" class="form-control" placeholder="Name" formControlName="name">
+            </label>
             <div *ngIf="form.get('name').invalid && form.get('name').touched" style="color: red">
               Name is required and min length is 6
             </div>
           </div>
           <div class="form-group col-md-6">
             <label>UserName</label>
-            <input type="text" class="form-control" placeholder="UserName" formControlName="username">
+            <label>
+              <input type="text" class="form-control" placeholder="UserName" formControlName="username">
+            </label>
             <div *ngIf="form.get('username').invalid && form.get('username').touched" style="color: red">
               Name is required and min length is 6
             </div>
@@ -73,19 +78,23 @@
 
           <div class="form-group col-md-6">
             <label>Phone</label>
-            <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number">
+            <label>
+              <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number">
+            </label>
             <div *ngIf="form.get('phone').invalid && form.get('phone').touched" style="color: red">
               Phone is required and min length is 6
             </div>
           </div>
             <label>Role</label>
+          <label>
             <select id="select_substrate" name="role" formControlName="role" required>
               <option *ngFor="let role of roles" [ngValue]="role">{{role.name}}</option>
             </select>
-
+          </label>
           </div>
-        <div style="margin-left: 230px">
-          <button type="submit" class="btn btn-primary">Đăng Kí</button>
+        <div>
+          <button type="submit" class="btn btn-info">Đăng Kí</button>
+          <a routerLink="/login" class="btn btn-info offset-2">Login</a>
         </div>
       </form>
     </div>
