@@ -5,11 +5,15 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './component/login/login.component';
 
+
+
+import {DetailsComponent} from "./component/details/details.component";
 import {IndexComponent} from "./component/index/index.component";
 import {PropertiesComponent} from "./properties/properties.component";
 import {PropertyDetailComponent} from "./property-detail/property-detail.component";
 import {TestHomeComponent} from "./component/login/test-home/test-home.component";
 import {AuthGuard} from "./_helpers/auth.guard";
+
 
 
 
