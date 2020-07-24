@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {IAccount} from '../interface/IAccount';
 
 import {Observable, Subject} from 'rxjs';
-import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 
 const httpOptions = {
