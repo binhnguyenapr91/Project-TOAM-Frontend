@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './component/index/index.component';
 import {LoginComponent} from './component/login/login.component';
 import {RegisterComponent} from './component/register/register.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: LayoutAdminComponent
+    component: LayoutAdminComponent,
   },
   {
     path: 'admin/accounts',
@@ -44,4 +44,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
