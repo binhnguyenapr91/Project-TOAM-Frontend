@@ -13,7 +13,7 @@ export class PropertyService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getListProperty(): Observable<IProperty[]> {
-    return this.httpClient.get<IProperty[]>(this.API_URL);
+  getListProperty(searchKey: string): Observable<IProperty[]> {
+    return this.httpClient.get<IProperty[]>(`${this.API_URL}/${searchKey}`);
   }
 }
