@@ -30,7 +30,8 @@ export class RegisterComponent implements OnInit {
       phone: ['', [Validators.required, Validators.minLength(10)]],
       role: ['']
     });
-    this.roleService.getAllRole().subscribe(result => {
+    this.roleService.getAllRole().subscribe(
+      result => {
       this.roles = result;
       console.log(this.roles);
 

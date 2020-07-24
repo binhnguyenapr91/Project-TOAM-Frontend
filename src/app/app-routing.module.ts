@@ -4,38 +4,32 @@ import {LayoutAdminComponent} from './component/layout-admin/layout-admin.compon
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './component/login/login.component';
-import {DetailsComponent} from "./component/details/details.component";
-import {AuthGuard} from "./_helpers/auth.guard";
+
 import {IndexComponent} from "./component/index/index.component";
 import {PropertiesComponent} from "./properties/properties.component";
 import {PropertyDetailComponent} from "./property-detail/property-detail.component";
+import {TestHomeComponent} from "./component/login/test-home/test-home.component";
+
 
 
 const routes: Routes = [
   {
+    path: 'detail',
+    component: PropertyDetailComponent,
+  },
+  {
+    path: 'property',
+    component: PropertiesComponent,
+  },
+  {
     path: '',
     component: IndexComponent,
     // canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'property',
-        component: PropertiesComponent,
-      },
-      {
-        path: 'detail',
-        component: PropertyDetailComponent,
-      }
-    ],
+
   },
   {
     path: 'admin',
     component: LayoutAdminComponent,
-    children: [
-      {
-        path: 'admin/account',
-        component: PropertyDetailComponent,
-      },
-    ],
   },
   {
     path: 'login',
@@ -45,6 +39,10 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+  {
+    path: 'testHome',
+    component: TestHomeComponent,
+  }
 
 ];
 

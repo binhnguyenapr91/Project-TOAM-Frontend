@@ -16,9 +16,9 @@ import { LayoutAdminHeaderComponent } from './component/layout-admin-header/layo
 import { LayoutAdminComponent } from './component/layout-admin/layout-admin.component';
 import { PropertyDetailComponent } from './property-detail/property-detail.component';
 import {RoleComponent} from './role/role.component';
-import {DetailsComponent} from './component/details/details.component';
 import {JwtInterceptor} from "./_helpers/jwt.interceptor";
 import {IndexComponent} from "./component/index/index.component";
+import { TestHomeComponent } from './component/login/test-home/test-home.component';
 
 
 
@@ -35,7 +35,7 @@ import {IndexComponent} from "./component/index/index.component";
     LayoutAdminComponent,
     PropertyDetailComponent,
     RoleComponent,
-    DetailsComponent,
+    TestHomeComponent,
   ],
   imports: [
     BrowserModule,
