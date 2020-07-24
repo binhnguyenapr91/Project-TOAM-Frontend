@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {IAccount} from "../interface/IAccount";
 import {environment} from "../../environments/environment";
 
 
-@Injectable({ providedIn: 'root' })
+
+@Injectable({providedIn: 'root'})
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<IAccount>;
   public currentUser: Observable<IAccount>;
@@ -20,15 +21,19 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  public get currentUserName(): String {
+    return this.currentUserSubject.value.name;
+  }
+
   login(username, password) {
-    return this.http.post<any>(`${environment.apiUrl}authenticate`, { username, password })
+    return this.http.post<any>(`${environment.apiUrl}authenticate`, {username, password})
       .pipe(map(
         iAccount => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify(iAccount));
-        this.currentUserSubject.next(iAccount);
-        return iAccount;
-      }));
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(iAccount));
+          this.currentUserSubject.next(iAccount);
+          return iAccount;
+        }));
   }
 
   logout() {

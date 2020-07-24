@@ -9,6 +9,7 @@ import {IndexComponent} from "./component/index/index.component";
 import {PropertiesComponent} from "./properties/properties.component";
 import {PropertyDetailComponent} from "./property-detail/property-detail.component";
 import {TestHomeComponent} from "./component/login/test-home/test-home.component";
+import {AuthGuard} from "./_helpers/auth.guard";
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: LayoutAdminComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
