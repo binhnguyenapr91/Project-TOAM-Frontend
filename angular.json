@@ -125,6 +125,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "form-angular"
+
+    }
+  },
+  "defaultProject": "Project-TOAM-Frontend",
+  "cli": {
+    "analytics": false
+  }
 }
+
