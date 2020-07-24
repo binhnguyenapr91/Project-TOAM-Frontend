@@ -7,7 +7,7 @@ export interface IProperty {
   name: string;
   image: string;
   video: string;
-  address: IAddress;
+  addresses: IAddress;
   size: number;
   price: number;
   bedrooms: number;

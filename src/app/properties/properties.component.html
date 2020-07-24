@@ -1,24 +1,12 @@
-<div class="row">
-  <div *ngFor="let pro of properties" class="col-3">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="./assets/img/single-property/2.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">House</h5>
-       <div class="row">
-         <div class="col-6">
-        <p>   Name: {{pro.name}}</p>
-           <hr>
-          <p> Address: {{pro.address.name}}</p>
-         </div>
-         <hr>
-         <div class="col-6">
-            <p>Size:{{pro.size}}m2</p>
-           <hr>
-            <p>Price:{{pro.price}}$</p>
-         </div>
-       </div>
-        <a href="#" class="btn btn-primary">View Detail</a>
-      </div>
-    </div>
+<div *ngFor="let pro of properties;">
+  ID:<p>{{pro.id}}</p>
+  Price:<p>{{pro.price}}</p>
+  Size:<p>{{pro.size}}</p>
+  Bathroom:<p>{{pro.bathrooms}}</p>
+  BedRooms:<p>{{pro.bedrooms}}</p>
+  <div>
+    street:<p *ngFor="let street of pro.addresses.street">
+    <i *ngFor="let str of street">{{str}}</i>
+  </p>
   </div>
 </div>
