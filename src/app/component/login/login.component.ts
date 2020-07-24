@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {IAccount} from '../../interface/IAccount';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
-import {Store} from "@ngrx/store";
 import {AuthenticationService} from "../../service/authentication.service";
+import {IAccount} from "../../interface/IAccount";
 
 
 @Component({
@@ -26,11 +25,12 @@ export class LoginComponent implements OnInit {
   ) {
     // redirect to home if already logged in
     // if (this.authenticationService.currentUserValue) {
-    //   this.router.navigate(['/']);
+    //   this.router.navigate(['/detail']);
     // }
+
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -60,14 +60,18 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['detail']);
-          // this.router.navigate(["detail"]);
+          alert("Login Successful")
+          this.router.navigate(['login']);
+          console.log(data);
         },
         error => {
           this.loading = false;
+          alert("Login Fail")
           console.log(error);
         });
 
   }
 
+
+  currentUser: IAccount;
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AccountService} from '../service/account.service';
 import {IRole} from '../interface/IRole';
 import {RoleService} from '../service/role.service';
@@ -36,6 +36,8 @@ export class RegisterComponent implements OnInit {
 
     }, error => {
       this.roles = [];
+      alert("không thể lấy role");
+      console.log(error);
     });
   }
 
@@ -52,7 +54,10 @@ export class RegisterComponent implements OnInit {
             phone: '',
           });
           this.message = 'success';
-        }, error => console.log(error));
+          console.log(next);
+        }, error =>
+        {console.log(error);
+        });
     } else {
       this.message = 'no success';
     }
