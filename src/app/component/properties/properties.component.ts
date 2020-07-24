@@ -8,14 +8,14 @@ import {PropertyService} from '../../service/property.service';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit {
-  properties: IProperty[];
-
+  properties: IProperty[] = [];
   constructor(private propertyService: PropertyService) {
   }
 
   ngOnInit(): void {
     this.propertyService.getListProperty().subscribe(result => {
       this.properties = result;
+      console.log(result);
     }, error => {
       this.properties = [];
     });

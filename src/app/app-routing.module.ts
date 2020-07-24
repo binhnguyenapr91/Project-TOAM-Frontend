@@ -1,18 +1,30 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from './component/index/index.component';
-import {LoginComponent} from './component/login/login.component';
-import {RegisterComponent} from './component/register/register.component';
-import {LayoutAdminComponent} from './component/layout-admin/layout-admin.component';
+import {PropertiesComponent} from './component/properties/properties.component';
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
+import {LayoutAdminComponent} from './component/layout-admin/layout-admin.component';
 import {AccountsComponent} from './component/accounts/accounts.component';
 import {HostsComponent} from './component/hosts/hosts.component';
+import {LoginComponent} from './component/login/login.component';
+import {RegisterComponent} from './component/register/register.component';
+import {NgModule} from '@angular/core';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    component: IndexComponent,
+    // canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'property',
+        component: PropertiesComponent,
+      },
+      {
+        path: 'detail',
+        component: PropertyDetailComponent,
+      }
+    ],
   },
   {
     path: 'admin',
@@ -24,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'admin/accounts/host',
-    component: HostsComponent
+    component: HostsComponent,
   },
   {
     path: 'login',
@@ -34,10 +46,7 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
-  {
-    path: 'detail',
-    component: PropertyDetailComponent
-  }
+
 ];
 
 @NgModule({

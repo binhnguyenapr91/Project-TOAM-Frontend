@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LoginService} from '../../service/login.service';
-import {AlertService} from '../../service/alert.service';
 import {first} from 'rxjs/operators';
+import {AuthenticationService} from "../../service/authentication.service";
+import {IAccount} from "../../interface/IAccount";
+
 
 @Component({
   selector: 'app-login',
@@ -20,23 +21,27 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private loginService: LoginService,
-    private alertService: AlertService
+    private authenticationService: AuthenticationService,
   ) {
+    // redirect to home if already logged in
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/detail']);
+    // }
+
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
     // update form state
     this.loginForm.patchValue({
-      username: 'foofoo',
-      password: 'foofoo'
+      username: '123456@abc',
+      password: '123456@abc'
     });
 
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get Field(): FormGroup {
@@ -45,22 +50,33 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.alertService.clear();
     if (this.loginForm.invalid) {
       return;
     }
+
     this.loading = true;
-    this.loginService.login(this.Field.controls.username.value, this.Field.controls.password.value)
+
+    this.authenticationService.login(this.Field.controls.username.value, this.Field.controls.password.value)
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]).then(r => console.log(r));
+          alert("Login Successful");
+          this.router.navigate(['']);
+          // if (data.currentUserValue.role == "ADMIN") {
+          //   this.router.navigate(['admin']);
+          // }
+          // else {
+          //   this.router.navigate([''])
+          // }
+            console.log(data);
         },
         error => {
-          this.alertService.error(error);
           this.loading = false;
+          alert("Login Fail")
+          console.log(error);
         });
 
   }
+
 
 }

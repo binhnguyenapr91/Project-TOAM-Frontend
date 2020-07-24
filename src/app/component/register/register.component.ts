@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {AccountService} from "../../service/account.service";
-import {IAccount} from "../../interface/IAccount";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {IRole} from '../../interface/IRole';
+import {AccountService} from '../../service/account.service';
+import {RoleService} from '../../service/role.service';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +11,13 @@ import {IAccount} from "../../interface/IAccount";
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
-  account: IAccount[] = [];
   message: string;
-
+  role: string;
+  roles: IRole [] = [];
   constructor(
     private fb: FormBuilder,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private roleService: RoleService
   ) {
   }
 
@@ -26,8 +27,17 @@ export class RegisterComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
-      address: ['', [Validators.required, Validators.minLength(10)]],
       phone: ['', [Validators.required, Validators.minLength(10)]],
+      role: ['']
+    });
+    this.roleService.getAllRole().subscribe(result => {
+      this.roles = result;
+      console.log(this.roles);
+
+    }, error => {
+      this.roles = [];
+      alert('không thể lấy role');
+      console.log(error);
     });
   }
 
@@ -36,16 +46,20 @@ export class RegisterComponent implements OnInit {
       const {value} = this.form;
       this.accountService.Register(value)
         .subscribe(next => {
-          this.account.unshift(next);
           this.form.reset({
             name: '',
             username: '',
             password: '',
             email: '',
             phone: '',
-            address: ''
           });
-        }, error => console.log(error));
+          this.message = 'success';
+          console.log(next);
+        }, error =>
+        {console.log(error);
+        });
+    } else {
+      this.message = 'no success';
     }
   }
 }
