@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {IProperty} from '../interface/iproperty';
-import {PropertyService} from '../service/property.service';
-import {IAddress} from "../interface/IAddress";
+import {IProperty} from '../../interface/iproperty';
+import {PropertyService} from '../../service/property.service';
 
 @Component({
   selector: 'app-properties',
