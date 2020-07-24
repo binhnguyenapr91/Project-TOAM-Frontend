@@ -1,16 +1,29 @@
+
+import { NgModule } from '@angular/core';
+import {IndexComponent} from './component/index/index.component';
+import {LoginComponent} from './component/login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {LayoutAdminComponent} from './component/layout-admin/layout-admin.component';
+import {PropertyDetailComponent} from './property-detail/property-detail.component';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './index/index.component';
-
-import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './component/login/login.component';
 import {PropertiesComponent} from "./properties/properties.component";
+import {DetailsComponent} from "./component/details/details.component";
+import {AuthGuard} from "./_helpers/auth.guard";
+
 
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    component: IndexComponent,
+    canActivate:[AuthGuard],
+  },
+  {
+    path: 'admin',
+    component: LayoutAdminComponent
   },
   {
     path: 'login',
@@ -23,7 +36,9 @@ const routes: Routes = [
   {
     path: 'property',
     component: PropertiesComponent
-  }
+  },
+  { path:'detail',component:DetailsComponent}
+
 ];
 
 @NgModule({
