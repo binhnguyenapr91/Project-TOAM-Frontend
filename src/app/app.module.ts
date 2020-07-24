@@ -11,10 +11,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-// @ts-ignore
+
 import {PropertiesComponent} from './component/properties/properties.component';
-// @ts-ignore
-import {RegisterComponent} from './register/register.component';
 import {IndexComponent} from './component/index/index.component';
 import {LayoutHeaderComponent} from './component/layout-header/layout-header.component';
 import {LayoutFooterComponent} from './component/layout-footer/layout-footer.component';
@@ -23,6 +21,7 @@ import { LayoutAdminComponent } from './component/layout-admin/layout-admin.comp
 import { PropertyDetailComponent } from './component/property-detail/property-detail.component';
 import { AccountsComponent } from './component/accounts/accounts.component';
 import { HostsComponent } from './component/hosts/hosts.component';
+import {RegisterComponent} from './component/register/register.component';
 
 
 

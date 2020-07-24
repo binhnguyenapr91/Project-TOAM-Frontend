@@ -23,7 +23,7 @@ const routes: Routes = [
     component: AccountsComponent
   },
   {
-    path: 'admin/host',
+    path: 'admin/accounts/host',
     component: HostsComponent
   },
   {

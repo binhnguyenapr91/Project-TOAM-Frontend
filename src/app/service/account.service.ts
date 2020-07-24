@@ -8,7 +8,7 @@ import {Observable, Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class AccountService {
-  private readonly API_URL = 'http://localhost:8080/api/property';
+  private readonly API_URL = 'http://localhost:8080/api/account';
   shouldRefresh = new Subject<any>();
 
   constructor(private  httpClient: HttpClient) {
@@ -20,5 +20,21 @@ export class AccountService {
 
   getListAccount(): Observable<IAccount[]> {
     return this.httpClient.get<IAccount[]>(this.API_URL);
+  }
+
+  getAccountById(id: number): Observable<IAccount> {
+    return this.httpClient.get<IAccount>(`${this.API_URL}/${id}`);
+  }
+
+  createAccount(account: IAccount): Observable<IAccount> {
+    return this.httpClient.post<IAccount>(this.API_URL, account);
+  }
+
+  updateAccount(account: IAccount): Observable<IAccount> {
+    return this.httpClient.put<IAccount>(`${this.API_URL}/${account.id}`, account);
+  }
+
+  deleteAccount(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.API_URL}/${id}`);
   }
 }
