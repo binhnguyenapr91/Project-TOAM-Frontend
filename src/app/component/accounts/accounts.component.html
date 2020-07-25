@@ -22,8 +22,7 @@
       <td>{{account.password}}</td>
       <td>{{account.role.name}}</td>
       <td>{{account.status}}</td>
-      <td><input type="button" value="Disable" class="btn btn-outline-secondary"></td>
-      <td><input type="button" value="Edit" class="btn btn-outline-info"></td>
+      <td><input routerLink="admin/account-update" type="button" value="Edit" class="btn btn-outline-info"></td>
       <td><input (click)="deleteAccount(account.id)" type="button" value="Delete" class="btn btn-outline-danger"></td>
     </tr>
     </tbody>

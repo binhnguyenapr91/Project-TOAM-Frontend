@@ -22,6 +22,7 @@ import {PropertiesComponent} from './component/properties/properties.component';
 import {IndexComponent} from './component/index/index.component';
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
+import { AccountUpdateComponent } from './component/account-update/account-update.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {JwtInterceptor} from './_helpers/jwt.interceptor';
     HostsComponent,
     RoleComponent,
     DetailsComponent,
+    AccountUpdateComponent,
   ],
   imports: [
     BrowserModule,
