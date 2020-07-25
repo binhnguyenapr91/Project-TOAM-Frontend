@@ -28,4 +28,12 @@ export class AccountsComponent implements OnInit {
         console.log(error)
       });
   }
+
+  deleteAccount(id: number): void {
+    if (confirm('Are you sure to delete?')) {
+      this.accountService.deleteAccount(id).subscribe(result => {
+        this.accountService.shouldRefresh.next();
+      });
+    }
+  }
 }

@@ -1,7 +1,9 @@
-<div *ngFor="let pro of properties;">
+<!--<div *ngFor="let pro of properties;">
   ID:<p>{{pro.id}}</p>
+  Name:<p>{{pro.name}}</p>
   Price:<p>{{pro.price}}</p>
   Size:<p>{{pro.size}}</p>
+  Size:<p>{{pro.description}}</p>
   Bathroom:<p>{{pro.bathrooms}}</p>
   BedRooms:<p>{{pro.bedrooms}}</p>
   <div>
@@ -9,4 +11,59 @@
     <i *ngFor="let str of street">{{str}}</i>
   </p>
   </div>
-</div>
+</div>-->
+
+<section class="hotel-rooms spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6" *ngFor="let pro of properties;">
+        <div class="room-items">
+          <!--<div class="room-img set-bg" data-setbg="../../../assets/img/single-property/1.jpg">
+            <a href="#" class="room-content">
+              <i class="flaticon-heart"></i>
+            </a>
+          </div>-->
+          <div>
+            <img src="../../../assets/img/single-property/{{pro.images}}.jpg" height="289" width="350"/>
+          </div>
+          <div class="room-text">
+            <div class="room-details">
+              <div class="room-title">
+                <h5>{{pro.name}}</h5>
+                <a href="#"><i class="flaticon-placeholder"></i> <span>Location</span></a>
+                <a href="#" class="large-width"><i class="flaticon-cursor"></i> <span>Show on
+                                            Map</span></a>
+              </div>
+            </div>
+            <div class="room-features">
+              <div class="room-info">
+                <div class="size">
+                  <p>Lot Size</p>
+                  <img src="../../../assets/img/rooms/size.png" alt="">
+                  <i class="flaticon-bath"></i>
+                  <span>{{pro.size}}</span>
+                </div>
+                <div class="beds">
+                  <p>Beds</p>
+                  <img src="../../../assets/img/rooms/bed.png" alt="">
+                  <span>{{pro.bedrooms}}</span>
+                </div>
+                <div class="baths">
+                  <p>Baths</p>
+                  <img src="../../../assets/img/rooms/bath.png" alt="">
+                  <span>{{pro.bathrooms}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-price">
+              <p>For Sale</p>
+              <span>${{pro.price}}</span>
+            </div>
+            <a routerLink="detail" class="site-btn btn-line">View Property</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

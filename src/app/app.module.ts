@@ -11,8 +11,17 @@ import {LayoutAdminHeaderComponent} from './component/layout-admin-header/layout
 import {LayoutAdminComponent} from './component/layout-admin/layout-admin.component';
 import {RegisterComponent} from './component/register/register.component';
 import {RoleComponent} from './role/role.component';
+
 import {JwtInterceptor} from "./_helpers/jwt.interceptor";
 import {IndexComponent} from "./component/index/index.component";
+
+import {DetailsComponent} from './component/details/details.component';
+import {PropertiesComponent} from './component/properties/properties.component';
+import {IndexComponent} from './component/index/index.component';
+import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
+import {JwtInterceptor} from './_helpers/jwt.interceptor';
+import { AccountUpdateComponent } from './component/account-update/account-update.component';
+
 
 import {PropertiesComponent} from './component/properties/properties.component';
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
@@ -32,8 +41,13 @@ import {AccountsComponent} from "./component/accounts/accounts.component";
     LayoutAdminComponent,
     PropertyDetailComponent,
     RoleComponent,
+
     HostsComponent,
     AccountsComponent,
+
+    DetailsComponent,
+    AccountUpdateComponent,
+
   ],
   imports: [
     BrowserModule,

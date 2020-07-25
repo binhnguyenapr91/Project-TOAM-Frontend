@@ -10,7 +10,6 @@ const httpOptions = {
 };
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -45,6 +44,10 @@ export class AccountService {
 
   createAccount(account: IAccount): Observable<IAccount> {
     return this.httpClient.post<IAccount>(this.API_URL, account);
+  }
+
+  updateAccountStatus(account: IAccount): Observable<IAccount> {
+    return this.httpClient.put<IAccount>(`${this.API_URL}/${account.id}`, account);
   }
 
   updateAccount(account: IAccount): Observable<IAccount> {
