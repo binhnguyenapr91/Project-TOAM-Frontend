@@ -6,8 +6,7 @@ import {NgModule} from '@angular/core';
 import {IndexComponent} from "./component/index/index.component";
 import {PropertiesComponent} from "./component/properties/properties.component";
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
-
-
+import {AuthGuard} from "./_helpers/auth.guard";
 
 
 const routes: Routes = [
@@ -29,6 +28,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: LayoutAdminComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'admin/account',

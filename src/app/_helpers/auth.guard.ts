@@ -3,21 +3,34 @@
 import {Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {AuthenticationService} from "../service/authentication.service";
+import {IAccount} from "../interface/IAccount";
+
 
 
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
+  currentUser: IAccount;
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    // private token: TokenStorageService,
   ) {
+    this.authenticationService.currentUser.subscribe(next=>{
+      this.currentUser = next;
+    })
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const currentUser = this.authenticationService.currentUserValue;
-    if (currentUser) {
-      // authorised so return true
-      return true;
+    let hasRoleAdmin = false;
+    if (this.currentUser) {
+      const roleList = this.currentUser.role;
+      for (const role of roleList) {
+        if (role.name === 'ROLE_ADMIN') {
+
+          hasRoleAdmin = true;
+          break;
+        }
+      }
     }
 
     // not logged in so redirect to login page with the return url
