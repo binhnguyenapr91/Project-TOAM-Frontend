@@ -19,10 +19,8 @@ export class HostsComponent implements OnInit {
   }
 
   getALLbyHost(): void {
-    this.accountService.getAccountByHost().subscribe(result => {
-      // @ts-ignore
-      this.accounts = result;
-    }, error => (this.accounts = []));
+    this.accountService.getAccountByHost()
+      .subscribe(result => (this.accounts = result), error => (this.accounts = []));
   }
 
 }
