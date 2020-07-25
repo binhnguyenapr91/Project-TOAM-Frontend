@@ -21,7 +21,7 @@
       <td>{{account.password}}</td>
       <td>{{account.role.name}}</td>
       <td><input type="button" value="Edit" class="btn btn-outline-info"></td>
-      <td><input type="button" value="Delete" class="btn btn-outline-danger"></td>
+      <td><input (click)="deleteHost(account.id)" type="button" value="Delete" class="btn btn-outline-danger"></td>
     </tr>
     </tbody>
   </table>

@@ -1,7 +1,6 @@
 
 <div style="text-align: center" class="container">
   <h2>List User</h2>
-  <p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p>
   <table class="table table-hover">
     <thead>
     <tr>
@@ -23,7 +22,7 @@
       <td>{{account.role.name}}</td>
       <td><input type="button" value="Disable" class="btn btn-outline-secondary"></td>
       <td><input type="button" value="Edit" class="btn btn-outline-info"></td>
-      <td><input type="button" value="Delete" class=""></td>
+      <td><input (click)="deleteAccount(account.id)" type="button" value="Delete" class="btn btn-outline-danger"></td>
     </tr>
     </tbody>
   </table>

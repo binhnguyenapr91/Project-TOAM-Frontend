@@ -22,4 +22,12 @@ export class AccountsComponent implements OnInit {
     this.accountService.getListAccount()
       .subscribe(result => (this.accounts = result), error => (this.accounts = []));
   }
+
+  deleteAccount(id: number): void {
+    if (confirm('Are you sure to delete?')) {
+      this.accountService.deleteAccount(id).subscribe(result => {
+        this.accountService.shouldRefresh.next();
+      });
+    }
+  }
 }
