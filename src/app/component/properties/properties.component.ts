@@ -18,6 +18,7 @@ export class PropertiesComponent implements OnInit {
       console.log(result);
     }, error => {
       this.properties = [];
+      console.log(error);
     });
   }
 

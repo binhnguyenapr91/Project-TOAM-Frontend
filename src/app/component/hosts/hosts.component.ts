@@ -8,19 +8,22 @@ import {AccountService} from '../../service/account.service';
   styleUrls: ['./hosts.component.css']
 })
 export class HostsComponent implements OnInit {
-  accounts: IAccount[] = [];
+  accounts: IAccount[] =[];
 
   constructor(private accountService: AccountService) {
   }
 
   ngOnInit(): void {
     this.getALLbyHost();
-    this.accountService.shouldRefresh.subscribe(result => this.getALLbyHost());
+    this.accountService.shouldRefresh.subscribe(result => {this.getALLbyHost(); console.log(result)});
   }
 
   getALLbyHost(): void {
-    this.accountService.getAccountByHost()
-      .subscribe(result => (this.accounts = result), error => (this.accounts = []));
+
+    this.accountService.getAccountByHost().subscribe(result => {
+      this.accounts = result;
+    }, error => {(this.accounts = []); console.log(error)});
+
   }
 
   deleteHost(id: number): void {
