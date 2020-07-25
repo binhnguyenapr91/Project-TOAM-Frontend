@@ -16,4 +16,8 @@ export class PropertyService {
   getListProperty(): Observable<IProperty[]> {
     return this.httpClient.get<IProperty[]>(this.API_URL);
   }
+
+  createProperty(property: IProperty): Observable<IProperty> {
+    return this.httpClient.post<IProperty>(this.API_URL, property);
+  }
 }

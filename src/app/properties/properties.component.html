@@ -1,12 +1,61 @@
-<div *ngFor="let pro of properties;">
-  ID:<p>{{pro.id}}</p>
-  Price:<p>{{pro.price}}</p>
-  Size:<p>{{pro.size}}</p>
-  Bathroom:<p>{{pro.bathrooms}}</p>
-  BedRooms:<p>{{pro.bedrooms}}</p>
-  <div>
-    street:<p *ngFor="let street of pro.addresses.street">
-    <i *ngFor="let str of street">{{str}}</i>
-  </p>
-  </div>
+<div class="container">
+  <h2 class="container btn-primary">Danh sach HomeStay <span class="fa fa-gear fa-spin"></span></h2>
+<!--  <app-product-content>-->
+<!--    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"-->
+<!--            data-whatever="@getbootstrap">Add Product-->
+<!--    </button>-->
+<!--  </app-product-content>-->
+  <table class="table table" style="color: black">
+    <thead>
+    <tr class="btn-danger">
+      <th>ID</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Video</th>
+      <th>Size</th>
+      <th>Bathroom</th>
+      <th>BedRooms</th>
+      <th>Host</th>
+      <th>Address</th>
+      <th>description</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let property of properties" class="btn-dark">
+      <td>{{property.id}}</td>
+      <td>{{property.price}}</td>
+      <td>{{property.image}}</td>
+      <td>{{property.video}}</td>
+      <td>{{property.size}}</td>
+      <td>{{property.bathrooms}}</td>
+      <td>{{property.bedrooms}}</td>
+      <td>{{property.host.name}}</td>
+      <td>{{property.addresses.street}}-{{property.addresses.districts.name}}-{{property.addresses.districts.cities.name}}</td>
+      <td>{{property.description}}</td>
+      <td><a [routerLink]="['product-edit', property.id]"><span class="fa fa-edit"></span></a></td>
+      <td>
+        <button class="btn-primary"><span class="fa fa-cut"></span></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">New message</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <app-create-product></app-create-product>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

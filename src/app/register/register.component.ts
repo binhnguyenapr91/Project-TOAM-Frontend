@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
     }, error => {
       this.roles = [];
-      alert("không thể lấy role");
+      alert('không thể lấy role');
       console.log(error);
     });
   }

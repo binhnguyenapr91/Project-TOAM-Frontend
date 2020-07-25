@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IProperty} from '../interface/iproperty';
 import {PropertyService} from '../service/property.service';
-import {IAddress} from "../interface/IAddress";
+
 
 @Component({
   selector: 'app-properties',
@@ -10,6 +10,7 @@ import {IAddress} from "../interface/IAddress";
 })
 export class PropertiesComponent implements OnInit {
   properties: IProperty[] = [];
+
   constructor(private propertyService: PropertyService) {
   }
 
