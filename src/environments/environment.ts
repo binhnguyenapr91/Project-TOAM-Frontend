@@ -3,7 +3,21 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  RegisterUrl: 'http://localhost:8080/api/account',
+  accountUrl: 'http://localhost:8080/api/role/host',
+  idAccountUrl: 'http://localhost:8080/api/role/renter',
+  apiUrl: 'http://localhost:8080/',
+  firebaseConfig: {
+    apiKey: 'AIzaSyByPcnp3-eSaPf8Tz7kwfxx4u2BHZQdLhw',
+    authDomain: 'homestay-a9a55.firebaseapp.com',
+    databaseURL: 'https://homestay-a9a55.firebaseio.com',
+    projectId: 'homestay-a9a55',
+    storageBucket: 'homestay-a9a55.appspot.com',
+    messagingSenderId: '851775692294',
+    appId: '1:851775692294:web:03b1d6fb3b69e34ca4ed87',
+    measurementId: 'G-CWLBESP0BY'
+  }
 };
 
 /*
