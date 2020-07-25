@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IAccount} from '../../interface/IAccount';
 import {AccountService} from '../../service/account.service';
 
@@ -19,10 +19,15 @@ export class HostsComponent implements OnInit {
   }
 
   getALLbyHost(): void {
-    this.accountService.getAccountByHost().subscribe(result => {
-      // @ts-ignore
-      this.accounts = result;
-    }, error => (this.accounts = []));
+    this.accountService.getAccountByHost()
+      .subscribe(result => (this.accounts = result), error => (this.accounts = []));
   }
 
+  deleteHost(id: number): void {
+    if (confirm('Are you sure to delete?')) {
+      this.accountService.deleteAccount(id).subscribe(result => {
+        this.accountService.shouldRefresh.next();
+      });
+    }
+  }
 }

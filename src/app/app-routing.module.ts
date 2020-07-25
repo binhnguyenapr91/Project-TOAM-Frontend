@@ -8,23 +8,18 @@ import {HostsComponent} from './component/hosts/hosts.component';
 import {LoginComponent} from './component/login/login.component';
 import {RegisterComponent} from './component/register/register.component';
 import {NgModule} from '@angular/core';
+import {DetailsComponent} from './component/details/details.component';
+import {AccountUpdateComponent} from './component/account-update/account-update.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
-    // canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'property',
-        component: PropertiesComponent,
-      },
-      {
-        path: 'detail',
-        component: PropertyDetailComponent,
-      }
-    ],
+  },
+  {
+    path: 'detail',
+    component: PropertyDetailComponent
   },
   {
     path: 'admin',
@@ -33,6 +28,10 @@ const routes: Routes = [
   {
     path: 'admin/accounts',
     component: AccountsComponent
+  },
+  {
+    path: 'admin/accounts-update',
+    component: AccountUpdateComponent
   },
   {
     path: 'admin/accounts/host',

@@ -9,6 +9,7 @@ import {IProperty} from '../interface/iproperty';
 export class PropertyService {
   // tslint:disable-next-line:variable-name
   private readonly API_URL = 'http://localhost:8080/api/property';
+  shouldRefresh = new Subject<any>();
 
   constructor(private httpClient: HttpClient) {
   }

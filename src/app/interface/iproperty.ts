@@ -5,7 +5,7 @@ import {IAccount} from './IAccount';
 export interface IProperty {
   id: number;
   name: string;
-  image: string;
+  images: string;
   video: string;
   addresses: IAddress;
   size: number;
