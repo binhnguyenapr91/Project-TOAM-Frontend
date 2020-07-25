@@ -22,8 +22,10 @@ export class AuthGuard implements CanActivate {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let hasRoleAdmin = false;
+    console.log(this.currentUser);
     if (this.currentUser) {
       const roleList = this.currentUser.role;
+      console.log(roleList);
       for (const role of roleList) {
         if (role.name === 'ROLE_ADMIN') {
 

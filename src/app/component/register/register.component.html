@@ -1,7 +1,9 @@
-<div class="col-md-4 offset-md-4 mt-md-5" style="border: solid lightblue;background-color: lightcyan;">
+<body id="background" class="btn btn-block">
+<div class="col-md-4 offset-md-4 mt-md-5"
+     style="border: solid lightblue;background-color: lightcyan;border-radius:20px;">
   <p style="font-size: larger ;color: red">{{message}}</p>
   <div class="row col-md-6 offset-md-3">
-    <h3 class=" offset-md-2 mt-md-3">
+    <h3 class=" offset-md-3 mt-md-3">
       <a routerLink="/"><b>TOAM</b></a>
       <i style="position: relative ; left: 20px"
          class="fa fa-home"></i>
@@ -72,6 +74,15 @@
         <div class="col-md-6 mt-md-3 mb-md-3">
           <a routerLink="/login" class="btn btn-secondary off-md-1">Đăng Nhập</a>
         </div>
+        <div class="offset-md-1 mb-md-3">
+          <p class="offset-md-1" style="font-size: larger;color: black">- OR -</p>
+          <a href="#" class="btn btn-block btn-primary offset-md-1">
+            <i class="fa fa-facebook mr-2"></i> Đăng ký với Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-danger offset-md-1">
+            <i class="fa fa-google-plus mr-2"></i> Đăng ký với Google+
+          </a>
+        </div>
 
       </div>
 
@@ -80,4 +91,4 @@
   </div>
 
 </div>
-
+</body>

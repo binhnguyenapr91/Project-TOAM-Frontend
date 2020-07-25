@@ -29,6 +29,6 @@ export class LayoutHeaderComponent implements OnInit {
 
   Logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/'])
   }
 }
