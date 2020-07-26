@@ -1,4 +1,6 @@
 <app-layout-header></app-layout-header>
+
+<!--
 <section>
   <div class="container">
     <span style="font-weight: bold">{{property.name}}</span><br>
@@ -10,5 +12,180 @@
     </p>
     <button class="btn btn-primary">Order now!</button>
   </div>
+</section>-->
+
+<section class="property-details">
+  <div class="container">
+    <div class="row sp-40 spt-40">
+      <div class="col-lg-8">
+        <div class="p-ins">
+          <div class="row details-top">
+            <div class="col-lg-12">
+              <div class="t-details">
+                <div class="register-id">
+                  <p>Registered ID: <span>{{property.id}}</span></p>
+                </div>
+                <div class="popular-room-features single-property">
+                  <div class="size">
+                    <p>Lot Size</p>
+                    <img src="../../../assets/img/rooms/size.png" alt="size">
+                    <i class="flaticon-bath"></i>
+                    <span> {{property.size}}</span>
+                  </div>
+                  <div class="beds">
+                    <p>Beds</p>
+                    <img src="../../../assets/img/rooms/bed.png" alt="bed">
+                    <span> {{property.bedrooms}}</span>
+                  </div>
+                  <div class="baths">
+                    <p>Baths</p>
+                    <img src="../../../assets/img/rooms/bath.png" alt="bath">
+                    <span> {{property.bathrooms}}</span>
+                  </div>
+                  <div class="garage">
+                    <p>Type</p>
+                    <img src="../../../assets/img/rooms/house.png" height="28" width="28" alt="type">
+                    <span> {{property.propertiesTypes.name}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="property-description">
+                <h4>Description</h4>
+                <p>{{property.description}} </p>
+              </div>
+              <div class="property-features">
+                <h4>Property Features</h4>
+                <div class="property-table">
+                  <table>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Home theater</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Carpeting</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Attic fans</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Media room</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Concrete</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Ceiling fans</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Family room</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Bamboo</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Thermostats</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Gym/workout room</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Stone</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Single flush toilets</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Library</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Tile</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Window shutters</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Butler's pantry</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Laminate</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Solar heat</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="location-map">
+                <h4>Location</h4>
+                //Chưa biết fix thế nào
+                <iframe src="https://www.google.com/maps/embed?pb={{property.addresses.street}}" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="row pb-30">
+          <div class="col-lg-12">
+            <div class="contact-service">
+              <img src="../../../assets/img/single-property/thinh.png" alt="avatar" width="150" height="150">
+              <p>Listed by</p>
+              <h5>Host's name</h5>
+              <table>
+                <tr>
+                  <td>Office : <span>1-139-954-3228</span></td>
+                </tr>
+                <tr>
+                  <td>Mobile : <span>1-517-328-7751</span></td>
+                </tr>
+                <tr>
+                  <td>Fax : <span>1-458-284-9871</span></td>
+                </tr>
+                <tr>
+                  <td>WhatsApp : <span>1-812-117-2663</span></td>
+                </tr>
+                <tr>
+                  <td>Email : <span>oliver@homes.com</span></td>
+                </tr>
+              </table>
+              <a href="#" class="site-btn list-btn">View More Listings</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="room-items">
+              <div class="room-img set-bg" data-setbg="img/rooms/4.jpg">
+                <a href="#" class="room-content">
+                  <i class="flaticon-heart"></i>
+                </a>
+              </div>
+              <div class="room-text">
+                <div class="room-details">
+                  <div class="room-title">
+                    <h5>Country Style House with beautiful garden and terrace</h5>
+                    <a href="#"><i class="flaticon-placeholder"></i> <span>Location</span></a>
+                    <a href="#" class="large-width"><i class="flaticon-cursor"></i> <span>Show
+                                                    on Map</span></a>
+                  </div>
+                </div>
+                <div class="room-features">
+                  <div class="room-info">
+                    <div class="size">
+                      <p>Lot Size</p>
+                      <img src="../../../assets/img/rooms/size.png" alt="">
+                      <i class="flaticon-bath"></i>
+                      <span>2561 sqft</span>
+                    </div>
+                    <div class="beds">
+                      <p>Beds</p>
+                      <img src="../../../assets/img/rooms/bed.png" alt="">
+                      <span>9</span>
+                    </div>
+                    <div class="baths">
+                      <p>Baths</p>
+                      <img src="../../../assets/img/rooms/bath.png" alt="">
+                      <span>2</span>
+                    </div>
+                    <div class="garage">
+                      <p>Type</p>
+                      <img src="../../../assets/img/rooms/house.png" alt="" height="28" width="28" alt="type">
+                      <span>1</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="room-price">
+                  <p>For Sale</p>
+                  <span>$345,000</span>
+                </div>
+                <a href="#" class="site-btn btn-line">View Property</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+
 <app-layout-footer></app-layout-footer>
