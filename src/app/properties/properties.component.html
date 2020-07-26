@@ -13,7 +13,7 @@
       <th>Size</th>
       <th>Bathroom</th>
       <th>BedRooms</th>
-      <th>Host</th>
+<!--      <th>Host</th>-->
       <th>Address</th>
       <th>description</th>
       <th>Edit</th>
@@ -22,7 +22,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let property of properties" class="btn-dark">
-      <td><img  width="200" height="220" src="{{property.images}}"></td>
+      <td><img  width="220" height="220" src="{{property.images}}"></td>
       <td><video  width="200" height="220"  src="{{property.videos}}" controls></video></td>
       <td>{{property.id}}</td>
       <td>{{property.price}}</td>
@@ -35,7 +35,7 @@
       <td>{{property.description}}</td>
       <td><a [routerLink]="['product-edit', property.id]"><span class="fa fa-edit"></span></a></td>
       <td>
-        <button class="btn-primary"><span class="fa fa-cut"></span></button>
+        <button class="btn-primary" (click)="deleteProperty(property.id)"><span class="fa fa-cut"></span></button>
       </td>
     </tr>
     </tbody>
