@@ -22,7 +22,6 @@ export class PropertyDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.propertyId = params.id;
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
-        // this.bookForm.setValue(result);
         this.property = result;
       });
     });

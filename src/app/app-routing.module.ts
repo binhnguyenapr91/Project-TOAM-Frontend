@@ -18,7 +18,7 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
-    path: 'detail',
+    path: 'property/:id',
     component: PropertyDetailComponent
   },
   {

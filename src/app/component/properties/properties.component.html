@@ -65,7 +65,7 @@
               <p>For Sale</p>
               <span>${{pro.price}}</span>
             </div>
-            <a routerLink="detail" class="site-btn btn-line">View Property</a>
+            <a [routerLink]="['property', pro.id]" class="site-btn btn-line">View Property</a>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../../service/authentication.service";
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../service/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-layout-header',
@@ -9,12 +9,14 @@ import {Router} from "@angular/router";
 })
 export class LayoutHeaderComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
-  Logout(){
+
+  Logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 }
