@@ -13,6 +13,6 @@ export interface IProperty {
   bedrooms: number;
   bathrooms: number;
   description: string;
-  propertyType: IPropertyType;
+  propertiesTypes: IPropertyType;
   host: IAccount;
 }
