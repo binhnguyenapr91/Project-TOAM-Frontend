@@ -10,13 +10,11 @@ const httpOptions = {
 };
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  private readonly API_URL = 'http://localhost:8080/api/property';
   shouldRefresh = new Subject<any>();
 
   private registerURL = environment.RegisterUrl;
@@ -31,6 +29,6 @@ export class AccountService {
   }
 
   getListAccount(): Observable<IAccount[]> {
-    return this.httpClient.get<IAccount[]>(this.API_URL);
+    return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
   }
 }

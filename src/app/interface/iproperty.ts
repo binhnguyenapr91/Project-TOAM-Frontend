@@ -5,14 +5,14 @@ import {IAccount} from './IAccount';
 export interface IProperty {
   id: number;
   name: string;
-  image: string;
-  video: string;
+  images: string;
+  videos: string;
   addresses: IAddress;
   size: number;
   price: number;
   bedrooms: number;
   bathrooms: number;
   description: string;
-  propertyType: IPropertyType;
+  propertiesTypes: IPropertyType;
   host: IAccount;
 }

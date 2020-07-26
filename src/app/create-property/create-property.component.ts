@@ -12,8 +12,8 @@ import {UploadFileService} from '../uploadFile/upload-file.service';
 import {IAccount} from '../interface/IAccount';
 import {AccountService} from '../service/account.service';
 
-const FRONT_LINK = 'https://firebasestorage.googleapis.com/v0/b/homestay-a9a55.appspot.com/o/uploads%2F';
-const BACK_LINK = '?alt=media&token=2bcf89d1-bd6e-4fa1-b3d1-7c4b7535e902';
+const FRONT_LINK = 'https://firebasestorage.googleapis.com/v0/b/homestay-5d356.appspot.com/o/uploads%2F';
+const BACK_LINK = '?alt=media&token=0377e3d3-8406-4e40-aad9-4a5b62f46e8f';
 
 @Component({
   selector: 'app-create-property',
@@ -23,7 +23,7 @@ const BACK_LINK = '?alt=media&token=2bcf89d1-bd6e-4fa1-b3d1-7c4b7535e902';
 
 export class CreatePropertyComponent implements OnInit {
   propertyForm: FormGroup;
-  isShowSuccess = false;
+  isShow = true;
   message: string;
   file: any;
   imageFile: any;
@@ -68,10 +68,11 @@ export class CreatePropertyComponent implements OnInit {
       bedrooms: [''],
       description: ['', [Validators.required]],
       host: [''],
-      address: [''],
-      propertyType: [''],
-      image: [''],
-      link: ['']
+      addresses: [''],
+      propertiesTypes: [''],
+      images: [''],
+      link: [''],
+      videos: ['']
     });
     this.propertyTypeService.getAllPropertiesType().subscribe(result => {
       this.Types = result;
@@ -80,15 +81,15 @@ export class CreatePropertyComponent implements OnInit {
       this.Types = [];
       console.log(error);
     });
-    this.accountService.getListAccount().subscribe(result => {
-      this.hosts = result;
-      console.log(this.hosts);
-
-    }, error => {
-      this.hosts = [];
-      alert('không thể lấy host');
-      console.log(error);
-    });
+    // this.accountService.getListAccount().subscribe(result => {
+    //   this.hosts = result;
+    //   console.log(this.hosts);
+    //
+    // }, error => {
+    //   this.hosts = [];
+    //   alert('không thể lấy host');
+    //   console.log(error);
+    // });
     this.addressService.getAllAddress().subscribe(result => {
       this.addresses = result;
       console.log(result);
@@ -99,8 +100,8 @@ export class CreatePropertyComponent implements OnInit {
   }
 
   setDefaultValue(): void {
-    // this.propertyForm.get('link').setValue(FRONT_LINK + this.file.name + BACK_LINK);
-    this.propertyForm.get('image').setValue(FRONT_LINK + this.imageFile.name + BACK_LINK);
+    this.propertyForm.get('videos').setValue(FRONT_LINK + this.file.name + BACK_LINK);
+    this.propertyForm.get('images').setValue(FRONT_LINK + this.imageFile.name + BACK_LINK);
     this.propertyForm.get('host').setValue(this.host);
   }
 
@@ -108,15 +109,11 @@ export class CreatePropertyComponent implements OnInit {
   onSubmit() {
     this.upload();
     this.setDefaultValue();
-    if (this.propertyForm.valid) {
-      const {value} = this.propertyForm;
-      this.propertyService.createProperty(value).subscribe(result => {
-        this.message = 'them thanh cong';
-        console.log(value);
-      });
-    } else {
-      this.message = 'them that bai';
-    }
+    const {value} = this.propertyForm;
+    this.propertyService.createProperty(value).subscribe(result => {
+      this.message = 'them thanh cong';
+      console.log(value);
+    });
   }
 
   displayImage(event): void {
@@ -140,9 +137,20 @@ export class CreatePropertyComponent implements OnInit {
 
   upload(): void {
     this.imageFile = this.selectedImage.item(0);
+    this.file = this.selectedFile.item(0);
     this.selectedImage = undefined;
     this.currentImageUpload = new FileUpload(this.imageFile);
+    this.selectedFile = undefined;
+    this.currentFileUpload = new FileUpload(this.file);
     this.uploadFileService.pushFileToStorage(this.currentImageUpload).subscribe(
+      percentage => {
+        this.percentage = Math.round(percentage);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    this.uploadFileService.pushFileToStorage(this.currentFileUpload).subscribe(
       percentage => {
         this.percentage = Math.round(percentage);
       },

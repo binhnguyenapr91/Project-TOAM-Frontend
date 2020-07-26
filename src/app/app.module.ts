@@ -24,6 +24,7 @@ import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {AngularFireDatabaseModule} from "@angular/fire/database";
 import { CreatePropertyComponent } from './create-property/create-property.component';
+import {RegisterInterceptor} from "./register.interceptor";
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { CreatePropertyComponent } from './create-property/create-property.compo
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: RegisterInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

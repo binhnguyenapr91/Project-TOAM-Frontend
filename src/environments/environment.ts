@@ -9,14 +9,14 @@ export const environment = {
   idAccountUrl: 'http://localhost:8080/api/role/renter',
   apiUrl: 'http://localhost:8080/',
   firebaseConfig: {
-    apiKey: 'AIzaSyByPcnp3-eSaPf8Tz7kwfxx4u2BHZQdLhw',
-    authDomain: 'homestay-a9a55.firebaseapp.com',
-    databaseURL: 'https://homestay-a9a55.firebaseio.com',
-    projectId: 'homestay-a9a55',
-    storageBucket: 'homestay-a9a55.appspot.com',
-    messagingSenderId: '851775692294',
-    appId: '1:851775692294:web:03b1d6fb3b69e34ca4ed87',
-    measurementId: 'G-CWLBESP0BY'
+    apiKey: 'AIzaSyBG4Ew-e1zAxBLnNqXnCo1JHJSwLR3SqOo',
+    authDomain: 'homestay-5d356.firebaseapp.com',
+    databaseURL: 'https://homestay-5d356.firebaseio.com',
+    projectId: 'homestay-5d356',
+    storageBucket: 'homestay-5d356.appspot.com',
+    messagingSenderId: '448950554170',
+    appId: '1:448950554170:web:a0cf7192ddb4c2410bef03',
+    measurementId: 'G-X06PCHWRW5'
   }
 };
 
