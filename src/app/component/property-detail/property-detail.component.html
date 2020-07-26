@@ -112,7 +112,8 @@
               <div class="location-map">
                 <h4>Location</h4>
                 //Chưa biết fix thế nào
-                <iframe src="https://www.google.com/maps/embed?pb={{property.addresses.street}}" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107002.020096289!2d-96.80666618302782!3d33.06138629992991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c21da13c59513%3A0x62aa036489cd602b!2sPlano%2C+TX%2C+USA!5e0!3m2!1sen!2sbd!4v1558246953339!5m2!1sen!2sbd" allowfullscreen></iframe>
+<!--                <iframe src="https://www.google.com/maps/embed?pb={{property.addresses.street}}" allowfullscreen></iframe>-->
               </div>
             </div>
           </div>
@@ -150,14 +151,14 @@
           <div class="col-lg-12">
             <div class="room-items">
               <div>
-                <img src="../../../assets/img/single-property/{{randomProperty.images}}.jpg" height="289" width="350"/>
+                <img src="../../../assets/img/single-property/{{nextProperty.images}}.jpg" height="289" width="350"/>
               </div>
               <div class="room-text">
                 <div class="room-details">
                   <div class="room-title">
-                    <h5>{{randomProperty.name}}</h5>
-                    <a href="https://www.google.com/maps/place/{{randomProperty.addresses.street}}, {{randomProperty.addresses.districts.name}}, {{randomProperty.addresses.districts.cities.name}}" target="_blank">
-                    <i class="flaticon-placeholder"></i> <span>{{randomProperty.addresses.street}}, {{randomProperty.addresses.districts.name}}, {{randomProperty.addresses.districts.cities.name}}</span></a>
+                    <h5>{{nextProperty.name}}</h5>
+                    <a href="https://www.google.com/maps/place/{{nextProperty.addresses.street}}, {{nextProperty.addresses.districts.name}}, {{nextProperty.addresses.districts.cities.name}}" target="_blank">
+                    <i class="flaticon-placeholder"></i> <span>{{nextProperty.addresses.street}}, {{nextProperty.addresses.districts.name}}, {{nextProperty.addresses.districts.cities.name}}</span></a>
                   </div>
                 </div>
                 <div class="room-features">
@@ -166,30 +167,30 @@
                       <p>Lot Size</p>
                       <img src="../../../assets/img/rooms/size.png" alt="">
                       <i class="flaticon-bath"></i>
-                      <span>{{randomProperty.size}}</span>
+                      <span>{{nextProperty.size}}</span>
                     </div>
                     <div class="beds">
                       <p>Beds</p>
                       <img src="../../../assets/img/rooms/bed.png" alt="">
-                      <span>{{randomProperty.bedrooms}}</span>
+                      <span>{{nextProperty.bedrooms}}</span>
                     </div>
                     <div class="baths">
                       <p>Baths</p>
                       <img src="../../../assets/img/rooms/bath.png" alt="">
-                      <span>{{randomProperty.bathrooms}}</span>
+                      <span>{{nextProperty.bathrooms}}</span>
                     </div>
                     <div class="garage">
                       <p>Type</p>
                       <img src="../../../assets/img/rooms/house.png" alt="" height="28" width="28" alt="type">
-                      <span>{{randomProperty.propertiesTypes.name}}</span>
+                      <span>{{nextProperty.propertiesTypes.name}}</span>
                     </div>
                   </div>
                 </div>
                 <div class="room-price">
                   <p>For Sale</p>
-                  <span>${{randomProperty.price}}</span>
+                  <span>${{nextProperty.price}}</span>
                 </div>
-                <a href="http://localhost:4200/property/{{randomPropertyId}}" class="site-btn btn-line">View Property</a>
+                <a href="http://localhost:4200/property/{{nextPropertyId}}" class="site-btn btn-line">View Property</a>
               </div>
             </div>
           </div>

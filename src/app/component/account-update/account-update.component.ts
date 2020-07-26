@@ -38,7 +38,7 @@ export class AccountUpdateComponent implements OnInit {
 
   onSubmit(): void {
     if (this.accountId) {
-      this.accountService.updateAccountStatus(this.accountForm.value).subscribe(result => {
+      this.accountService.updateAccount(this.accountForm.value).subscribe(result => {
         this.isShow = true;
         this.message = 'Update Successful!';
       });

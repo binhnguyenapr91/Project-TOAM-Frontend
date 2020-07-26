@@ -13,9 +13,9 @@ export class PropertyDetailComponent implements OnInit {
   propertyId: number;
   propertyForm: FormGroup;
   property: IProperty;
-  // khai biến để lấy random property
-  randomPropertyId: number;
-  randomProperty: IProperty;
+  // khai biến để lấy next property
+  nextPropertyId: number;
+  nextProperty: IProperty;
 
   constructor(private propertyService: PropertyService,
               private activatedRoute: ActivatedRoute,
@@ -29,10 +29,10 @@ export class PropertyDetailComponent implements OnInit {
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
         this.property = result;
       });
-      // this.randomPropertyId = params.id + Math.round(Math.random() * this.properties.length);
-      this.randomPropertyId = Math.ceil(params.id * Math.random());
-      this.propertyService.getPropertyById(this.randomPropertyId).subscribe(result => {
-        this.randomProperty = result;
+      // tslint:disable-next-line:radix
+      this.nextPropertyId =  parseInt(params.id) + 1;
+      this.propertyService.getPropertyById(this.nextPropertyId).subscribe(result => {
+        this.nextProperty = result;
       });
     });
   }
