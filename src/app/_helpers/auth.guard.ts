@@ -21,18 +21,19 @@ export class AuthGuard implements CanActivate {
     })
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    let hasRoleAdmin = false;
+    // let hasRoleAdmin = false;
     console.log(this.currentUser);
     if (this.currentUser) {
-      const roleList = this.currentUser.role;
-      console.log(roleList);
-      for (const role of roleList) {
-        if (role.name === 'ROLE_ADMIN') {
-
-          hasRoleAdmin = true;
-          break;
-        }
-      }
+      // const roleList = this.currentUser.role;
+      // console.log(roleList);
+      // for (const role of roleList) {
+      //   if (role.name === 'ROLE_ADMIN') {
+      //
+      //     hasRoleAdmin = true;
+      //     break;
+      //   }
+      // }
+      return true;
     }
 
     // not logged in so redirect to login page with the return url
