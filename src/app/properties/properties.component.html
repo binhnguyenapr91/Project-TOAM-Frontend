@@ -1,3 +1,4 @@
+
 <div class="container">
   <h2 class="container btn-primary">Danh sach HomeStay <span class="fa fa-gear fa-spin"></span></h2>
   <h4><a routerLink="/create-property"> Create Property</a></h4>
@@ -13,6 +14,7 @@
       <th>BedRooms</th>
       <!--      <th>Host</th>-->
       <th>Address</th>
+      <th>PropertyType</th>
       <th>description</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -32,6 +34,7 @@
       <!--      <td>{{property.host.name}}</td>-->
       <td>{{property.addresses.street}}-{{property.addresses.districts.name}}
         -{{property.addresses.districts.cities.name}}</td>
+      <td>{{property.propertiesTypes.name}}</td>
       <td>{{property.description}}</td>
       <td><a [routerLink]="['product-edit', property.id]"><span class="fa fa-edit"></span></a></td>
       <td>

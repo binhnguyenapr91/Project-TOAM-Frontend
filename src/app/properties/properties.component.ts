@@ -38,4 +38,10 @@ export class PropertiesComponent implements OnInit {
       });
     }
   }
+
+  findPropertyByPropertyType(name: string): void {
+    this.propertyService.findPropertyByPropertyType(name).subscribe(result => {
+      this.propertyService.shouldRefresh.next();
+    });
+  }
 }
