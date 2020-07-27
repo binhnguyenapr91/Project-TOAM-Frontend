@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   message: string;
   role: string;
   roles: IRole [] = [];
+
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
@@ -53,13 +54,13 @@ export class RegisterComponent implements OnInit {
             email: '',
             phone: '',
           });
-          this.message = 'success';
+          this.message = 'Thêm Account Thành công';
           console.log(next);
-        }, error =>
-        {console.log(error);
+        }, error => {
+          console.log(error);
         });
     } else {
-      this.message = 'no success';
+      this.message = 'Thêm Account Không Thành công';
     }
   }
 }

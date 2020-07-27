@@ -1,70 +1,56 @@
-<div class="container col-md-6 offset-md-3">
-  <h1 class=" col-md-6 offset-md-3">{{message}}</h1>
-  <div class="row btn btn-light col-md-6 offset-md-3">
-    <div>
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+  <div class="wrapper wrapper--w680">
+    <div class="card card-1">
+      <div class="card-heading"></div>
+      <div class="card-body">
+        <h2 class="title" style="text-align: center">Đăng Kí Tài Khoản</h2>
+        <p style="color: red">{{message}}</p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <input class="input--style-1" type="text" placeholder="Nhập tên người dùng" name="name" formControlName="name">
+        <p style="color:red;" *ngIf="form.get('name').invalid && form.get('name').touched">Bạn cần nhập số kí tự lớn hơn 6</p>
+          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="text" placeholder="Nhập tên tài khoản" formControlName="username">
+            <p style="color:red;" *ngIf="form.get('username').invalid && form.get('username').touched">Bạn cần nhập số kí tự lớn hơn 6</p>
+          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="password" placeholder="Nhập Mật Khẩu" name="password" formControlName="password">
+            <p style="color:red;" *ngIf="form.get('password').invalid && form.get('password').touched">Bạn cần nhập số kí tự lớn hơn 6</p>
 
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h3 style="text-align: center" class="btn-block">Đăng Kí Tài Khoản <span class="fa fa-gear fa-spin"></span></h3>
-        <h1 style="text-align: center ;color: red">{{message}}</h1>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Name</label>
-            <label>
-              <input type="text" class="form-control" placeholder="Name" formControlName="name">
-            </label>
-            <div *ngIf="form.get('name').invalid && form.get('name').touched" style="color: red">
-              Name is required and min length is 6
-            </div>
           </div>
-          <div class="form-group col-md-6">
-            <label>UserName</label>
-            <label>
-              <input type="text" class="form-control" placeholder="UserName" formControlName="username">
-            </label>
-            <div *ngIf="form.get('username').invalid && form.get('username').touched" style="color: red">
-              Name is required and min length is 6
-            </div>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" formControlName="password"
-                   placeholder="Password">
-            <div *ngIf="form.get('password').invalid && form.get('password').touched" style="color: red">
-              Password is required and min length is 6
-            </div>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" formControlName="email">
-            <div *ngIf="form.get('email').invalid && form.get('email').touched" style="color: red">
-              Email is required and have @
-            </div>
-          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="email" placeholder="Nhập email" name="email" formControlName="email">
+            <p style="color:red;" *ngIf="form.get('email').invalid && form.get('email').touched">Bạn phải có @gmail.com</p>
 
-          <div class="form-group col-md-6">
-            <label>Phone</label>
-            <label>
-              <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number">
-            </label>
-            <div *ngIf="form.get('phone').invalid && form.get('phone').touched" style="color: red">
-              Phone is required and min length is 6
+          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="text" placeholder="Nhập Số Điện Thoại" name="phone" formControlName="phone">
+            <p style="color:red;" *ngIf="form.get('phone').invalid && form.get('phone').touched">Bạn phải nhập 10 số</p>
+          </div>
+          <div class="row row-space">
+            <div class="col-3">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <label>Vai Trò</label>
+                  <select formControlName="role">
+                    <option  selected="selected" *ngFor="let role of roles" [ngValue]=role>{{role.name}}</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Role</label>
-            <select id="inputState" class="form-control" formControlName="role" required>
-              <option selected>Role</option>
-              <option *ngFor="let role of roles" [ngValue]=role>
-                {{role.name}}
-              </option>
-            </select>
+          <div class="p-t-20">
+            <button class="btn btn--radius btn--green" type="submit">Submit</button>
           </div>
-        </div>
-        <div style="margin-left: 210px" class="col-md-4">
-          <button type="submit" class="btn btn-primary">Đăng Kí</button>
-          <a routerLink="/login" class="btn btn-info offset-2">Login</a>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+
+
