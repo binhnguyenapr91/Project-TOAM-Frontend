@@ -31,7 +31,11 @@ export class AccountService {
   }
 
   getListAccount(): Observable<IAccount[]> {
-    return this.httpClient.get<IAccount[]>(this.API_URL);
+    return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
+  }
+
+  getListHost(): Observable<IAccount[]> {
+    return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
   }
 
   getAccountByHost(): Observable<IAccount[]> {

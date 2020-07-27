@@ -25,7 +25,3 @@ export class RegisterInterceptor implements HttpInterceptor {
     return next.handle(request);
   }
 }
-
-export const httpInterceptorProviders = [
-  {provide: HTTP_INTERCEPTORS, useClass: RegisterInterceptor, multi: true}
-];
