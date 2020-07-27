@@ -1,0 +1,24 @@
+<div *ngIf="isShow">
+  <h1>{{message}}</h1>
+</div>
+<form [formGroup]="accountForm" (submit)="onSubmit()">
+  <input type="hidden" formGroupName="id" name="id">
+
+  <div>
+    <input type="text" formControlName="name" name="name">
+  </div>
+
+  <div>
+    <input type="text" formControlName="username" name="username">
+  </div>
+
+  <div>
+    <input type="text" formControlName="email" name="email">
+  </div>
+
+  <div>
+    <input type="text" formControlName="phone" name="phone">
+  </div>
+
+  <button type="submit" class="btn btn-outline-info">Update</button>
+</form>

@@ -12,8 +12,10 @@
           <li><a href="#">Home</a></li>
           <li><a routerLink="admin">Admin</a></li>
           <li><a routerLink="register">Register</a></li>
-          <li>
-            <a routerLink="login">Login</a>
+          <li *ngIf="currentUser == err">
+            <a routerLink="login"> Login</a>
+          </li>
+          <li *ngIf="currentUser;">
             <a style="color: white" (click)="Logout()">Logout</a>
           </li>
 
@@ -26,7 +28,7 @@
 <!-- Header Section End -->
 <!-- Hero Section Begin -->
 <section class="hero-section home-page set-bg" data-setbg="./assets/img/bg.jpg">
-  <img src="../../../assets/img/bg.jpg" height="633" width="1920"/>
+  <img src="../../../assets/img/bg.jpg" height="633" width="1920" alt=""/>
   <!--  <div class="container hero-text text-white">-->
   <!--    <h2>Find your next</h2>-->
   <!--    <h1>dream home.</h1>-->

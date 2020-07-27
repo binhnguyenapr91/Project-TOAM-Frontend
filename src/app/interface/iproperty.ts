@@ -6,7 +6,11 @@ export interface IProperty {
   id: number;
   name: string;
   images: string;
+<<<<<<< HEAD
+  video: string;
+=======
   videos: string;
+>>>>>>> 99f10df2efb6d3501998ab8e73240091ca33f0d7
   addresses: IAddress;
   size: number;
   price: number;

@@ -7,7 +7,7 @@ export const environment = {
   RegisterUrl: 'http://localhost:8080/api/account',
   accountUrl: 'http://localhost:8080/api/role/host',
   idAccountUrl: 'http://localhost:8080/api/role/renter',
-  apiUrl: 'http://localhost:8080/',
+  apiUrl: 'http://localhost:8080/api/authenticate'
   firebaseConfig: {
     apiKey: 'AIzaSyBG4Ew-e1zAxBLnNqXnCo1JHJSwLR3SqOo',
     authDomain: 'homestay-5d356.firebaseapp.com',

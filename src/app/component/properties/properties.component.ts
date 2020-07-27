@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+<<<<<<< HEAD:src/app/component/properties/properties.component.ts
+import {IProperty} from '../../interface/iproperty';
+import {PropertyService} from '../../service/property.service';
+=======
 import {IProperty} from '../interface/iproperty';
 import {PropertyService} from '../service/property.service';
 
+>>>>>>> 99f10df2efb6d3501998ab8e73240091ca33f0d7:src/app/properties/properties.component.ts
 
 @Component({
   selector: 'app-properties',
@@ -20,6 +25,7 @@ export class PropertiesComponent implements OnInit {
       console.log(result);
     }, error => {
       this.properties = [];
+      console.log(error);
     });
     this.propertyService.shouldRefresh.subscribe(result => {
       this.propertyService.getListProperty().subscribe(results => {
