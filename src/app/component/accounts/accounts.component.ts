@@ -15,12 +15,18 @@ export class AccountsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getALL();
-    this.accountService.shouldRefresh.subscribe(result => this.getALL());
+    this.accountService.shouldRefresh.subscribe(result => {
+      this.getALL();
+      console.log(result)
+    });
   }
 
   getALL(): void {
     this.accountService.getListAccount()
-      .subscribe(result => (this.accounts = result), error => (this.accounts = []));
+      .subscribe(result => (this.accounts = result), error => {
+        (this.accounts = []);
+        console.log(error)
+      });
   }
 
   deleteAccount(id: number): void {

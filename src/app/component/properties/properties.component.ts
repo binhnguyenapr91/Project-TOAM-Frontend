@@ -25,6 +25,7 @@ export class PropertiesComponent implements OnInit {
       console.log(result);
     }, error => {
       this.properties = [];
+      console.log(error);
     });
     this.propertyService.shouldRefresh.subscribe(result => {
       this.propertyService.getListProperty().subscribe(results => {

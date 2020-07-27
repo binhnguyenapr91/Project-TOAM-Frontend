@@ -1,14 +1,13 @@
 import {RouterModule, Routes} from '@angular/router';
-import {IndexComponent} from './component/index/index.component';
-import {PropertiesComponent} from './component/properties/properties.component';
-import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import {LayoutAdminComponent} from './component/layout-admin/layout-admin.component';
-import {AccountsComponent} from './component/accounts/accounts.component';
-import {HostsComponent} from './component/hosts/hosts.component';
 import {LoginComponent} from './component/login/login.component';
 <<<<<<< HEAD
 import {RegisterComponent} from './component/register/register.component';
 import {NgModule} from '@angular/core';
+import {IndexComponent} from "./component/index/index.component";
+import {PropertiesComponent} from "./component/properties/properties.component";
+import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+import {AuthGuard} from "./_helpers/auth.guard";
 import {DetailsComponent} from './component/details/details.component';
 import {AccountUpdateComponent} from './component/account-update/account-update.component';
 =======
@@ -22,6 +21,7 @@ import {CreatePropertyComponent} from './create-property/create-property.compone
 import {AddressComponent} from "./address/address.component";
 import {AddressListComponent} from "./address-list/address-list.component";
 import {AddressUpdateComponent} from "./address-update/address-update.component";
+
 
 
 const routes: Routes = [
@@ -46,6 +46,13 @@ const routes: Routes = [
   {
     path: 'admin',
     component: LayoutAdminComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'admin/account',
+        component: PropertyDetailComponent,
+      },
+    ],
   },
   {
     path: 'admin/accounts',
