@@ -23,4 +23,8 @@ export class PropertyService {
   deleteProperty(id: number): Observable<any> {
     return this.httpClient.delete(`${this.API_URL}/${id}`);
   }
+
+  getPropertyById(id: number): Observable<IProperty> {
+    return this.httpClient.get<IProperty>(`${this.API_URL}/${id}`);
+  }
 }

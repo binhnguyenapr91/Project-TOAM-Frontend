@@ -36,7 +36,7 @@ export class CreatePropertyComponent implements OnInit {
   Types: IPropertyType[] = [];
   hosts: IAccount [] = [];
   addresses: IAddress [] = [];
-  host: IAccount = {
+  host: { password: string; role: { name: string; id: number }; name: string; id: number; username: string; status: boolean; token: string } = {
     id: 0,
     name: '',
     username: '',

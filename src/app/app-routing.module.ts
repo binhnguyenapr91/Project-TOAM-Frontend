@@ -8,34 +8,40 @@ import {LoginComponent} from './component/login/login.component';
 
 import {IndexComponent} from './component/index/index.component';
 import {PropertiesComponent} from './properties/properties.component';
-import {PropertyDetailComponent} from './property-detail/property-detail.component';
+import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {AddressComponent} from "./address/address.component";
 import {AddressListComponent} from "./address-list/address-list.component";
 import {AddressUpdateComponent} from "./address-update/address-update.component";
+import {AccountsComponent} from "./component/accounts/accounts.component";
+import {AccountUpdateComponent} from "./component/account-update/account-update.component";
+import {HostsComponent} from "./component/hosts/hosts.component";
 
 
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
-    // canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'detail',
-        component: PropertyDetailComponent,
-      }
-    ],
+  },
+  {
+    path: 'property/:id',
+    component: PropertyDetailComponent
   },
   {
     path: 'admin',
     component: LayoutAdminComponent,
-    children: [
-      {
-        path: 'admin/account',
-        component: PropertyDetailComponent,
-      },
-    ],
+  },
+  {
+    path: 'admin/accounts',
+    component: AccountsComponent
+  },
+  {
+    path: 'admin/accounts/account-update/:id',
+    component: AccountUpdateComponent
+  },
+  {
+    path: 'admin/accounts/host',
+    component: HostsComponent,
   },
   {
     path: 'login',

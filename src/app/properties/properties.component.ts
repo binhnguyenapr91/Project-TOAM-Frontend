@@ -4,7 +4,7 @@ import {PropertyService} from '../service/property.service';
 
 
 @Component({
-  selector: 'app-properties',
+  selector: 'app-properties-thinh',
   templateUrl: './properties.component.html',
   styleUrls: ['./properties.component.css']
 })
