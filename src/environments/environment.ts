@@ -7,7 +7,17 @@ export const environment = {
   RegisterUrl: 'http://localhost:8080/api/account',
   accountUrl: 'http://localhost:8080/api/role/host',
   idAccountUrl: 'http://localhost:8080/api/role/renter',
-  apiUrl: 'http://localhost:8080/'
+  apiUrl: 'http://localhost:8080/',
+  firebaseConfig: {
+    apiKey: 'AIzaSyBG4Ew-e1zAxBLnNqXnCo1JHJSwLR3SqOo',
+    authDomain: 'homestay-5d356.firebaseapp.com',
+    databaseURL: 'https://homestay-5d356.firebaseio.com',
+    projectId: 'homestay-5d356',
+    storageBucket: 'homestay-5d356.appspot.com',
+    messagingSenderId: '448950554170',
+    appId: '1:448950554170:web:a0cf7192ddb4c2410bef03',
+    measurementId: 'G-X06PCHWRW5'
+  }
 };
 
 /*
