@@ -9,6 +9,7 @@ const EMAIL_KEY = 'Email';
 const PHONE_KEY = 'Phone';
 const STATUS_KEY = 'Status';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,9 +44,9 @@ export class TokenStorageService {
   }
 
   // tslint:disable-next-line:typedef
-  public getStatus(status: boolean) {
-    return sessionStorage.getItem(STATUS_KEY);
-  }
+  // public getStatus(status: boolean) {
+  //   return sessionStorage.getItem(STATUS_KEY);
+  // }
 
   // tslint:disable-next-line:typedef
   public saveStatus(status: boolean) {

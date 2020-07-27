@@ -1,23 +1,31 @@
-<div class="container col-md-6 offset-md-3">
-  <h1 class=" col-md-6 offset-md-3">{{message}}</h1>
-  <div class="row btn btn-light col-md-6 offset-md-3">
-    <div>
+<body id="background" class="btn btn-block">
+<div class="col-md-4 offset-md-4 mt-md-5"
+     style="border: solid lightblue;background-color: lightcyan;border-radius:20px;">
+  <p style="font-size: larger ;color: red">{{message}}</p>
+  <div class="row col-md-6 offset-md-3">
+    <h3 class=" offset-md-3 mt-md-3">
+      <a routerLink="/"><b>TOAM</b></a>
+      <i style="position: relative ; left: 20px"
+         class="fa fa-home"></i>
+    </h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group row mt-3 ">
 
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h3 style="text-align: center" class="btn-block">Đăng Kí Tài Khoản <span class="fa fa-gear fa-spin"></span></h3>
-        <h1 style="text-align: center ;color: red">{{message}}</h1>
-        <div class="form-row">
+        <h3>Đăng Kí Tài Khoản <span class="fa fa-registered"></span></h3>
+
+
+        <div class="form-row mt-md-3">
           <div class="form-group col-md-6">
-            <label for="inputEmail4">Name</label>
+            <label for="inputEmail4" class="col">Name</label>
             <label>
               <input type="text" class="form-control" placeholder="Name" formControlName="name">
             </label>
-            <div *ngIf="form.get('name').invalid && form.get('name').touched" style="color: red">
+            <label *ngIf="form.get('name').invalid && form.get('name').touched" style="color: red">
               Name is required and min length is 6
-            </div>
+            </label>
           </div>
           <div class="form-group col-md-6">
-            <label>UserName</label>
+            <label class="col">UserName</label>
             <label>
               <input type="text" class="form-control" placeholder="UserName" formControlName="username">
             </label>
@@ -50,7 +58,7 @@
               Phone is required and min length is 6
             </div>
           </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="inputState">Role</label>
             <select id="inputState" class="form-control" formControlName="role" required>
               <option selected>Role</option>
@@ -60,11 +68,27 @@
             </select>
           </div>
         </div>
-        <div style="margin-left: 210px" class="col-md-4">
-          <button type="submit" class="btn btn-primary">Đăng Kí</button>
-          <a routerLink="/login" class="btn btn-info offset-2">Login</a>
+        <div class=" mt-md-3 col-md-6 mb-md-3">
+          <button type="submit" class="btn btn-secondary">Đăng Ký</button>
         </div>
-      </form>
-    </div>
+        <div class="col-md-6 mt-md-3 mb-md-3">
+          <a routerLink="/login" class="btn btn-secondary off-md-1">Đăng Nhập</a>
+        </div>
+        <div class="offset-md-1 mb-md-3">
+          <p class="offset-md-1" style="font-size: larger;color: black">- OR -</p>
+          <a href="#" class="btn btn-block btn-primary offset-md-1">
+            <i class="fa fa-facebook mr-2"></i> Đăng ký với Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-danger offset-md-1">
+            <i class="fa fa-google-plus mr-2"></i> Đăng ký với Google+
+          </a>
+        </div>
+
+      </div>
+
+    </form>
+
   </div>
+
 </div>
+</body>

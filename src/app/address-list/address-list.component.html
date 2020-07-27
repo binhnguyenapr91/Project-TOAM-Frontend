@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 class="container btn-primary">Danh sach Address <span class="fa fa-gear fa-spin"></span></h2>
+  <a routerLink="/create-address" class="btn-primary">Create Address</a>
+  <table class="table table" style="color: black">
+    <thead>
+    <tr class="btn-danger">
+      <th>ID</th>
+      <th>Street</th>
+      <th>District</th>
+      <th>City</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let address of address" class="btn-dark">
+      <td>{{address.id}}</td>
+      <td>{{address.street}}</td>
+      <td>{{address.districts.name}}</td>
+      <td>{{address.districts.cities.name}}</td>
+      <td><a [routerLink]="['/address-edit', address.id]"><span class="fa fa-edit"></span></a></td>
+      <td>
+        <button (click)="deleteAddress(address.id)" class="btn-primary"><span class="fa fa-cut"></span></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

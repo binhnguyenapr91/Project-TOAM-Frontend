@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AccountService} from '../service/account.service';
-import {IRole} from '../interface/IRole';
-import {RoleService} from '../service/role.service';
+import {IRole} from '../../interface/IRole';
+import {AccountService} from '../../service/account.service';
+import {RoleService} from '../../service/role.service';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +30,8 @@ export class RegisterComponent implements OnInit {
       phone: ['', [Validators.required, Validators.minLength(10)]],
       role: ['']
     });
-    this.roleService.getAllRole().subscribe(result => {
+    this.roleService.getAllRole().subscribe(
+      result => {
       this.roles = result;
       console.log(this.roles);
 
