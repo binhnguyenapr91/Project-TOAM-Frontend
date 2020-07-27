@@ -18,7 +18,7 @@ export class AccountService {
 
   shouldRefresh = new Subject<any>();
 
-  // @ts-ignore
+
   private registerURL = environment.RegisterUrl;
 
 

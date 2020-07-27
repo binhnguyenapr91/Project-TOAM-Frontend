@@ -1,44 +1,72 @@
+<body id="background" class="btn btn-block">
+<div class="col-md-4 offset-md-4 mt-md-5"
+     style="border: solid lightblue;border-radius:20px; background-color: lightcyan;
+">
 
-<div class=" col-md-6 offset-md-3">
-  <h3 class=" btn btn-light col-md-6 offset-md-3"> Login
-    <i style="position: relative ; left: 20px"
-       class="fa fa-home"></i>
-  </h3>
-  <form [formGroup]="Field" (ngSubmit)="onSubmit()" class=" btn btn-light col-md-6 offset-md-3">
-    <div class="form-group row">
-      <div class="col ">
-       Username
-        <label>
-          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && Field.controls.username.errors }" />
-        </label>
-        <label *ngIf="Field.get('username').invalid && Field.get('username').touched" >
-          <label class="btn btn-danger">Cần ít nhất 6 ký tự </label>
-        </label>
-
-      </div>
+  <div class="btn btn-block">
+    <h3 class=" offset-md-0">
+      <a routerLink="/"><b>TOAM</b></a>
+      <i style="position: relative ; left: 20px"
+         class="fa fa-home"></i>
+    </h3>
+    <div>
+      <p class="offset-md-0" style="font-size: xx-large;color: black">Đăng nhập</p>
     </div>
-      <div class="form-group row">
-        <div class="col">
-          Password
+
+    <form [formGroup]="Field" (ngSubmit)="onSubmit()" class=" ">
+
+      <div class="form-group row mt-5 ">
+        <div class="col ">
+          <span class="fa fa-user"></span> Username
           <label>
-            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && Field.controls.password.errors }" />
+            <input type="text" formControlName="username" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && Field.controls.username.errors }"/>
           </label>
-          <label *ngIf="Field.get('password').invalid && Field.get('password').touched" >
+          <label *ngIf="Field.get('username').invalid && Field.get('username').touched">
             <label class="btn btn-danger">Cần ít nhất 6 ký tự </label>
           </label>
         </div>
+
+
       </div>
-    <div class="form-group">
-      <button [disabled]="loading" class="btn btn-info">
-        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-        Login
-      </button>
-      <a routerLink="/register" class="btn btn-info offset-2">Register</a>
+
+      <div class="form-group row ">
+        <div class="col">
+          <span class="fa fa-lock"></span> Password
+
+        <label>
+          <input type="password" formControlName="password" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && Field.controls.password.errors }"/>
+        </label>
+        <label *ngIf="Field.get('password').invalid && Field.get('password').touched">
+          <label class="btn btn-danger">Cần ít nhất 6 ký tự </label>
+        </label>
+        </div>
+      </div>
+
+      <div class="form-group  btn btn-block">
+        <button [disabled]="loading" class="btn btn-secondary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Đăng nhập
+        </button>
+        <a routerLink="/register" class="btn btn-secondary offset-md-2">Đăng ký</a>
+      </div>
+
+    </form>
+
+    <div class="col-md-6 offset-3">
+      <p class="offset-md-0" style="font-size: larger;color: black">- OR -</p>
+      <a href="#" class="btn btn-block btn-primary">
+        <i class="fa fa-facebook mr-2"></i> Đăng nhập với Facebook
+      </a>
+      <a href="#" class="btn btn-block btn-danger">
+        <i class="fa fa-google-plus mr-2"></i> Đăng nhập với Google+
+      </a>
     </div>
 
-  </form>
+  </div>
 </div>
-
+</body>
 
 
 
