@@ -9,7 +9,10 @@ import {LoginComponent} from './component/login/login.component';
 import {IndexComponent} from './component/index/index.component';
 import {PropertiesComponent} from './properties/properties.component';
 import {PropertyDetailComponent} from './property-detail/property-detail.component';
-import {CreatePropertyComponent} from "./create-property/create-property.component";
+import {CreatePropertyComponent} from './create-property/create-property.component';
+import {AddressComponent} from "./address/address.component";
+import {AddressListComponent} from "./address-list/address-list.component";
+import {AddressUpdateComponent} from "./address-update/address-update.component";
 
 
 const routes: Routes = [
@@ -49,8 +52,19 @@ const routes: Routes = [
   {
     path: 'create-property',
     component: CreatePropertyComponent
+  },
+  {
+    path: 'create-address',
+    component: AddressComponent
+  },
+  {
+    path: 'address',
+    component: AddressListComponent
+  },
+  {
+    path: 'address-edit/:id',
+    component: AddressUpdateComponent
   }
-
 ];
 
 @NgModule({

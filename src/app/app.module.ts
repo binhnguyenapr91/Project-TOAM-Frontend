@@ -17,14 +17,17 @@ import {LayoutAdminComponent} from './component/layout-admin/layout-admin.compon
 import {PropertyDetailComponent} from './property-detail/property-detail.component';
 import {RoleComponent} from './role/role.component';
 import {DetailsComponent} from './component/details/details.component';
-import {JwtInterceptor} from "./_helpers/jwt.interceptor";
-import {IndexComponent} from "./component/index/index.component";
-import {AngularFireModule} from "@angular/fire";
-import {environment} from "../environments/environment";
-import {AngularFireStorageModule} from "@angular/fire/storage";
-import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {JwtInterceptor} from './_helpers/jwt.interceptor';
+import {IndexComponent} from './component/index/index.component';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { CreatePropertyComponent } from './create-property/create-property.component';
-import {RegisterInterceptor} from "./register.interceptor";
+import {RegisterInterceptor} from './register.interceptor';
+import { AddressComponent } from './address/address.component';
+import { AddressListComponent } from './address-list/address-list.component';
+import { AddressUpdateComponent } from './address-update/address-update.component';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import {RegisterInterceptor} from "./register.interceptor";
     RoleComponent,
     DetailsComponent,
     CreatePropertyComponent,
+    AddressComponent,
+    AddressListComponent,
+    AddressUpdateComponent,
   ],
   imports: [
     BrowserModule,

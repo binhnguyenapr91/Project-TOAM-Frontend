@@ -81,7 +81,7 @@ export class CreatePropertyComponent implements OnInit {
       this.Types = [];
       console.log(error);
     });
-    // this.accountService.getListAccount().subscribe(result => {
+    // this.accountService.getListHost().subscribe(result => {
     //   this.hosts = result;
     //   console.log(this.hosts);
     //
