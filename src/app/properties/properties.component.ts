@@ -11,6 +11,7 @@ import {IAddress} from '../interface/IAddress';
 export class PropertiesComponent implements OnInit {
   properties: IProperty[] = [];
   private searchKey: string;
+  private bathroom: number;
 
   constructor(private propertyService: PropertyService) {
   }
@@ -20,15 +21,8 @@ export class PropertiesComponent implements OnInit {
   }
 
   search(value: string): void {
-
-    // http://localhost:8080/api/property/filter?search=(addresses.districts.cities.name:'Hồ Chí Minh'
-    // OR addresses.districts.name:'Thủ Đức')
-    // AND bedrooms:1 AND bedrooms:1
-    this.searchKey = 'filter?search=(addresses.districts.cities.name:\''
-      + value + '\' OR addresses.districts.name:\''
-      + value + '\'';
-    console.log(this.searchKey);
-
+    this.searchKey = 'filter/'
+      + value;
     this.propertyService.getListProperty(this.searchKey).subscribe(result => {
       this.properties = result;
       console.log(result);
