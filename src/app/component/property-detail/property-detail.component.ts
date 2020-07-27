@@ -17,6 +17,7 @@ export class PropertyDetailComponent implements OnInit {
   nextPropertyId: number;
   nextProperty: IProperty;
 
+
   constructor(private propertyService: PropertyService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
