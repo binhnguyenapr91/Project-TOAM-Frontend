@@ -18,6 +18,8 @@ export class AccountUpdateComponent implements OnInit {
     name: new FormControl(''),
     username: new FormControl(''),
     password: new FormControl(''),
+    email: new FormControl(''),
+    phone: new FormControl(''),
     status: new FormControl(''),
     role: new FormControl('')
   });
