@@ -18,6 +18,8 @@ export class AccountUpdateComponent implements OnInit {
     name: new FormControl(''),
     username: new FormControl(''),
     password: new FormControl(''),
+    email: new FormControl(''),
+    phone: new FormControl(''),
     status: new FormControl(''),
     role: new FormControl('')
   });
@@ -38,7 +40,7 @@ export class AccountUpdateComponent implements OnInit {
 
   onSubmit(): void {
     if (this.accountId) {
-      this.accountService.updateAccountStatus(this.accountForm.value).subscribe(result => {
+      this.accountService.updateAccount(this.accountForm.value).subscribe(result => {
         this.isShow = true;
         this.message = 'Update Successful!';
       });

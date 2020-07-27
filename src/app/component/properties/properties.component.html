@@ -18,11 +18,6 @@
     <div class="row">
       <div class="col-lg-4 col-md-6" *ngFor="let pro of properties;">
         <div class="room-items">
-          <!--<div class="room-img set-bg" data-setbg="../../../assets/img/single-property/1.jpg">
-            <a href="#" class="room-content">
-              <i class="flaticon-heart"></i>
-            </a>
-          </div>-->
           <div>
             <img src="../../../assets/img/single-property/{{pro.images}}.jpg" height="289" width="350"/>
           </div>
@@ -30,9 +25,10 @@
             <div class="room-details">
               <div class="room-title">
                 <h5>{{pro.name}}</h5>
-                <a href="#"><i class="flaticon-placeholder"></i> <span>Location</span></a>
-                <a href="#" class="large-width"><i class="flaticon-cursor"></i> <span>Show on
-                                            Map</span></a>
+                <a href="https://www.google.com/maps/place/{{pro.addresses.street}}, {{pro.addresses.districts.name}}, {{pro.addresses.districts.cities.name}}" target="_blank"><i class="flaticon-placeholder"></i>
+                  <span>{{pro.addresses.street}}, {{pro.addresses.districts.name}}, {{pro.addresses.districts.cities.name}}</span></a>
+                <!--<a href="#" class="large-width"><i class="flaticon-cursor"></i> <span>Show on
+                                            Map</span></a>-->
               </div>
             </div>
             <div class="room-features">
@@ -45,13 +41,18 @@
                 </div>
                 <div class="beds">
                   <p>Beds</p>
-                  <img src="../../../assets/img/rooms/bed.png" alt="">
+                  <img src="../../../assets/img/rooms/bed.png" alt="Beds">
                   <span>{{pro.bedrooms}}</span>
                 </div>
                 <div class="baths">
                   <p>Baths</p>
-                  <img src="../../../assets/img/rooms/bath.png" alt="">
+                  <img src="../../../assets/img/rooms/bath.png" alt="Baths">
                   <span>{{pro.bathrooms}}</span>
+                </div>
+                <div class="garage">
+                  <p>Type</p>
+                  <img src="../../../assets/img/rooms/house.png" height="28" width="28" alt="type"/>
+                  <span>{{pro.propertiesTypes.name}}</span>
                 </div>
               </div>
             </div>
@@ -59,7 +60,7 @@
               <p>For Sale</p>
               <span>${{pro.price}}</span>
             </div>
-            <a routerLink="detail" class="site-btn btn-line">View Property</a>
+            <a [routerLink]="['property', pro.id]" class="site-btn btn-line">View Property</a>
           </div>
         </div>
       </div>

@@ -17,4 +17,8 @@ export class PropertyService {
   getListProperty(): Observable<IProperty[]> {
     return this.httpClient.get<IProperty[]>(this.API_URL);
   }
+
+  getPropertyById(id: number): Observable<IProperty> {
+    return this.httpClient.get<IProperty>(`${this.API_URL}/${id}`);
+  }
 }

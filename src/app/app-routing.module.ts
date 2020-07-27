@@ -18,7 +18,7 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
-    path: 'detail',
+    path: 'property/:id',
     component: PropertyDetailComponent
   },
   {
@@ -37,7 +37,7 @@ const routes: Routes = [
     component: AccountsComponent
   },
   {
-    path: 'admin/accounts-update',
+    path: 'admin/accounts/account-update/:id',
     component: AccountUpdateComponent
   },
   {
