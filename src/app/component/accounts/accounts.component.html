@@ -1,0 +1,34 @@
+
+<div style="text-align: center" class="container">
+  <h2>List User</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>User</th>
+      <th>Password</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Role</th>
+      <th>Status</th>
+      <th colspan="3">Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let account of accounts">
+      <td>{{account.id}}</td>
+      <td>{{account.name}}</td>
+      <td>{{account.username}}</td>
+      <td>{{account.password}}</td>
+      <td>{{account.email}}</td>
+      <td>{{account.phone}}</td>
+      <td>{{account.role.name}}</td>
+      <td>{{account.status}}</td>
+      <td><input [routerLink]="['account-update', account.id]" type="button" value="Edit" class="btn btn-outline-info"></td>
+      <td><input (click)="deleteAccount(account.id)" type="button" value="Delete" class="btn btn-outline-danger"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
