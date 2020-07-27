@@ -25,6 +25,7 @@ import { BoardHostComponent } from './board-host/board-host.component';
 import { BoardRenterComponent } from './board-renter/board-renter.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

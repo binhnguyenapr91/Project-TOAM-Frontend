@@ -104,9 +104,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardRenterComponent },
-  { path: 'mod', component: BoardHostComponent },
+  { path: 'host', component: BoardHostComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
