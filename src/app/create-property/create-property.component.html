@@ -1,6 +1,7 @@
 <div class="container">
-  <h3>Add House</h3>
-  <h3>{{message}}</h3>
+  <h3 style="text-align: center">Đăng nhà cho thuê</h3>
+  <h3 style="text-align: center">{{message}}</h3>
+  <h3 style="color: rebeccapurple">{{this.idHost.username}}</h3>
   <h4><a routerLink="/property">List Property</a></h4>
   <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
     <div *ngIf="currentFileUpload" class="progress">
@@ -30,36 +31,34 @@
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" class="form-control" placeholder="Enter name" id="name" formControlName="name">
+      <p style="color:red;" *ngIf="propertyForm.get('name').invalid && propertyForm.get('name').touched">Số kí tự nhiều hơn 6</p>
     </div>
     <div class="form-group">
       <label for="price">price</label>
       <input type="text" class="form-control" placeholder="Enter price" id="price" formControlName="price">
+      <p style="color:red;" *ngIf="propertyForm.get('price').invalid && propertyForm.get('price').touched">xin mời nhập price</p>
     </div>
     <div class="form-group">
       <label for="size">size</label>
       <input type="text" class="form-control" placeholder="Enter size" id="size" formControlName="size">
+      <p style="color:red;" *ngIf="propertyForm.get('size').invalid && propertyForm.get('size').touched">size không được để trống</p>
     </div>
     <div class="form-group">
       <label for="bathrooms">bathrooms</label>
       <input type="text" class="form-control" placeholder="Enter bathrooms" id="bathrooms" formControlName="bathrooms">
+      <p style="color:red;" *ngIf="propertyForm.get('bathrooms').invalid && propertyForm.get('bathrooms').touched">bathrooms không được để trống</p>
     </div>
     <div class="form-group">
       <label for="bedrooms">bedrooms</label>
       <input type="text" class="form-control" placeholder="Enter bedrooms" id="bedrooms" formControlName="bedrooms">
+      <p style="color:red;" *ngIf="propertyForm.get('bedrooms').invalid && propertyForm.get('bedrooms').touched">bedrooms không được để trống</p>
     </div>
     <div class="form-group">
       <label for="description">description</label>
       <input type="text" class="form-control" placeholder="Enter description" id="description"
              formControlName="description">
+      <p style="color:red;" *ngIf="propertyForm.get('description').invalid && propertyForm.get('description').touched">description không được để trống</p>
     </div>
-        <div class="form-group">
-          <label for="host">Host</label>
-          <select id="host" class="form-control" formControlName="host" required>
-            <option *ngFor="let host of hosts" [ngValue]=host>
-              {{host.name}}
-            </option>
-          </select>
-        </div>
     <div class="form-group">
       <label for="address">address</label>
       <select id="address" class="form-control" formControlName="addresses" required>

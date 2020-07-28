@@ -10,7 +10,12 @@ import {BoardHostComponent} from './board-host/board-host.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {PropertiesComponent} from './properties/properties.component';
+
+import {AddressListComponent} from './address-list/address-list.component';
+import {AddressComponent} from './address/address.component';
+
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+
 
 // @ts-ignore
 const routes: Routes = [
@@ -23,6 +28,10 @@ const routes: Routes = [
   {path: 'admin', component: BoardAdminComponent},
   {path: 'create-property', component: CreatePropertyComponent},
   {path: 'property', component: PropertiesComponent},
+  {path: 'address', component: AddressListComponent},
+  {
+    path: 'create-address', component: AddressComponent
+  },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home/property/:id', component: PropertyDetailComponent
   }
@@ -32,4 +41,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

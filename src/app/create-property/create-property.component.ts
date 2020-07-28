@@ -12,6 +12,10 @@ import {UploadFileService} from '../uploadFile/upload-file.service';
 import {IAccount} from '../interface/IAccount';
 import {AccountService} from '../service/account.service';
 
+import {IDistrict} from '../interface/IDistrict';
+import {DistrictService} from '../service/district.service';
+import {TokenStorageService} from '../_services/token-storage.service';
+
 const FRONT_LINK = 'https://firebasestorage.googleapis.com/v0/b/homestay-5d356.appspot.com/o/uploads%2F';
 const BACK_LINK = '?alt=media&token=0377e3d3-8406-4e40-aad9-4a5b62f46e8f';
 
@@ -24,6 +28,7 @@ const BACK_LINK = '?alt=media&token=0377e3d3-8406-4e40-aad9-4a5b62f46e8f';
 export class CreatePropertyComponent implements OnInit {
   propertyForm: FormGroup;
   isShow = true;
+  idHost: any;
   message: string;
   file: any;
   imageFile: any;
@@ -36,6 +41,7 @@ export class CreatePropertyComponent implements OnInit {
   Types: IPropertyType[] = [];
   hosts: IAccount [] = [];
   addresses: IAddress [] = [];
+  districts: IDistrict [] = [];
   host: IAccount = {
     id: 0,
     name: '',
@@ -55,7 +61,9 @@ export class CreatePropertyComponent implements OnInit {
               private roleService: RoleService,
               private addressService: AddressService,
               private uploadFileService: UploadFileService,
-              private accountService: AccountService) {
+              private accountService: AccountService,
+              private tokenStorageService: TokenStorageService,
+              private districtService: DistrictService) {
   }
 
 
@@ -71,8 +79,12 @@ export class CreatePropertyComponent implements OnInit {
       addresses: [''],
       propertiesTypes: [''],
       images: [''],
-      link: [''],
       videos: ['']
+    });
+    this.idHost = this.tokenStorageService.getUser();
+
+    this.districtService.getListDistricts().subscribe(result => {
+      this.districts = result;
     });
     this.propertyTypeService.getAllPropertiesType().subscribe(result => {
       this.Types = result;
