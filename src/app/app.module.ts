@@ -27,8 +27,9 @@ import {CreatePropertyComponent} from './create-property/create-property.compone
 import {AddressComponent} from './address/address.component';
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressUpdateComponent} from './address-update/address-update.component';
-import {PropertyDetailComponent} from './property-detail/property-detail.component';
 import {RoleComponent} from './role/role.component';
+import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+import { CalendarComponent } from './component/calendar/calendar.component';
 
 
 @NgModule({
@@ -46,7 +47,6 @@ import {RoleComponent} from './role/role.component';
     AddressComponent,
     AddressListComponent,
     AddressUpdateComponent,
-    PropertyDetailComponent,
     RoleComponent,
     LayoutHeaderComponent,
     LayoutFooterComponent,
@@ -54,6 +54,7 @@ import {RoleComponent} from './role/role.component';
     PropertyDetailComponent,
     FakePropertyDetailComponent,
     CommentComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
