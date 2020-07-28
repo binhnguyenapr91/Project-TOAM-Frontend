@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutAdminHeaderComponent } from './layout-admin-header.component';
+import { AccountListComponent } from './account-list.component';
 
-describe('LayoutAdminHeaderComponent', () => {
-  let component: LayoutAdminHeaderComponent;
-  let fixture: ComponentFixture<LayoutAdminHeaderComponent>;
+describe('AccountListComponent', () => {
+  let component: AccountListComponent;
+  let fixture: ComponentFixture<AccountListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LayoutAdminHeaderComponent ]
+      declarations: [ AccountListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LayoutAdminHeaderComponent);
+    fixture = TestBed.createComponent(AccountListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
