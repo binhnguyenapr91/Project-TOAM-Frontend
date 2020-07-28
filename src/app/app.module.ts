@@ -22,6 +22,8 @@ import {CreatePropertyComponent} from './create-property/create-property.compone
 import {AddressComponent} from './address/address.component';
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressUpdateComponent} from './address-update/address-update.component';
+import {PropertyDetailComponent} from './property-detail/property-detail.component';
+import {RoleComponent} from './role/role.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import {AddressUpdateComponent} from './address-update/address-update.component'
     CreatePropertyComponent,
     AddressComponent,
     AddressListComponent,
-    AddressUpdateComponent
+    AddressUpdateComponent,
+    PropertyDetailComponent,
+    RoleComponent
   ],
   imports: [
     BrowserModule,
