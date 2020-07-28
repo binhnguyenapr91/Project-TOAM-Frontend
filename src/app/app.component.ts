@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from './_services/token-storage.service';
-import {UserService} from './_services/user.service';
-import {Subject} from 'rxjs';
 import {AuthService} from './_services/auth.service';
 
 @Component({
@@ -40,7 +38,12 @@ export class AppComponent implements OnInit{
   }
 
   logout(): void {
+    this.signout();
+    this.authService.shouldRefresh.subscribe(req => {
+      this.signout();
+    });
+  }
+  signout(): any{
     this.tokenStorageService.signOut();
-    window.location.reload();
   }
 }

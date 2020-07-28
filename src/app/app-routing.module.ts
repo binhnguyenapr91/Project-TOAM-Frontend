@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
@@ -13,6 +12,9 @@ import {PropertiesComponent} from './properties/properties.component';
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
+import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
+
+// @ts-ignore
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -28,6 +30,8 @@ const routes: Routes = [
     path: 'create-address', component: AddressComponent
   },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home/property/:id', component: PropertyDetailComponent
+  }
 ];
 
 @NgModule({
