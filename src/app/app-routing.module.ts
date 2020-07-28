@@ -10,9 +10,14 @@ import {BoardHostComponent} from './board-host/board-host.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {PropertiesComponent} from './properties/properties.component';
+
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
+import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+
+
+// @ts-ignore
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -28,6 +33,8 @@ const routes: Routes = [
     path: 'create-address', component: AddressComponent
   },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home/property/:id', component: PropertyDetailComponent
+  }
 ];
 
 @NgModule({
