@@ -1,7 +1,10 @@
-
 <div class="container">
   <h2 class="container btn-primary">Danh sach HomeStay <span class="fa fa-gear fa-spin"></span></h2>
   <h4><a routerLink="/create-property"> Create Property</a></h4>
+  <select>
+    <option (change) ="findPropertyByPropertyType($event.target.value)"
+            *ngFor="let p of properties">{{p.propertiesTypes.name}}</option>
+  </select>
   <table class="table table" style="color: black">
     <thead>
     <tr class="btn-danger">
