@@ -20,14 +20,14 @@ export class PropertyDetailComponent implements OnInit {
   nextProperty: IProperty;
   //
   name = 'Set iframe source';
-  url: string = "https://www.google.com/maps?q=200 van cao&output=embed";
+  url: string = '';
   urlSafe: SafeResourceUrl;
 
 
   constructor(private propertyService: PropertyService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              public sanitizer: DomSanitizer ) {
+              public sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
@@ -38,12 +38,13 @@ export class PropertyDetailComponent implements OnInit {
         this.property = result;
       });
       // tslint:disable-next-line:radix
-      this.nextPropertyId =  parseInt(params.id) + 1;
+      this.nextPropertyId = parseInt(params.id) + 1;
       this.propertyService.getPropertyById(this.nextPropertyId).subscribe(result => {
         this.nextProperty = result;
       });
       //
-      this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+      this.url = "https://www.google.com/maps?q=";
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + "codegym" + "&output=embed");
     });
   }
 }
