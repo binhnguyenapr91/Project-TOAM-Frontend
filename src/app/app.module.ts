@@ -1,9 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
-
 import {LoginComponent} from './component/login/login.component';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -14,9 +11,7 @@ import {LayoutHeaderComponent} from './component/layout-header/layout-header.com
 import {LayoutFooterComponent} from './component/layout-footer/layout-footer.component';
 import {LayoutAdminHeaderComponent} from './component/layout-admin-header/layout-admin-header.component';
 import {LayoutAdminComponent} from './component/layout-admin/layout-admin.component';
-import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import {RoleComponent} from './role/role.component';
-import {DetailsComponent} from './component/details/details.component';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {IndexComponent} from './component/index/index.component';
 import {AngularFireModule} from '@angular/fire';
@@ -28,10 +23,11 @@ import {RegisterInterceptor} from './register.interceptor';
 import { AddressComponent } from './address/address.component';
 import { AddressListComponent } from './address-list/address-list.component';
 import { AddressUpdateComponent } from './address-update/address-update.component';
-import { AccountsComponent } from './component/accounts/accounts.component';
-import { AccountUpdateComponent } from './component/account-update/account-update.component';
-import { HostsComponent } from './component/hosts/hosts.component';
-import { PropertiesListComponent } from './component/properties-list/properties-list.component';
+import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+import {AccountsComponent} from "./component/accounts/accounts.component";
+import {AccountUpdateComponent} from "./component/account-update/account-update.component";
+import {PropertiesListComponent} from "./component/properties-list/properties-list.component";
+import {HostsComponent} from "./component/hosts/hosts.component";
 
 
 @NgModule({
@@ -47,7 +43,6 @@ import { PropertiesListComponent } from './component/properties-list/properties-
     LayoutAdminComponent,
     PropertyDetailComponent,
     RoleComponent,
-    DetailsComponent,
     CreatePropertyComponent,
     AddressComponent,
     AddressListComponent,
