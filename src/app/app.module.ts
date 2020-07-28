@@ -27,6 +27,7 @@ import {AddressListComponent} from './address-list/address-list.component';
 import {AddressUpdateComponent} from './address-update/address-update.component';
 import {RoleComponent} from './role/role.component';
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+import { CalendarComponent } from './component/calendar/calendar.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {PropertyDetailComponent} from "./component/property-detail/property-deta
     LayoutHeaderComponent,
     LayoutFooterComponent,
     PropertyListComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

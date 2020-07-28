@@ -111,9 +111,8 @@
               </div>
               <div class="location-map">
                 <h4>Location</h4>
-                //Chưa biết fix thế nào
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107002.020096289!2d-96.80666618302782!3d33.06138629992991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c21da13c59513%3A0x62aa036489cd602b!2sPlano%2C+TX%2C+USA!5e0!3m2!1sen!2sbd!4v1558246953339!5m2!1sen!2sbd" allowfullscreen></iframe>
-                <!--                <iframe src="https://www.google.com/maps/embed?pb={{property.addresses.street}}" allowfullscreen></iframe>-->
+                <iframe allowfullscreen [src]="urlSafe"></iframe>
+<!--                <iframe src="https://www.google.com/maps?q=200 van cao&output=embed" allowfullscreen></iframe>-->
               </div>
             </div>
           </div>
