@@ -1,75 +1,207 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
-    <form
-      *ngIf="!isLoggedIn"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate
-    >
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          name="username"
-          [(ngModel)]="form.username"
-          required
-          #username="ngModel"
-        />
-        <div
-          class="alert alert-danger"
-          role="alert"
-          *ngIf="f.submitted && username.invalid"
-        >
-          Username is required!
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="form.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <div
-          class="alert alert-danger"
-          role="alert"
-          *ngIf="f.submitted && password.invalid"
-        >
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
+<!--<div class="col-md-12">-->
+<!--  <div class="card card-container">-->
+<!--    <img-->
+<!--      id="profile-img"-->
+<!--      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"-->
+<!--      class="profile-img-card"-->
+<!--    />-->
+<!--    <form-->
+<!--      *ngIf="!isLoggedIn"-->
+<!--      name="form"-->
+<!--      (ngSubmit)="f.form.valid && onSubmit()"-->
+<!--      #f="ngForm"-->
+<!--      novalidate-->
+<!--    >-->
+
+<!--      <div class="form-group">-->
+<!--        <label for="username">Username</label>-->
+<!--        <input-->
+<!--          type="text"-->
+<!--          class="form-control"-->
+<!--          name="username"-->
+<!--          [(ngModel)]="form.username"-->
+<!--          required-->
+<!--          #username="ngModel"-->
+<!--        />-->
+<!--        <div-->
+<!--          class="alert alert-danger"-->
+<!--          role="alert"-->
+<!--          *ngIf="f.submitted && username.invalid"-->
+<!--        >-->
+<!--          Username is required!-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="password">Password</label>-->
+<!--        <input-->
+<!--          type="password"-->
+<!--          class="form-control"-->
+<!--          name="password"-->
+<!--          [(ngModel)]="form.password"-->
+<!--          required-->
+<!--          minlength="6"-->
+<!--          #password="ngModel"-->
+<!--        />-->
+<!--        <div-->
+<!--          class="alert alert-danger"-->
+<!--          role="alert"-->
+<!--          *ngIf="f.submitted && password.invalid"-->
+<!--        >-->
+<!--          <div *ngIf="password.errors.required">Password is required</div>-->
+<!--          <div *ngIf="password.errors.minlength">-->
+<!--            Password must be at least 6 characters-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <button class="btn btn-primary btn-block">-->
+<!--          Login-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <div-->
+<!--          class="alert alert-danger"-->
+<!--          role="alert"-->
+<!--          *ngIf="f.submitted && isLoginFailed"-->
+<!--        >-->
+<!--          Login failed: {{ errorMessage }}-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </form>-->
+<!--    <div class="alert alert-success" *ngIf="isLoggedIn">-->
+<!--      Logged in as {{ roles }}.-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <form
+        *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+        class="login100-form validate-form"
+      >
+					<span class="login100-form-title p-b-49">
+						<label style="font-family: 'Arial'">Đăng Nhập</label>
+					</span>
+
+        <div class="wrap-input100 validate-input m-b-23 form-group" data-validate="Username is required">
+
+          <span class="label-input100">	<label for="username" style="font-family: 'Arial'"><i class="fa fa-user"> </i>  Tên đăng nhập</label> </span>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+            placeholder="Điền tên đăng nhập của bạn"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && username.invalid"
+          >
+            Cần điền tên đăng nhập !
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">
-          Login
-        </button>
-      </div>
-      <div class="form-group">
-        <div
-          class="alert alert-danger"
-          role="alert"
-          *ngIf="f.submitted && isLoginFailed"
-        >
-          Login failed: {{ errorMessage }}
-        </div>
-      </div>
-    </form>
 
-    <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ roles }}.
+        <div class="wrap-input100 validate-input form-group" data-validate="Password is required">
+          <span class="label-input100">	<label for="password" style="font-family: 'Arial'"><i class="fa fa-lock"> </i> Mật khẩu</label></span>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            placeholder="Điền mật khẩu của bạn"
+          />
+
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && password.invalid"
+          >
+            <div *ngIf="password.errors.required">Cần điền mật khẩu !</div>
+            <div *ngIf="password.errors.minlength">
+              Mật khẩu phải có ít nhất 6 ký tự !
+            </div>
+          </div>
+        </div>
+
+
+        <div class="text-right p-t-8 p-b-31">
+          <a href="#">
+            <label style="font-family: 'Arial'">Quên mật khẩu ?</label>
+          </a>
+        </div>
+
+        <div class="container-login100-form-btn ">
+          <div class="wrap-login100-form-btn form-group">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn">
+              <label style="font-family: 'Arial'">Đăng Nhập</label>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed"
+          >
+            Lỗi đăng nhập : {{ errorMessage }}
+          </div>
+        </div>
+
+
+        <div class="txt1 text-center p-t-54 p-b-20">
+						<span>
+								<label style="font-family: 'Arial'">Hoặc sử dụng phương thức đăng nhập ?</label>
+						</span>
+        </div>
+
+        <div class="flex-c-m">
+          <a href="#" class="login100-social-item bg1">
+            <i class="fa fa-facebook"></i>
+          </a>
+
+          <a href="#" class="login100-social-item bg2">
+            <i class="fa fa-twitter"></i>
+          </a>
+
+          <a href="#" class="login100-social-item bg3">
+            <i class="fa fa-google"></i>
+          </a>
+        </div>
+
+        <div class="flex-col-c p-t-155">
+						<span class="txt1 p-b-17">
+								<label style="font-family: 'Arial'">Hoặc đăng ký để đăng nhập ?</label>
+						</span>
+
+          <a routerLink="../register" class="txt2 ">
+            Đăng ký
+          </a>
+        </div>
+      </form>
+
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in as {{ roles }}.
+      </div>
     </div>
   </div>
 </div>
+
+
+<div id="dropDownSelect1"></div>
