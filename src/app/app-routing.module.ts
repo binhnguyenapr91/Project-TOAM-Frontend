@@ -13,6 +13,7 @@ import {BoardHostComponent} from './board-host/board-host.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {PropertiesComponent} from './properties/properties.component';
+import {FakePropertyDetailComponent} from "./component/fake-property-detail/fake-property-detail.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'create-property', component: CreatePropertyComponent},
   {path: 'property', component: PropertiesComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'fakeProperty/:id', component: FakePropertyDetailComponent,} //Thuan
 ];
 
 @NgModule({
