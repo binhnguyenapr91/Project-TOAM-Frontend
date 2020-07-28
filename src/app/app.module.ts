@@ -17,6 +17,10 @@ import { HomeComponent } from './home/home.component';
 import { BoardHostComponent } from './board-host/board-host.component';
 import { BoardRenterComponent } from './board-renter/board-renter.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
+import { LayoutHeaderComponent } from './component/layout-header/layout-header.component';
+import { LayoutFooterComponent } from './component/layout-footer/layout-footer.component';
+import { PropertyListComponent } from './component/property-list/property-list.component';
+import { PropertyDetailComponent } from './component/property-detail/property-detail.component';
 
 
 @NgModule({
@@ -29,6 +33,10 @@ import {BoardAdminComponent} from './board-admin/board-admin.component';
     BoardAdminComponent,
     BoardHostComponent,
     BoardRenterComponent,
+    LayoutHeaderComponent,
+    LayoutFooterComponent,
+    PropertyListComponent,
+    PropertyDetailComponent,
   ],
   imports: [
     BrowserModule,
