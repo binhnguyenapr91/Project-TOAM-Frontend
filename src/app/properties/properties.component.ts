@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IProperty} from '../interface/iproperty';
 import {PropertyService} from '../service/property.service';
+import {IPropertyType} from '../interface/IPropertyType';
 
 
 @Component({
@@ -10,6 +11,7 @@ import {PropertyService} from '../service/property.service';
 })
 export class PropertiesComponent implements OnInit {
   properties: IProperty[] = [];
+  propertiesType: IPropertyType [] = [];
 
   constructor(private propertyService: PropertyService) {
   }
@@ -29,13 +31,22 @@ export class PropertiesComponent implements OnInit {
         this.properties = [];
       });
     });
+    this.propertyService.getListPropertyType().subscribe(result => {
+      this.propertiesType = result;
+    });
   }
 
   deleteProperty(id: number): void {
-    if (confirm('I want to delete ?')) {
+    if (confirm('Bạn có muốn xóa không ?')) {
       this.propertyService.deleteProperty(id).subscribe(result => {
         this.propertyService.shouldRefresh.next();
       });
     }
+  }
+
+  findPropertyByPropertyType(name: string): void {
+    this.propertyService.findPropertyByPropertyType(name).subscribe(result => {
+      this.properties = result;
+    });
   }
 }

@@ -1,27 +1,37 @@
-import { Component } from '@angular/core';
-import {AuthenticationService} from "./service/authentication.service";
-import {Router} from "@angular/router";
-import {IAccount} from "./interface/IAccount";
+import {Component, OnInit} from '@angular/core';
+import {TokenStorageService} from './_services/token-storage.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'Project-TOAM-Frontend';
-  currentUser: IAccount;
+export class AppComponent implements OnInit{
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showHostBoard = false;
+  showRenterBoard = false;
+  username: string;
 
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  constructor(private tokenStorageService: TokenStorageService) { }
+
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showHostBoard = this.roles.includes('ROLE_HOST');
+      this.showRenterBoard = this.roles.includes('ROLE_RENTER');
+
+      this.username = user.username;
+    }
   }
 
-  logout() {
-    this.authenticationService.logout();
-    // this.router.navigate(['/login']);
-    this.router.navigate(['/']);
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 }
