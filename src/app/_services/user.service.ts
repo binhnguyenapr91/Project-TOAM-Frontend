@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 const API_URL = 'http://localhost:8080/api/test/';
 
@@ -8,7 +8,6 @@ const API_URL = 'http://localhost:8080/api/test/';
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(private http: HttpClient) { }
 
   getPublicContent(): Observable<any> {

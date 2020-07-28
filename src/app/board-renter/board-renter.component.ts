@@ -13,7 +13,7 @@ export class BoardRenterComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe(
+    this.userService.getRenterBoard().subscribe(
       data => {
         this.content = data;
       },
