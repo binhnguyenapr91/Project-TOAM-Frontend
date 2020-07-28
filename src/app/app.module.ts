@@ -20,7 +20,6 @@ import {BoardAdminComponent} from './board-admin/board-admin.component';
 import { LayoutHeaderComponent } from './component/layout-header/layout-header.component';
 import { LayoutFooterComponent } from './component/layout-footer/layout-footer.component';
 import { PropertyListComponent } from './component/property-list/property-list.component';
-import { PropertyDetailComponent } from './component/property-detail/property-detail.component';
 import {PropertiesComponent} from './properties/properties.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {AddressComponent} from './address/address.component';
@@ -46,7 +45,7 @@ import {RoleComponent} from './role/role.component';
     AddressListComponent,
     AddressUpdateComponent,
     PropertyDetailComponent,
-    RoleComponent
+    RoleComponent,
     LayoutHeaderComponent,
     LayoutFooterComponent,
     PropertyListComponent,
