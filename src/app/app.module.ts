@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { BoardHostComponent } from './board-host/board-host.component';
 import { BoardRenterComponent } from './board-renter/board-renter.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
+import { FakePropertyDetailComponent } from './component/fake-property-detail/fake-property-detail.component';
+import { CommentComponent } from './component/comment/comment.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import {BoardAdminComponent} from './board-admin/board-admin.component';
     BoardAdminComponent,
     BoardHostComponent,
     BoardRenterComponent,
+    FakePropertyDetailComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
