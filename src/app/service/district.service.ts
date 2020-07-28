@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {IDistrict} from "../interface/IDistrict";
-import {ICity} from "../interface/icity";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {IDistrict} from '../interface/IDistrict';
+
 
 @Injectable({
   providedIn: 'root'

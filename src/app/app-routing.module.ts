@@ -1,6 +1,3 @@
-
-
-
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
@@ -13,6 +10,8 @@ import {BoardHostComponent} from './board-host/board-host.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {PropertiesComponent} from './properties/properties.component';
+import {AddressListComponent} from './address-list/address-list.component';
+import {AddressComponent} from './address/address.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -24,6 +23,10 @@ const routes: Routes = [
   {path: 'admin', component: BoardAdminComponent},
   {path: 'create-property', component: CreatePropertyComponent},
   {path: 'property', component: PropertiesComponent},
+  {path: 'address', component: AddressListComponent},
+  {
+    path: 'create-address', component: AddressComponent
+  },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
@@ -31,4 +34,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
