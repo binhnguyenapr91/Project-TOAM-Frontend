@@ -28,6 +28,7 @@ import {AddressUpdateComponent} from './address-update/address-update.component'
 import {RoleComponent} from './role/role.component';
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
 import { CalendarComponent } from './component/calendar/calendar.component';
+import { PropertyEditComponent } from './property-edit/property-edit.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { CalendarComponent } from './component/calendar/calendar.component';
     LayoutFooterComponent,
     PropertyListComponent,
     PropertyDetailComponent,
-    CalendarComponent
+    CalendarComponent,
+    PropertyEditComponent
   ],
   imports: [
     BrowserModule,

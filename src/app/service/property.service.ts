@@ -13,6 +13,7 @@ export class PropertyService {
   private readonly API = 'http://localhost:8080/api/property/type';
   private readonly API_ = 'http://localhost:8080/api/propertiesType';
   shouldRefresh = new Subject<any>();
+
   constructor(private httpClient: HttpClient) {
   }
 
@@ -38,5 +39,9 @@ export class PropertyService {
 
   getPropertyById(id: number): Observable<IProperty> {
     return this.httpClient.get<IProperty>(`${this.API_URL}/${id}`);
+  }
+
+  updatePropertyId(property: IProperty): Observable<IProperty> {
+    return this.httpClient.put<IProperty>(`${this.API_URL}/${property.id}`, property);
   }
 }

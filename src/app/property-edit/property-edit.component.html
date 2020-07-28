@@ -1,0 +1,73 @@
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+      <div class="card-heading">
+        <h2 class="title">Sửa nhà cho thuê</h2>
+      </div>
+      <div class="card-body">
+        <h3 style="text-align: center">{{message}}</h3>
+        <h4><a routerLink="/property">List Property</a></h4>
+        <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+            <div class="name">Name</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="company" formControlName="name">
+                <p style="color:red;" *ngIf="formEdit.get('name').invalid && formEdit.get('name').touched">Số kí tự nhiều hơn 6</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Price</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="company" formControlName="price">
+                <p style="color:red;" *ngIf="formEdit.get('price').invalid && formEdit.get('price').touched">xin mời nhập price</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Size</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="size">
+                <p style="color:red;" *ngIf="formEdit.get('size').invalid && formEdit.get('size').touched">size không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Bathrooms</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="bathrooms">
+                <p style="color:red;" *ngIf="formEdit.get('bathrooms').invalid && formEdit.get('bathrooms').touched">bathrooms không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Bedrooms</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="bedrooms">
+                <p style="color:red;" *ngIf="formEdit.get('bedrooms').invalid && formEdit.get('bedrooms').touched">bedrooms không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Description</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="description">
+                <p style="color:red;" *ngIf="formEdit.get('description').invalid && formEdit.get('description').touched">description không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-danger" type="submit">Đăng kí nhà</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
