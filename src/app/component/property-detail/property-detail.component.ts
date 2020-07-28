@@ -23,7 +23,6 @@ export class PropertyDetailComponent implements OnInit {
   url: string = '';
   urlSafe: SafeResourceUrl;
 
-
   constructor(private propertyService: PropertyService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
