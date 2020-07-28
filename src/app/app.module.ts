@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, OnInit} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -20,7 +20,13 @@ import {BoardAdminComponent} from './board-admin/board-admin.component';
 import { LayoutHeaderComponent } from './component/layout-header/layout-header.component';
 import { LayoutFooterComponent } from './component/layout-footer/layout-footer.component';
 import { PropertyListComponent } from './component/property-list/property-list.component';
-import { PropertyDetailComponent } from './component/property-detail/property-detail.component';
+import {PropertiesComponent} from './properties/properties.component';
+import {CreatePropertyComponent} from './create-property/create-property.component';
+import {AddressComponent} from './address/address.component';
+import {AddressListComponent} from './address-list/address-list.component';
+import {AddressUpdateComponent} from './address-update/address-update.component';
+import {PropertyDetailComponent} from './property-detail/property-detail.component';
+import {RoleComponent} from './role/role.component';
 
 
 @NgModule({
@@ -33,6 +39,13 @@ import { PropertyDetailComponent } from './component/property-detail/property-de
     BoardAdminComponent,
     BoardHostComponent,
     BoardRenterComponent,
+    PropertiesComponent,
+    CreatePropertyComponent,
+    AddressComponent,
+    AddressListComponent,
+    AddressUpdateComponent,
+    PropertyDetailComponent,
+    RoleComponent,
     LayoutHeaderComponent,
     LayoutFooterComponent,
     PropertyListComponent,

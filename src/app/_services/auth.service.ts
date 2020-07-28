@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
 
@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-
+  shouldRefresh = new Subject<any>();
   constructor(private http: HttpClient) { }
 
   login(credentials): Observable<any> {

@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 style="text-align: center">{{message}}</h1>
+  <h3>Create Address</h3>
+  <a routerLink="/address" class="btn-primary" style="text-align: center">List Address</a>
+  <form [formGroup]="formAddress" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input type="text" class="form-control" id="street" formControlName="street">
+    </div>
+    <div class="form-group">
+      <label for="district">District</label>
+      <select id="district" class="form-control" formControlName="districts" required>
+        <option *ngFor="let district of districts" [ngValue]=district>
+          {{district.name}}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 style="text-align: center">{{message}}</h1>
+  <h3>Update Address</h3>
+  <a routerLink="/address" class="btn-primary" style="text-align: center">Back</a>
+  <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formGroupName="id">
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input type="text" class="form-control" id="street" formControlName="street">
+    </div>
+    <button type="submit" class="btn-primary">Submit</button>
+  </form>
+</div>
+
