@@ -42,16 +42,16 @@ export class CreatePropertyComponent implements OnInit {
   hosts: IAccount [] = [];
   addresses: IAddress [] = [];
   districts: IDistrict [] = [];
-  host: IAccount = {
+  host: { password: string; name: string; id: number; username: string; status: boolean; token: string } = {
     id: 0,
     name: '',
     username: '',
     password: '',
     status: true,
-    role: {
-      id: 0,
-      name: ''
-    },
+    // role: {
+    //   id: 0,
+    //   name: ''
+    // },
     token: ''
   };
 

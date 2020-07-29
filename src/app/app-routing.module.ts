@@ -15,6 +15,7 @@ import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+import {AccountListComponent} from "./account-list/account-list.component";
 
 
 // @ts-ignore
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'create-property', component: CreatePropertyComponent},
   {path: 'property', component: PropertiesComponent},
   {path: 'address', component: AddressListComponent},
+  {path: 'accounts', component: AccountListComponent},
   {
     path: 'create-address', component: AddressComponent
   },
