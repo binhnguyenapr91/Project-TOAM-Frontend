@@ -40,12 +40,14 @@ export class CalendarComponent implements OnInit {
     console.log('renterId:' + this.renterId);
     this.accountService.getAccountById(this.renterId).subscribe( result => {
       this.renter = result;
+      console.log(this.renter);
     });
     console.log(this.renter);
     this.activatedRoute.params.subscribe( params => {
       this.propertyId = params.id;
       this.propertyService.getPropertyById(this.propertyId).subscribe( result => {
         this.properties = result;
+        console.log(this.properties);
       });
     });
   }
