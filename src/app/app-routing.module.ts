@@ -14,9 +14,10 @@ import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
-
-import {AccountListComponent} from "./account-list/account-list.component";
-
+import {RenterDetailComponent} from './component/accountRenter-list/renter-detail/renter-detail.component';
+import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
+import {AccountListComponent} from './account-list/account-list.component';
+import {PropertyEditComponent} from './property-edit/property-edit.component';
 
 
 const routes: Routes = [
@@ -30,14 +31,19 @@ const routes: Routes = [
   {path: 'create-property', component: CreatePropertyComponent},
   {path: 'property', component: PropertiesComponent},
   {path: 'address', component: AddressListComponent},
-  {path: 'accounts', component: AccountListComponent},
   {
     path: 'create-address', component: AddressComponent
   },
+  {path: 'accounts', component: AccountListComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home/property/:id', component: PropertyDetailComponent
-  },
-  {path: 'fakeProperty/:id', component: FakePropertyDetailComponent,} //Thuan
+  {path: 'home/property/:id', component: PropertyDetailComponent},
+  {path: 'renter/:id', component: RenterDetailComponent},
+  {path: 'renter-list', component: RenterListComponent},
+  {
+    path: 'home/property/:id', component: PropertyDetailComponent
+  }, {
+    path: 'edit-property/:id', component: PropertyEditComponent
+  }
 ];
 
 @NgModule({

@@ -42,7 +42,7 @@
     <td>{{account.email}}</td>
     <td>{{account.phone}}</td>
     <td>{{account.status}}</td>
-    <td><input type="button" value="Detail" class="btn btn-outline-warning"></td>
+    <td><a [routerLink]="['/renter',account.id]">{{account.username}}</a></td>
     <td><input [routerLink]="['account-update', account.id]" type="button" value="Edit" class="btn btn-outline-info">
     </td>
     <td><input (click)="deleteAccount(account.id)" type="button" value="Delete" class="btn btn-outline-danger"></td>

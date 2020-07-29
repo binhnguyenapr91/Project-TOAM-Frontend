@@ -42,6 +42,6 @@ export class PropertyService {
   }
 
   updatePropertyId(property: IProperty): Observable<IProperty> {
-    return this.httpClient.put<IProperty>(`${this.API_URL}/${property.id}`, property);
+    return this.httpClient.put<IProperty>(this.API_URL, property);
   }
 }
