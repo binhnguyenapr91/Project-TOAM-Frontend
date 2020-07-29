@@ -28,7 +28,7 @@ import {AddressComponent} from './address/address.component';
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressUpdateComponent} from './address-update/address-update.component';
 import {RoleComponent} from './role/role.component';
-import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import { CalendarComponent } from './component/calendar/calendar.component';
 
 import { PropertyEditComponent } from './property-edit/property-edit.component';
@@ -61,7 +61,7 @@ import { AccountListComponent } from './account-list/account-list.component';
     PropertyEditComponent,
     CommentComponent,
     AccountListComponent,
-
+    FakePropertyDetailComponent
 
   ],
   imports: [
