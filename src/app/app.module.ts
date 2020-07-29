@@ -36,6 +36,11 @@ import { RenterDetailComponent } from './component/accountRenter-list/renter-det
 
 import { AccountListComponent } from './account-list/account-list.component';
 import { AccountUpdateComponent } from './account-update/account-update.component';
+import { SearchComponent } from './component/search/search.component';
+
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { SearchLayoutComponent } from './component/search-layout/search-layout.component';
+import { SearchFormComponent } from './component/search-form/search-form.component';
 
 
 
@@ -67,6 +72,8 @@ import { AccountUpdateComponent } from './account-update/account-update.componen
     PropertyEditComponent,
     CommentComponent,
     AccountListComponent,
+    SearchLayoutComponent,
+    SearchFormComponent,
   ],
   imports: [
     BrowserModule,

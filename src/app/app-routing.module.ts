@@ -19,6 +19,7 @@ import {RenterDetailComponent} from './component/accountRenter-list/renter-detai
 import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
 import {AccountListComponent} from './account-list/account-list.component';
 import {PropertyEditComponent} from './property-edit/property-edit.component';
+import {SearchLayoutComponent} from "./component/search-layout/search-layout.component";
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: 'create-property', component: CreatePropertyComponent},
   {path: 'property', component: PropertiesComponent},
   {path: 'address', component: AddressListComponent},
+  {path: 'search', component: SearchLayoutComponent},
   {path: 'account-update/:id', component: AccountUpdateComponent},
   {
     path: 'create-address', component: AddressComponent
