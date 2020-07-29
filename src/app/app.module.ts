@@ -34,6 +34,7 @@ import { CalendarComponent } from './component/calendar/calendar.component';
 import { PropertyEditComponent } from './property-edit/property-edit.component';
 
 import { AccountListComponent } from './account-list/account-list.component';
+import {DetailsComponent} from './component/details/details.component';
 
 
 
@@ -61,7 +62,8 @@ import { AccountListComponent } from './account-list/account-list.component';
     PropertyEditComponent,
     CommentComponent,
     AccountListComponent,
-    FakePropertyDetailComponent
+    FakePropertyDetailComponent,
+    DetailsComponent
 
   ],
   imports: [
