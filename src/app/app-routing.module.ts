@@ -14,6 +14,8 @@ import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
+import {RenterDetailComponent} from './component/accountRenter-list/renter-detail/renter-detail.component';
+import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
 
 
 const routes: Routes = [
@@ -31,8 +33,9 @@ const routes: Routes = [
     path: 'create-address', component: AddressComponent
   },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home/property/:id', component: PropertyDetailComponent
-  }
+  {path: 'home/property/:id', component: PropertyDetailComponent},
+  {path: 'renter/:id', component: RenterDetailComponent},
+  {path: 'renter-list', component: RenterListComponent}
 ];
 
 @NgModule({

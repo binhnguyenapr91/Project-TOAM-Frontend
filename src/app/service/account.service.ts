@@ -18,8 +18,8 @@ export class AccountService {
   shouldRefresh = new Subject<any>();
 
   private registerURL = environment.RegisterUrl;
-
-
+  private readonly API_RENTER = 'http://localhost:8080/api/account/renter';
+  private readonly API_DETAIL = 'http://localhost:8080/api/account';
   constructor(private  httpClient: HttpClient) {
   }
 
@@ -34,5 +34,13 @@ export class AccountService {
 
   getListHost(): Observable<IAccount[]> {
     return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
+  }
+
+  getListRenter(): Observable<IAccount[]> {
+    return this.httpClient.get<IAccount[]>(this.API_RENTER);
+  }
+
+  getDetail(id: number): Observable<IAccount> {
+    return this.httpClient.get<IAccount>(`${this.API_DETAIL}/${id}`);
   }
 }

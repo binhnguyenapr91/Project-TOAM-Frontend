@@ -51,7 +51,7 @@
   <div class="container-table100">
     <div class="wrap-table100">
       <div class="table100">
-        <h3><a routerLink="/create-property"> Create Property</a></h3>
+        <h3><a routerLink="/create-property" > Create Property</a></h3>
         <select (click)="findPropertyByPropertyType($event.target.value)">
           <option *ngFor="let pro of propertiesType" [value]="pro.name">{{pro.name}}</option>
         </select>

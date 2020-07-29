@@ -47,11 +47,9 @@ export class CreatePropertyComponent implements OnInit {
     name: '',
     username: '',
     password: '',
-    status: true,
-    role: {
-      id: 0,
-      name: ''
-    },
+    email: '',
+    phone: '',
+    status: false,
     token: ''
   };
 
@@ -93,14 +91,14 @@ export class CreatePropertyComponent implements OnInit {
       this.Types = [];
       console.log(error);
     });
-    this.accountService.getListHost().subscribe(result => {
-      this.hosts = result;
-      console.log(this.hosts);
-    }, error => {
-      this.hosts = [];
-      alert('không thể lấy host');
-      console.log(error);
-    });
+    // this.accountService.getListHost().subscribe(result => {
+    //   this.hosts = result;
+    //   console.log(this.hosts);
+    // }, error => {
+    //   this.hosts = [];
+    //   alert('không thể lấy host');
+    //   console.log(error);
+    // });
     this.addressService.getAllAddress().subscribe(result => {
       this.addresses = result;
       console.log(result);

@@ -29,6 +29,8 @@ import {RoleComponent} from './role/role.component';
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
 import { CalendarComponent } from './component/calendar/calendar.component';
 import { PropertyEditComponent } from './property-edit/property-edit.component';
+import { RenterListComponent } from './component/accountRenter-list/renter-list/renter-list.component';
+import { RenterDetailComponent } from './component/accountRenter-list/renter-detail/renter-detail.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { PropertyEditComponent } from './property-edit/property-edit.component';
     PropertyListComponent,
     PropertyDetailComponent,
     CalendarComponent,
-    PropertyEditComponent
+    PropertyEditComponent,
+    RenterListComponent,
+    RenterDetailComponent
   ],
   imports: [
     BrowserModule,
