@@ -83,10 +83,10 @@ export class PropertyEditComponent implements OnInit {
     console.log(this.formEdit.value);
     if (this.idProperty) {
       this.propertyService.updatePropertyId(this.formEdit.value).subscribe(result => {
-        this.message = 'Cập nhập thành công';
+        this.message = 'Cập nhật thành công !!!';
       });
     } else {
-      this.message = 'Cập nhập không thành công';
+      this.message = 'Cập nhật không thành công !!!';
     }
   }
 }

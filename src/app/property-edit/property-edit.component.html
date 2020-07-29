@@ -6,7 +6,9 @@
         <h2 class="title">Sửa nhà cho thuê</h2>
       </div>
       <div class="card-body">
-        <h3 style="text-align: center">{{message}}</h3>
+        <div class="alert alert-info">
+          <strong>{{message}}</strong>
+        </div>
         <h4><a routerLink="/property">List Property</a></h4>
         <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
           <input type="hidden" formControlName="id" name="id" value="id">
