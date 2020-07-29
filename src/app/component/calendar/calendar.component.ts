@@ -6,7 +6,7 @@ import {PropertyService} from '../../service/property.service';
 import {IAccount} from '../../interface/IAccount';
 import {IProperty} from '../../interface/iproperty';
 import {TokenStorageService} from '../../_services/token-storage.service';
-import {AuthService} from '../../_services/auth.service';
+import {AccountService} from '../../service/account.service';
 
 @Component({
   selector: 'app-calendar',
@@ -15,8 +15,10 @@ import {AuthService} from '../../_services/auth.service';
 })
 export class CalendarComponent implements OnInit {
   propertyId: number;
+  renterId: number;
   properties: IProperty;
   renter: IAccount;
+  userInToken: IAccount;
   now = '2020-01-01';
   formBooking: FormGroup = new FormGroup({
     createTime: new FormControl(''),
@@ -29,13 +31,19 @@ export class CalendarComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private propertyService: PropertyService,
               private tokenStorage: TokenStorageService,
+              private accountService: AccountService
   ) { }
 
   ngOnInit(): void{
+    this.userInToken = this.tokenStorage.getUser();
+    this.renterId = this.userInToken.id;
+    console.log('renterId:' + this.renterId);
+    this.accountService.getAccountById(this.renterId).subscribe( result => {
+      this.renter = result;
+    });
+    console.log(this.renter);
     this.activatedRoute.params.subscribe( params => {
       this.propertyId = params.id;
-      this.renter = this.tokenStorage.getUser();
-      console.log(this.renter);
       this.propertyService.getPropertyById(this.propertyId).subscribe( result => {
         this.properties = result;
       });
