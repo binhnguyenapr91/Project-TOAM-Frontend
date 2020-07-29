@@ -1,80 +1,229 @@
-<div class="container">
-  <h3 style="text-align: center">Đăng nhà cho thuê</h3>
-  <h3 style="text-align: center">{{message}}</h3>
-  <h3 style="color: rebeccapurple">{{this.idHost.username}}</h3>
-  <h4><a routerLink="/property">List Property</a></h4>
-  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
-    <div *ngIf="currentFileUpload" class="progress">
-      <div class="progress-bar progress-bar-info progress-bar-striped"
-           role="progressbar" attr.aria-valuenow="{{percentage}}"
-           aria-valuemin="0" aria-valuemax="100"
-           [ngStyle]="{width:percentage+'%'}">
-        {{percentage}}%
+<!--<div class="container">-->
+<!--  <h3 style="text-align: center">Đăng nhà cho thuê</h3>-->
+<!--  <h3 style="text-align: center">{{message}}</h3>-->
+<!--  <h3 style="color: rebeccapurple">{{this.idHost.username}}</h3>-->
+<!--  <h4><a routerLink="/property">List Property</a></h4>-->
+<!--  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">-->
+<!--    <div *ngIf="currentFileUpload" class="progress">-->
+<!--      <div class="progress-bar progress-bar-info progress-bar-striped"-->
+<!--           role="progressbar" attr.aria-valuenow="{{percentage}}"-->
+<!--           aria-valuemin="0" aria-valuemax="100"-->
+<!--           [ngStyle]="{width:percentage+'%'}">-->
+<!--        {{percentage}}%-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <img [src]="url" alt="">-->
+<!--      <br>-->
+<!--      <br>-->
+<!--      <div class="uploadImage">-->
+<!--        <label style="cursor: pointer; margin: auto" for="image"><i class="fa fa-upload" aria-hidden="true"></i> Upload-->
+<!--          Images</label>-->
+<!--&lt;!&ndash;        <input type="file" id="image" (change)="displayImage($event)" accept="image/*" hidden>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="file">Upload video:</label>-->
+<!--&lt;!&ndash;      <input type="file" id="file" (change)="selectFile($event)">&ndash;&gt;-->
+<!--      &lt;!&ndash;<p style="color:red;" *ngIf="createSongForm.get('uploadFile').invalid && createSongForm.get('uploadFile').touched">Bạn cần Upload File</p>-->
+<!--      <button class="btn btn-success" [disabled]="!selectedFile" (click)="upload()">Upload</button>&ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="name">Name:</label>-->
+<!--      <input type="text" class="form-control" placeholder="Enter name" id="name" formControlName="name">-->
+<!--      <p style="color:red;" *ngIf="propertyForm.get('name').invalid && propertyForm.get('name').touched">Số kí tự nhiều hơn 6</p>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="price">price</label>-->
+<!--      <input type="text" class="form-control" placeholder="Enter price" id="price" formControlName="price">-->
+<!--      <p style="color:red;" *ngIf="propertyForm.get('price').invalid && propertyForm.get('price').touched">xin mời nhập price</p>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="size">size</label>-->
+<!--      <input type="text" class="form-control" placeholder="Enter size" id="size" formControlName="size">-->
+<!--      <p style="color:red;" *ngIf="propertyForm.get('size').invalid && propertyForm.get('size').touched">size không được để trống</p>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="bathrooms">bathrooms</label>-->
+<!--      <input type="text" class="form-control" placeholder="Enter bathrooms" id="bathrooms" formControlName="bathrooms">-->
+<!--      <p style="color:red;" *ngIf="propertyForm.get('bathrooms').invalid && propertyForm.get('bathrooms').touched">bathrooms không được để trống</p>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="bedrooms">bedrooms</label>-->
+<!--      <input type="text" class="form-control" placeholder="Enter bedrooms" id="bedrooms" formControlName="bedrooms">-->
+<!--      <p style="color:red;" *ngIf="propertyForm.get('bedrooms').invalid && propertyForm.get('bedrooms').touched">bedrooms không được để trống</p>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="description">description</label>-->
+<!--      <input type="text" class="form-control" placeholder="Enter description" id="description"-->
+<!--             formControlName="description">-->
+<!--      <p style="color:red;" *ngIf="propertyForm.get('description').invalid && propertyForm.get('description').touched">description không được để trống</p>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="address">address</label>-->
+<!--      <select id="address" class="form-control" formControlName="addresses" required>-->
+<!--        <option *ngFor="let address of addresses" [ngValue]=address>-->
+<!--          {{address.street}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="address">propertyType</label>-->
+<!--      <select id="propertyType" class="form-control" formControlName="propertiesTypes" required>-->
+<!--        <option *ngFor="let propertyType of Types" [ngValue]=propertyType>-->
+<!--          {{propertyType.name}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+      <div class="card-heading">
+        <h2 class="title">Tạo nhà cho thuê</h2>
+      </div>
+      <div class="card-body">
+        <h3 style="text-align: center">{{message}}</h3>
+        <h3 style="color: rebeccapurple">{{this.idHost.username}}</h3>
+        <h4><a routerLink="/property">List Property</a></h4>
+        <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+          <div *ngIf="currentFileUpload" class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+                 role="progressbar" attr.aria-valuenow="{{percentage}}"
+                 aria-valuemin="0" aria-valuemax="100"
+                 [ngStyle]="{width:percentage+'%'}">
+              {{percentage}}%
+            </div>
+          </div>
+          <div class="form-group">
+            <img [src]="url" alt="">
+            <br>
+            <br>
+            <div class="uploadImage">
+              <label style="cursor: pointer; margin: auto" for="image"><i class="fa fa-upload" aria-hidden="true"></i> Upload
+                Images</label>
+              <input type="file" id="image" (change)="displayImage($event)" accept="image/*" hidden>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="file">Upload video:</label>
+            <input type="file" id="file" (change)="selectFile($event)">
+          </div>
+          <div class="form-row">
+            <div class="name">Name</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="company" formControlName="name">
+                <p style="color:red;" *ngIf="propertyForm.get('name').invalid && propertyForm.get('name').touched">Số kí tự nhiều hơn 6</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Price</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="company" formControlName="price">
+                <p style="color:red;" *ngIf="propertyForm.get('price').invalid && propertyForm.get('price').touched">xin mời nhập price</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Size</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="size">
+                <p style="color:red;" *ngIf="propertyForm.get('size').invalid && propertyForm.get('size').touched">size không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Bathrooms</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="bathrooms">
+                <p style="color:red;" *ngIf="propertyForm.get('bathrooms').invalid && propertyForm.get('bathrooms').touched">bathrooms không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Bedrooms</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="bedrooms">
+                <p style="color:red;" *ngIf="propertyForm.get('bedrooms').invalid && propertyForm.get('bedrooms').touched">bedrooms không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Description</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="size" formControlName="description">
+                <p style="color:red;" *ngIf="propertyForm.get('description').invalid && propertyForm.get('description').touched">description không được để trống</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Addresses</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select name="subject" formControlName="addresses">
+                    <option selected="selected" *ngFor="let address of addresses" [ngValue]=address>{{address.street}}</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">District</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select name="subject" formControlName="addresses">
+                    <option selected="selected" *ngFor="let district of addresses" [ngValue]=district>{{district.districts.name}}</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Cities</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select name="subject" formControlName="addresses">
+                    <option selected="selected" *ngFor="let city of addresses" [ngValue]=city>{{city.districts.cities.name}}</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">propertiesTypes</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select name="subject" formControlName="propertiesTypes">
+                    <option selected="selected" *ngFor="let propertyType of Types" [ngValue]=propertyType>{{propertyType.name}}</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn--radius-2 btn--red" type="submit">Tạo nhà cho thuê</button>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="form-group">
-      <img [src]="url" alt="">
-      <br>
-      <br>
-      <div class="uploadImage">
-        <label style="cursor: pointer; margin: auto" for="image"><i class="fa fa-upload" aria-hidden="true"></i> Upload
-          Images</label>
-        <input type="file" id="image" (change)="displayImage($event)" accept="image/*" hidden>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="file">Upload video:</label>
-      <input type="file" id="file" (change)="selectFile($event)">
-      <!--<p style="color:red;" *ngIf="createSongForm.get('uploadFile').invalid && createSongForm.get('uploadFile').touched">Bạn cần Upload File</p>
-      <button class="btn btn-success" [disabled]="!selectedFile" (click)="upload()">Upload</button>-->
-    </div>
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" placeholder="Enter name" id="name" formControlName="name">
-      <p style="color:red;" *ngIf="propertyForm.get('name').invalid && propertyForm.get('name').touched">Số kí tự nhiều hơn 6</p>
-    </div>
-    <div class="form-group">
-      <label for="price">price</label>
-      <input type="text" class="form-control" placeholder="Enter price" id="price" formControlName="price">
-      <p style="color:red;" *ngIf="propertyForm.get('price').invalid && propertyForm.get('price').touched">xin mời nhập price</p>
-    </div>
-    <div class="form-group">
-      <label for="size">size</label>
-      <input type="text" class="form-control" placeholder="Enter size" id="size" formControlName="size">
-      <p style="color:red;" *ngIf="propertyForm.get('size').invalid && propertyForm.get('size').touched">size không được để trống</p>
-    </div>
-    <div class="form-group">
-      <label for="bathrooms">bathrooms</label>
-      <input type="text" class="form-control" placeholder="Enter bathrooms" id="bathrooms" formControlName="bathrooms">
-      <p style="color:red;" *ngIf="propertyForm.get('bathrooms').invalid && propertyForm.get('bathrooms').touched">bathrooms không được để trống</p>
-    </div>
-    <div class="form-group">
-      <label for="bedrooms">bedrooms</label>
-      <input type="text" class="form-control" placeholder="Enter bedrooms" id="bedrooms" formControlName="bedrooms">
-      <p style="color:red;" *ngIf="propertyForm.get('bedrooms').invalid && propertyForm.get('bedrooms').touched">bedrooms không được để trống</p>
-    </div>
-    <div class="form-group">
-      <label for="description">description</label>
-      <input type="text" class="form-control" placeholder="Enter description" id="description"
-             formControlName="description">
-      <p style="color:red;" *ngIf="propertyForm.get('description').invalid && propertyForm.get('description').touched">description không được để trống</p>
-    </div>
-    <div class="form-group">
-      <label for="address">address</label>
-      <select id="address" class="form-control" formControlName="addresses" required>
-        <option *ngFor="let address of addresses" [ngValue]=address>
-          {{address.street}}
-        </option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="address">propertyType</label>
-      <select id="propertyType" class="form-control" formControlName="propertiesTypes" required>
-        <option *ngFor="let propertyType of Types" [ngValue]=propertyType>
-          {{propertyType.name}}
-        </option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </div>
 </div>

@@ -14,12 +14,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AccountService {
+  private readonly API_URL = 'http://localhost:8080/api/account';
 
   shouldRefresh = new Subject<any>();
 
   private registerURL = environment.RegisterUrl;
-
-
+  private readonly API_RENTER = 'http://localhost:8080/api/account/renter';
+  private readonly API_DETAIL = 'http://localhost:8080/api/account';
   constructor(private  httpClient: HttpClient) {
   }
 
@@ -34,5 +35,34 @@ export class AccountService {
 
   getListHost(): Observable<IAccount[]> {
     return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
+  }
+
+  getListRenter(): Observable<IAccount[]> {
+    return this.httpClient.get<IAccount[]>(this.API_RENTER);
+  }
+
+  getDetail(id: number): Observable<IAccount> {
+    return this.httpClient.get<IAccount>(`${this.API_DETAIL}/${id}`);
+  }
+
+  deleteAccount(id: number): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}/delete/${id}`);
+  }
+
+  getAccountById(id: number): Observable<IAccount> {
+    return this.httpClient.get<IAccount>(`${this.API_URL}/${id}`);
+  }
+
+  updateAccount(account: IAccount): Observable<IAccount> {
+    return this.httpClient.put<IAccount>(this.API_URL, account);
+  }
+
+  createAccount(account: IAccount): Observable<IAccount> {
+    return this.httpClient.post<IAccount>(this.API_URL, account);
+  }
+
+  affectStatusAccountById(id: number): Observable<IAccount> {
+    // @ts-ignore
+    return this.httpClient.post<IAccount>(`${this.API_URL}/edit/${id}`);
   }
 }

@@ -1,0 +1,40 @@
+
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <h3><a routerLink="/"> Danh sach Khach hang</a></h3>
+        <table>
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">ID</th>
+            <th class="column2">Name</th>
+            <th class="column3">UserName</th>
+            <th class="column4">Password</th>
+            <th class="column5">Email</th>
+            <th class="column6">Phone</th>
+            <th class="column7">Edit</th>
+            <th class="column8">Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let renter of renters">
+            <td class="column1">{{renter.id}}</td>
+            <td class="column2">{{renter.name}}</td>
+            <td class="column3"><a [routerLink]="['/renter',renter.id]">{{renter.username}}</a></td>
+            <td class="column4">{{renter.password}}</td>
+            <td class="column5">{{renter.email}}}</td>
+            <td class="column8">{{renter.phone}}</td>
+            <td><a [routerLink]="['product-edit', renter.id]"><span class="fa fa-edit"></span></a></td>
+<!--            <td>-->
+<!--              <button class="btn-primary" (click)="deleteProperty(property.id)"><span class="fa fa-cut"></span></button>-->
+<!--            </td>-->
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

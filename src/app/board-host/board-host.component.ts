@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../_services/user.service';
+import {IAccount} from "../interface/IAccount";
+import {AccountService} from "../service/account.service";
 
 @Component({
   selector: 'app-board-host',
@@ -7,19 +9,26 @@ import {UserService} from '../_services/user.service';
   styleUrls: ['./board-host.component.css']
 })
 export class BoardHostComponent implements OnInit {
+  accounts: IAccount[] = [];
 
-  content: string;
-
-  constructor(private userService: UserService) { }
+  constructor(private accountService: AccountService) {
+  }
 
   ngOnInit(): void {
-    this.userService.getHostBoard().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    this.getALLbyHost();
+    this.accountService.shouldRefresh.subscribe(result => this.getALLbyHost());
   }
+
+  getALLbyHost(): void {
+    this.accountService.getListHost()
+      .subscribe(result => (this.accounts = result), error => (this.accounts = []));
+  }
+
+  /*deleteHost(id: number): void {
+    if (confirm('Are you sure to delete?')) {
+      this.accountService.deleteAccount(id).subscribe(result => {
+        this.accountService.shouldRefresh.next();
+      });
+    }
+  }*/
 }
