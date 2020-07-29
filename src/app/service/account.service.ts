@@ -14,6 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AccountService {
+  private readonly API_URL = 'http://localhost:8080/api/account';
 
   shouldRefresh = new Subject<any>();
 
@@ -34,5 +35,9 @@ export class AccountService {
 
   getListHost(): Observable<IAccount[]> {
     return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
+  }
+
+  deleteAccount(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.API_URL}/${id}`);
   }
 }
