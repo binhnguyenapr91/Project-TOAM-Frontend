@@ -20,13 +20,13 @@ export class CommentService {
   getCommentById(id: number): Observable<IComment> {
     return this.http.get<IComment>(`${environment.apiComment}/${id}`);
   }
-  createBook(comment: IComment): Observable<IComment> {
+  createComment(comment: IComment): Observable<IComment> {
     return this.http.post<IComment>(`${environment.apiComment}`, comment);
   }
-  deleteBook(id: number): Observable<any> {
+  deleteComment(id: number): Observable<any> {
     return this.http.delete(`${environment.apiComment}/${id}`);
   }
-  updateBook(comment: IComment): Observable<IComment> {
+  updateComment(comment: IComment): Observable<IComment> {
     return this.http.put<IComment>(`${environment.apiComment}/${comment.id}`, comment);
   }
 }
