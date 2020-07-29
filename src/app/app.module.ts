@@ -30,7 +30,11 @@ import {AddressUpdateComponent} from './address-update/address-update.component'
 import {RoleComponent} from './role/role.component';
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
 import { CalendarComponent } from './component/calendar/calendar.component';
+
+import { PropertyEditComponent } from './property-edit/property-edit.component';
+
 import { AccountListComponent } from './account-list/account-list.component';
+
 
 
 @NgModule({
@@ -53,11 +57,11 @@ import { AccountListComponent } from './account-list/account-list.component';
     LayoutFooterComponent,
     PropertyListComponent,
     PropertyDetailComponent,
-
+    CalendarComponent,
+    PropertyEditComponent,
     CommentComponent,
-    CalendarComponent,
-    CalendarComponent,
     AccountListComponent,
+
 
   ],
   imports: [
