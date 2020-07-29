@@ -18,6 +18,7 @@ import {RenterDetailComponent} from './component/accountRenter-list/renter-detai
 import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
 
 
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -35,7 +36,9 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home/property/:id', component: PropertyDetailComponent},
   {path: 'renter/:id', component: RenterDetailComponent},
-  {path: 'renter-list', component: RenterListComponent}
+  {path: 'renter-list', component: RenterListComponent},
+  {path: 'home/property/:id', component: PropertyDetailComponent
+  },
 ];
 
 @NgModule({

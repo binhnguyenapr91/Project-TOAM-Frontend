@@ -1,34 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../_services/user.service';
 import {IAccount} from "../interface/IAccount";
 import {AccountService} from "../service/account.service";
 
 @Component({
-  selector: 'app-board-host',
-  templateUrl: './board-host.component.html',
-  styleUrls: ['./board-host.component.css']
+  selector: 'app-account-list',
+  templateUrl: './account-list.component.html',
+  styleUrls: ['./account-list.component.css']
 })
-export class BoardHostComponent implements OnInit {
+export class AccountListComponent implements OnInit {
   accounts: IAccount[] = [];
 
   constructor(private accountService: AccountService) {
   }
 
   ngOnInit(): void {
-    this.getALLbyHost();
-    this.accountService.shouldRefresh.subscribe(result => this.getALLbyHost());
+    this.getALL();
+    this.accountService.shouldRefresh.subscribe(result => this.getALL());
   }
 
-  getALLbyHost(): void {
-    this.accountService.getListHost()
+  getALL(): void {
+    this.accountService.getListAccount()
       .subscribe(result => (this.accounts = result), error => (this.accounts = []));
   }
 
-  /*deleteHost(id: number): void {
+  deleteAccount(id: number): void {
     if (confirm('Are you sure to delete?')) {
       this.accountService.deleteAccount(id).subscribe(result => {
         this.accountService.shouldRefresh.next();
       });
     }
-  }*/
+  }
 }

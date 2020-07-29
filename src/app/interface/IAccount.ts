@@ -8,6 +8,7 @@ export interface IAccount {
   status: boolean;
   phone: string;
   email: string;
+  // role: IRole;
   token: string; // thuan
 }
 

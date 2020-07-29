@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutAdminHeaderComponent } from './layout-admin-header.component';
+import { FakePropertyDetailComponent } from './fake-property-detail.component';
 
-describe('LayoutAdminHeaderComponent', () => {
-  let component: LayoutAdminHeaderComponent;
-  let fixture: ComponentFixture<LayoutAdminHeaderComponent>;
+describe('FakePropertyDetailComponent', () => {
+  let component: FakePropertyDetailComponent;
+  let fixture: ComponentFixture<FakePropertyDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LayoutAdminHeaderComponent ]
+      declarations: [ FakePropertyDetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LayoutAdminHeaderComponent);
+    fixture = TestBed.createComponent(FakePropertyDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
