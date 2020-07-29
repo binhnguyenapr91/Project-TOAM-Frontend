@@ -15,7 +15,9 @@ import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
+
 import {AccountListComponent} from "./account-list/account-list.component";
+
 
 
 // @ts-ignore
@@ -36,7 +38,8 @@ const routes: Routes = [
   },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home/property/:id', component: PropertyDetailComponent
-  }
+  },
+  {path: 'fakeProperty/:id', component: FakePropertyDetailComponent,} //Thuan
 ];
 
 @NgModule({

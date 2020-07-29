@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, OnInit} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { BoardHostComponent } from './board-host/board-host.component';
 import { BoardRenterComponent } from './board-renter/board-renter.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
+import { FakePropertyDetailComponent } from './component/fake-property-detail/fake-property-detail.component';
+import { CommentComponent } from './component/comment/comment.component';
 import { LayoutHeaderComponent } from './component/layout-header/layout-header.component';
 import { LayoutFooterComponent } from './component/layout-footer/layout-footer.component';
 import { PropertyListComponent } from './component/property-list/property-list.component';
@@ -51,8 +53,12 @@ import { AccountListComponent } from './account-list/account-list.component';
     LayoutFooterComponent,
     PropertyListComponent,
     PropertyDetailComponent,
+
+    CommentComponent,
     CalendarComponent,
-    AccountListComponent
+    CalendarComponent,
+    AccountListComponent,
+
   ],
   imports: [
     BrowserModule,
