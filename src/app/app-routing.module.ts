@@ -16,6 +16,7 @@ import {AddressComponent} from './address/address.component';
 
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
 import {AccountListComponent} from "./account-list/account-list.component";
+import {AccountUpdateComponent} from "./account-update/account-update.component";
 
 
 // @ts-ignore
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'property', component: PropertiesComponent},
   {path: 'address', component: AddressListComponent},
   {path: 'accounts', component: AccountListComponent},
+  {path: 'account-update/:id', component: AccountUpdateComponent},
   {
     path: 'create-address', component: AddressComponent
   },

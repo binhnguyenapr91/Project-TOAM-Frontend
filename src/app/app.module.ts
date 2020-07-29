@@ -29,6 +29,7 @@ import {RoleComponent} from './role/role.component';
 import {PropertyDetailComponent} from "./component/property-detail/property-detail.component";
 import { CalendarComponent } from './component/calendar/calendar.component';
 import { AccountListComponent } from './account-list/account-list.component';
+import { AccountUpdateComponent } from './account-update/account-update.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AccountListComponent } from './account-list/account-list.component';
     PropertyListComponent,
     PropertyDetailComponent,
     CalendarComponent,
-    AccountListComponent
+    AccountListComponent,
+    AccountUpdateComponent
   ],
   imports: [
     BrowserModule,
