@@ -15,7 +15,6 @@ export class CommentComponent implements OnInit {
   propertyabcId: number;
   accountabc: { id: number } = {id: 1}
   propertyabc: { id: number } = {id: 1,}
-  abc: string;
 
 
   isShowSuccess = false;

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {IProperty} from "../../interface/iproperty";
 import {PropertyService} from "../../service/property.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -14,10 +14,14 @@ import {CommentService} from "../../service/comment.service";
 })
 export class PropertyDetailComponent implements OnInit {
   propertyId: number;
+
   commentForm: FormGroup;
-  account: { id: number };
-  properties: { id: number } = {id: this.propertyId};
-  commentId: number;
+
+  commentabcId: number;
+  propertyabcId: number;
+  accountabc: { id: number } = {id: 1}
+  propertyabc: { id: number } = {id: 1,}
+
 
   message: string;
 
@@ -40,10 +44,14 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.account.id = this.token.getUser().id;
+    this.accountabc.id = this.token.getUser().id;
+    console.log(this.accountabc);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
+
+      this.propertyabc.id = params.id;
+
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
         this.property = result;
       });
@@ -57,28 +65,40 @@ export class PropertyDetailComponent implements OnInit {
       this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + "codegym" + "&output=embed");
     });
     //
+
     this.commentForm = this.fb.group({
       comment: [''],
       account: [''],
       properties: [''],
     });
 
-    console.log("comment Id : " + this.commentId);
-    console.log("property Id : " + this.propertyId);
-    console.log("account Id : " + this.account.id);
   }
 
   onSubmit() {
+    // if (this.commentId) {
+    //   this.commentService.updateComment(this.commentForm.value).subscribe(result => {
+    //     this.isShowSuccess = true;
+    //     this.message = 'Đã cập nhật thông tin !';
+    //   });
+    // } else {
+
     const {value} = this.commentForm;
     this.commentService.createComment(value).subscribe(result => {
-      this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
+      // this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
+      alert("them comment");
       console.log(result);
 
     }, error => {
+      alert("khong them comment");
       this.message = 'Bạn cần có ký hợp đồng với chủ sở hữu để bình luận ';
       console.log(error);
     });
     this.setDefaultValue();
+
+    console.log('ID account la: ' + this.accountabc.id);
+    console.log('id property la: ' + this.propertyabc.id);
+    // }
+
   }
 
   get Field(): FormGroup {
@@ -86,8 +106,8 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   setDefaultValue(): void {
-    this.commentForm.get('account').setValue(this.account);
-    this.commentForm.get('properties').setValue(this.properties);
+    this.commentForm.get('account').setValue(this.accountabc);
+    this.commentForm.get('properties').setValue(this.propertyabc);
   }
 
 }
