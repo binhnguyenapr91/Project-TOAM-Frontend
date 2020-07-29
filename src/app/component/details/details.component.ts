@@ -15,7 +15,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private userService: LoginService
+    private userService: LoginService,
+
   ) {
     this.currentUser = this.authenticationService.currentUserValue;
   }

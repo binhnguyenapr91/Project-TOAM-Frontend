@@ -33,6 +33,7 @@ import { CalendarComponent } from './component/calendar/calendar.component';
 import { PropertyEditComponent } from './property-edit/property-edit.component';
 
 import { AccountListComponent } from './account-list/account-list.component';
+import { CommentListComponent } from './component/comment-list/comment-list.component';
 
 
 
@@ -60,6 +61,7 @@ import { AccountListComponent } from './account-list/account-list.component';
     PropertyEditComponent,
     CommentComponent,
     AccountListComponent,
+    CommentListComponent,
 
 
   ],
