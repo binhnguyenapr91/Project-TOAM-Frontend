@@ -20,7 +20,9 @@ export class AccountService {
 
   private registerURL = environment.RegisterUrl;
   private readonly API_RENTER = 'http://localhost:8080/api/account/renter';
+  private readonly API_HOST = 'http://localhost:8080/api/account/host';
   private readonly API_DETAIL = 'http://localhost:8080/api/account';
+
   constructor(private  httpClient: HttpClient) {
   }
 
@@ -39,6 +41,10 @@ export class AccountService {
 
   getListRenter(): Observable<IAccount[]> {
     return this.httpClient.get<IAccount[]>(this.API_RENTER);
+  }
+
+  getHostList(): Observable<IAccount[]> {
+    return this.httpClient.get<IAccount[]>(this.API_HOST);
   }
 
   getDetail(id: number): Observable<IAccount> {
