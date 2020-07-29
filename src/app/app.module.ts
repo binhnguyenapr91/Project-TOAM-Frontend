@@ -35,6 +35,7 @@ import { RenterListComponent } from './component/accountRenter-list/renter-list/
 import { RenterDetailComponent } from './component/accountRenter-list/renter-detail/renter-detail.component';
 
 import { AccountListComponent } from './account-list/account-list.component';
+import { AccountUpdateComponent } from './account-update/account-update.component';
 
 
 
@@ -59,14 +60,13 @@ import { AccountListComponent } from './account-list/account-list.component';
     PropertyListComponent,
     PropertyDetailComponent,
     CalendarComponent,
+    AccountUpdateComponent
     PropertyEditComponent,
     RenterListComponent,
     RenterDetailComponent,
     PropertyEditComponent,
     CommentComponent,
     AccountListComponent,
-
-
   ],
   imports: [
     BrowserModule,
