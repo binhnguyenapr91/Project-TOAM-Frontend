@@ -41,7 +41,6 @@ import { SearchLayoutComponent } from './search-component/search-layout/search-l
 import { SearchFormComponent } from './search-component/search-form/search-form.component';
 import { SearchByAllComponent } from './search-component/search-by-all/search-by-all.component';
 import { SearchByTypeComponent } from './search-component/search-by-type/search-by-type.component';
-import { ResultSearchAllComponent } from './search-component/result-search-all/result-search-all.component';
 
 
 
@@ -77,7 +76,6 @@ import { ResultSearchAllComponent } from './search-component/result-search-all/r
     SearchFormComponent,
     SearchByAllComponent,
     SearchByTypeComponent,
-    ResultSearchAllComponent,
   ],
   imports: [
     BrowserModule,
