@@ -38,7 +38,7 @@ export class AccountService {
   }
 
   deleteAccount(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.API_URL}/${id}`);
+    return this.httpClient.get(`${this.API_URL}/delete/${id}`);
   }
 
   getAccountById(id: number): Observable<IAccount> {
@@ -51,5 +51,10 @@ export class AccountService {
 
   createAccount(account: IAccount): Observable<IAccount> {
     return this.httpClient.post<IAccount>(this.API_URL, account);
+  }
+
+  affectStatusAccountById(id: number): Observable<IAccount> {
+    // @ts-ignore
+    return this.httpClient.post<IAccount>(`${this.API_URL}/edit/${id}`);
   }
 }
