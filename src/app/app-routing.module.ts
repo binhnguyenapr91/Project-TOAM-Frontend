@@ -37,7 +37,6 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home/property/:id', component: PropertyDetailComponent
   },
-  {path: 'fakeProperty/:id', component: FakePropertyDetailComponent,} //Thuan
 ];
 
 @NgModule({

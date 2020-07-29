@@ -17,7 +17,6 @@ import { HomeComponent } from './home/home.component';
 import { BoardHostComponent } from './board-host/board-host.component';
 import { BoardRenterComponent } from './board-renter/board-renter.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
-import { FakePropertyDetailComponent } from './component/fake-property-detail/fake-property-detail.component';
 import { CommentComponent } from './component/comment/comment.component';
 import { LayoutHeaderComponent } from './component/layout-header/layout-header.component';
 import { LayoutFooterComponent } from './component/layout-footer/layout-footer.component';
