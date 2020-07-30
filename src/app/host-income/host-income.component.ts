@@ -12,6 +12,7 @@ import {IHostIncome} from '../interface/IHostIncome';
 })
 export class HostIncomeComponent implements OnInit {
   incomePerMonth: IHostIncome[] = [];
+  amount: number;
   currentUser: any;
 
   constructor(private incomeService: HostIncomeService,
@@ -25,11 +26,18 @@ export class HostIncomeComponent implements OnInit {
     this.incomeService.shouldRefresh.subscribe(result => {
       this.getAll();
     });
+    this.getAmount();
   }
 
   private getAll(): void {
     this.incomeService.getHostIncomeList().subscribe(result => {
       this.incomePerMonth = result;
+    });
+  }
+
+  private getAmount(): void {
+    this.incomeService.getAmount().subscribe(result => {
+      this.amount = result;
     });
   }
 }

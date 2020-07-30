@@ -9,6 +9,7 @@ import {IHostIncome} from '../interface/IHostIncome';
 })
 export class HostIncomeService {
   private readonly API_URL = 'http://localhost:8080/api/host/value';
+  private readonly API_URL1 = 'http://localhost:8080/api/host/allValue';
   shouldRefresh = new Subject<any>();
 
   constructor(private httpClient: HttpClient) {
@@ -16,5 +17,9 @@ export class HostIncomeService {
 
   getHostIncomeList(): Observable<IHostIncome[]> {
     return this.httpClient.get<IHostIncome[]>(this.API_URL);
+  }
+
+  getAmount(): Observable<number> {
+    return this.httpClient.get<number>(this.API_URL1);
   }
 }
