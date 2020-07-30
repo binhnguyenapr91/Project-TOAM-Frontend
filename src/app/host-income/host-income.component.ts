@@ -14,6 +14,7 @@ export class HostIncomeComponent implements OnInit {
   incomePerMonth: IHostIncome[] = [];
   amount: number;
   currentUser: any;
+  allContracts: number;
 
   constructor(private incomeService: HostIncomeService,
               private activeRoute: ActivatedRoute,
@@ -27,6 +28,7 @@ export class HostIncomeComponent implements OnInit {
       this.getAll();
     });
     this.getAmount();
+    this.getAllContractsQuantity();
   }
 
   private getAll(): void {
@@ -38,6 +40,12 @@ export class HostIncomeComponent implements OnInit {
   private getAmount(): void {
     this.incomeService.getAmount().subscribe(result => {
       this.amount = result;
+    });
+  }
+
+  private getAllContractsQuantity(): void {
+    this.incomeService.getAllContractsQuan().subscribe(result => {
+      this.allContracts = result;
     });
   }
 }
