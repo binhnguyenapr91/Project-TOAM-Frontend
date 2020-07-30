@@ -1,22 +1,22 @@
-
-<div class="container" style="padding-top: 55px">
-  <p>Amount: {{amount}}$</p>
-  <table class="table table-dark">
-
-    <tr>
-      <td>#</td>
-      <td>Date</td>
-      <td>Contracts Quantity</td>
-      <td>Income Per Month</td>
-    </tr>
-
-    <tr *ngFor="let income of incomePerMonth; index as i">
-      <td>{{i + 1}}</td>
-      <td>{{income.dateAndMonth}}</td>
-      <td>{{income.quantityOfContracts}}</td>
-      <td>{{income.valuePerMonth}}$</td>
-    </tr>
-
-  </table>
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 1px;background-color: white; width:100%;border-radius: 20px;text-align: center">
+      <h3>Amount: {{amount}}$</h3>
+      <table class="table table-hover">
+        <tr>
+          <td>#</td>
+          <td>Date</td>
+          <td>Contracts Quantity</td>
+          <td>Income Per Month</td>
+        </tr>
+        <tr *ngFor="let income of incomePerMonth; index as i">
+          <td>{{i + 1}}</td>
+          <td>{{income.dateAndMonth}}</td>
+          <td>{{income.quantityOfContracts}}</td>
+          <td>{{income.valuePerMonth}}$</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
-<app-layout-footer></app-layout-footer>
