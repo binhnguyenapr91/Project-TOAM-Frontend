@@ -1,33 +1,33 @@
 <!-- Header Section Begin -->
-<header class="header-section">
+<div><header class="header-section btn-dark" style="position: fixed">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
         <div class="logo">
-          <a href="./index.html">
-            <img src="../../../assets/img/logo.png" height="31" width="100" alt="logo"/>
+          <a routerLink="">
+            <img src="assets/img/logo.png" height="31" width="100" alt="logo"/>
           </a>
 
           <ul class="main-menu" routerLinkActive="active">
             <li>
-              <a href="/home" class="nav-link" routerLink="home">TOAM</a>
+              <a  class="nav-link" routerLink="home">TOAM</a>
             </li>
             <li *ngIf="showAdminBoard">
               <a routerLink="../accounts">Accounts</a>
               <a routerLink="../property">Properties</a>
             </li>
             <li *ngIf="showHostBoard">
-              <a href="/host" routerLink="host">Host board</a>
+              <a routerLink="host">Host board</a>
             </li>
             <li *ngIf="showRenterBoard">
-              <a href="/renter" routerLink="renter">Renter board</a>
+              <a routerLink="renter">Renter board</a>
             </li>
           </ul>
 
         </div>
         <ul class="main-menu" *ngIf="!isLoggedIn">
-          <li><a href="/register" routerLink="register">Register</a></li>
-          <li><a href="/login" routerLink="login">Log in</a></li>
+          <li><a  routerLink="register">Register</a></li>
+          <li><a  routerLink="login">Log in</a></li>
         </ul>
 
         <ul class="main-menu" *ngIf="isLoggedIn">
@@ -35,7 +35,7 @@
             <a routerLink="profile">{{ username }}</a>
           </li>
           <li>
-            <a href="/" style="color:white" (click)="logout()">Log out</a>
+            <a  style="color:white" (click)="logout()">Log out</a>
           </li>
         </ul>
 
@@ -44,5 +44,6 @@
     </div>
   </div>
 </header>
+</div>
 <!-- Header Section End -->
 <router-outlet></router-outlet>
