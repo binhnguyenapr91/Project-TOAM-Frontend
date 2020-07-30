@@ -83,10 +83,10 @@ export class PropertyEditComponent implements OnInit {
     console.log(this.formEdit.value);
     if (this.idProperty) {
       this.propertyService.updatePropertyId(this.formEdit.value).subscribe(result => {
-        this.message = 'Update successfull!';
+        alert('Updated home successfully !!!');
       });
     } else {
-      this.message = 'Update fail !!!';
+      alert('Home update failed !!!');
     }
   }
 }
