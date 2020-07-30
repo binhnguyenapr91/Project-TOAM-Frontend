@@ -2,6 +2,8 @@
   <div class="container-login100"
        style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
     <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+
+      <a class="offset-md-4" routerLink=""> <span >{{message}}</span></a>
       <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 					<span class="login100-form-title p-b-49">
 						<label style="font-family: 'Arial'">Đăng ký</label>
@@ -108,8 +110,8 @@
         </div>
 
       </form>
-
     </div>
+
   </div>
 </div>
 
