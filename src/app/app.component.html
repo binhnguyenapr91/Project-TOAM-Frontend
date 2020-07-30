@@ -1,4 +1,3 @@
-
 <!-- Header Section Begin -->
 <header class="header-section">
   <div class="container-fluid">
@@ -14,29 +13,29 @@
               <a href="/home" class="nav-link" routerLink="home">TOAM</a>
             </li>
             <li *ngIf="showAdminBoard">
-              <a class="nav-link" routerLink="../accounts">Accounts</a>
-              <a class="nav-link" routerLink="../property">Properties</a>
+              <a routerLink="../accounts">Accounts</a>
+              <a routerLink="../property">Properties</a>
             </li>
             <li *ngIf="showHostBoard">
-              <a href="/host" class="nav-link" routerLink="host">Host Board</a>
+              <a href="/host" routerLink="host">Host board</a>
             </li>
             <li *ngIf="showRenterBoard">
-              <a href="/renter" class="nav-link" routerLink="renter">Renter Board</a>
+              <a href="/renter" routerLink="renter">Renter board</a>
             </li>
           </ul>
 
         </div>
         <ul class="main-menu" *ngIf="!isLoggedIn">
-          <li><a href="/register" class="nav-link" routerLink="register">Register</a></li>
-          <li><a href="/login" class="nav-link" routerLink="login">Sign In</a></li>
+          <li><a href="/register" routerLink="register">Register</a></li>
+          <li><a href="/login" routerLink="login">Log in</a></li>
         </ul>
 
         <ul class="main-menu" *ngIf="isLoggedIn">
           <li>
-            <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+            <a routerLink="profile">{{ username }}</a>
           </li>
           <li>
-            <a class="nav-link" (click)="logout()">Log Out</a>
+            <a style="color:white" (click)="logout()">Log out</a>
           </li>
         </ul>
 
@@ -46,5 +45,4 @@
   </div>
 </header>
 <!-- Header Section End -->
-
 <router-outlet></router-outlet>
