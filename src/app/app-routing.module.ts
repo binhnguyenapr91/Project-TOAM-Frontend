@@ -20,7 +20,7 @@ import {PropertyEditComponent} from './property-edit/property-edit.component';
 import {SearchLayoutComponent} from "./search-component/search-layout/search-layout.component";
 import {SearchByTypeComponent} from "./search-component/search-by-type/search-by-type.component";
 import {SearchByAllComponent} from "./search-component/search-by-all/search-by-all.component";
-import {AuthGuard} from "./_helpers/auth.guard";
+import {AuthGuard} from './_helpers/auth.guard';
 import {AccountCreateComponent} from './account-create/account-create.component';
 
 const routes: Routes = [
@@ -46,7 +46,7 @@ const routes: Routes = [
   {
     path: 'create-address', component: AddressComponent
   },
-  {path: 'accounts', component: AccountListComponent,canActivate:[AuthGuard],},
+  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard], },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home/property/:id', component: PropertyDetailComponent,
   },
