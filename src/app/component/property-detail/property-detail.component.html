@@ -167,7 +167,8 @@
               <div>
                 <div style="color: grey">
                   <label class="badge badge-success col-md-12" style="height: 50px;alignment: center; padding: 20px;font-size: medium;background-color: #8AD144; color: #fff" >HOW ABOUT THIS PROPERTY</label>
-                  <fieldset *ngFor="let comments of commentList" style="border:solid whitesmoke ;box-shadow:lightblue ;border-radius: 10px">
+                  <fieldset class="offset-md-1 mt-md-3" *ngFor="let comments of commentList"
+                            style="border:solid whitesmoke ;box-shadow:lightblue ;border-radius: 10px;margin-right: 8.333333%">
                     <legend class="col-md-6" style="font-size:medium;color:crimson "> <p style="font-size: small">{{comments.account.name}}</p></legend>
                     <p class="offset-md-1"> {{comments.comment}}</p>
                   </fieldset>
@@ -182,7 +183,7 @@
                         <textarea style="border: solid lightblue" type="text" class="form-control "
                                   formControlName="comment" id="comment">
                         </textarea>
-                        <div class="btn btn-group-toggle offset-md-1" role="alert"
+                        <div class="btn btn-light offset-md-1 mt-md-3" style="border-radius: 20px; " role="alert"
                              *ngIf="Field.get('comment').invalid && Field.get('comment').touched">
                           <p>What do you think about this house !</p>
                         </div>
