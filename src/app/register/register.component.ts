@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = false;
         this.message= "Đăng ký thành công";
         setTimeout(()=>{
-          this.router.navigate([''])},2000
+          this.router.navigate([''])},1500
         );
       },
       err => {
