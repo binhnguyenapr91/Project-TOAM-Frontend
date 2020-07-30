@@ -19,7 +19,7 @@
           <td class="column2">{{address.street}}</td>
           <td class="column3">{{address.districts.name}}</td>
           <td class="column4">{{address.districts.cities.name}}</td>
-          <td><a [routerLink]="['/edit-address']"><span class="fa fa-edit"></span></a></td>
+          <td><a [routerLink]="['/address-update',address.id]"><span class="fa fa-edit"></span></a></td>
           <td>
             <button (click)="deleteAddress(address.id)" class="btn-primary"><span class="fa fa-cut"></span></button>
           </td>

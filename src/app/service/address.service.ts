@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {IAddress} from '../interface/IAddress';
+import {IAccount} from '../interface/IAccount';
 
 
 @Injectable({
@@ -28,10 +29,10 @@ export class AddressService {
   }
 
   updateAddress(address: IAddress): Observable<IAddress> {
-    return this.httpClient.put<IAddress>(`${this.API_URL}/${address.id}`, address);
+    return this.httpClient.put<IAddress>(this.API_URL, address);
   }
 
-  getAddressById(id: number): Observable<IAddress> {
+  getAddressById(id: string): Observable<IAddress> {
     return this.httpClient.get<IAddress>(`${this.API_URL}/${id}`);
   }
 }

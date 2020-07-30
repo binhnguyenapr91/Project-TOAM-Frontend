@@ -23,6 +23,7 @@ import {SearchByAllComponent} from './search-component/search-by-all/search-by-a
 import {AuthGuard} from './_helpers/auth.guard';
 import {AccountCreateComponent} from './account-create/account-create.component';
 import {HistoryContractComponent} from './History/history-contract/history-contract.component';
+import {AddressUpdateComponent} from './address-update/address-update.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'address', component: AddressListComponent},
   {path: 'search', component: SearchLayoutComponent},
   {path: 'address-create', component: AddressComponent},
+  {path: 'address-update/:id', component: AddressUpdateComponent},
   {
     path: 'history', component: HistoryContractComponent
   },
@@ -51,7 +53,7 @@ const routes: Routes = [
   {
     path: 'create-address', component: AddressComponent
   },
-  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard], },
+  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard],},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {
     path: 'home/property/:id', component: PropertyDetailComponent,
