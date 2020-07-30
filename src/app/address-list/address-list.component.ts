@@ -29,7 +29,7 @@ export class AddressListComponent implements OnInit {
   }
 
   deleteAddress(id: number): void {
-    if (confirm('I want to delete ?')) {
+    if (confirm('You want to delete?')) {
       this.addressService.deleteAddress(id).subscribe(result => {
         this.addressService.shouldRefresh.next();
       });
