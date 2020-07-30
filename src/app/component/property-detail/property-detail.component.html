@@ -166,10 +166,10 @@
 
               <div>
                 <div style="color: grey">
-                  <label class="btn-block btn btn-primary">Đánh giá</label>
-                  <fieldset *ngFor="let comments of commentList" style="border: solid lightblue;background: lavender">
-                    <legend class="col-md-6" style="font-size:small;color:  black ;background: lightgray">Tài khoản : {{comments.account.name}}</legend>
-                    <p> {{comments.comment}}</p>
+                  <button class="btn btn-success col-md-12" disabled type="button">Đánh giá</button>
+                  <fieldset *ngFor="let comments of commentList" style="border:solid whitesmoke ;box-shadow:lightblue ;border-radius: 10px">
+                    <legend class="col-md-6" style="font-size:medium;color:black "> <p style="font-size: small">{{comments.account.name}}</p></legend>
+                    <p class="offset-md-1"> {{comments.comment}}</p>
                   </fieldset>
 
                 </div>
@@ -188,7 +188,7 @@
                         </div>
                       </fieldset>
                     </div>
-                    <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+                    <button type="submit" class="btn btn-success">Gửi bình luận</button>
                   </form>
                   <div class="col-md-8 offset-md-1" style="word-wrap: break-word"><p>{{this.message}}</p></div>
 
