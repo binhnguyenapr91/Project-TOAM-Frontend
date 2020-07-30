@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {IProperty} from "../../interface/iproperty";
 import {PropertyService} from "../../service/property.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {TokenStorageService} from "../../_services/token-storage.service";
 import {CommentService} from "../../service/comment.service";
@@ -21,6 +21,7 @@ export class PropertyDetailComponent implements OnInit {
   accountabc: { id: number } = { id: 1}
   propertyabc: { id: number } = { id: 1 }
 
+  mySubscription: any;
 
   message: string;
 
@@ -40,6 +41,17 @@ export class PropertyDetailComponent implements OnInit {
               private fb: FormBuilder,
               private token: TokenStorageService,
               private commentService: CommentService,) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -84,20 +96,15 @@ export class PropertyDetailComponent implements OnInit {
   onSubmit() {
     const {value} = this.commentForm;
     this.commentService.createComment(value).subscribe(result => {
-      // this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
+      this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
       this.message = 'Đã gửi bình luận '
-
+      this.router.navigate(['/home/property/'+ this.propertyId])
     }, error => {
       this.message = 'Bạn cần có ký hợp đồng với chủ sở hữu để bình luận ';
       console.log(error);
     });
     this.setDefaultValue();
-
-    console.log('ID account la: ' + this.accountabc.id);
-    console.log('id property la: ' + this.propertyabc.id);
-
-    // }
 
   }
 
