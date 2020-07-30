@@ -1,92 +1,55 @@
+<section>
+  <img src="../../assets/img/header3.png" height="88" width="1920"/>
+</section>
 <div class="limiter">
-  <div class="container-table100">
-    <div class="wrap-table100">
-      <div class="table100">
-        <table>
-          <h3><a routerLink="/create-property" > Create Property</a></h3>
-          <select (click)="findPropertyByPropertyType($event.target.value)">
-            <option *ngFor="let pro of propertiesType" [value]="pro.name">{{pro.name}}</option>
-          </select>
-          <thead>
-          <tr class="table100-head">
-            <th class="column1">Image</th>
-            <th class="column2">Video</th>
-            <th class="column3">Price</th>
-            <th class="column4">Size</th>
-            <th class="column5">Bathroom</th>
-            <th class="column6">BedRooms</th>
-            <th class="column7">Address</th>
-            <th class="column8">PropertiesType</th>
-            <th class="column9">description</th>
-            <th class="column10">Edit</th>
-            <th class="column11">Delete</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let property of properties">
-            <td class="column1" style="width: 70%"><img src="{{property.images}}"></td>
-            <td class="column2"> <video width="150px" height="110px" src="{{property.videos}}" controls></video></td>
-            <td class="column3">{{property.price}}</td>
-            <td class="column4">{{property.size}}</td>
-            <td class="column5">{{property.bathrooms}}</td>
-            <td class="column6">{{property.bedrooms}}</td>
-            <td class="column7">{{property.addresses.street}}-{{property.addresses.districts.name}}
-              -{{property.addresses.districts.cities.name}}</td>
-            <td class="column8">{{property.propertiesTypes.name}}</td>
-            <td class="column9">{{property.description}}</td>
-            <td><a [routerLink]="['/edit-property', property.id]"><span class="fa fa-edit"></span></a></td>
-            <td>
-              <button class="btn-primary" (click)="deleteProperty(property.id)"><span class="fa fa-cut"></span></button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+          <table>
+            <h3><a routerLink="/create-property"> Create Property</a></h3>
+            <select (click)="findPropertyByPropertyType($event.target.value)">
+              <option *ngFor="let pro of propertiesType" [value]="pro.name">{{pro.name}}</option>
+            </select>
+            <thead>
+            <tr class="table100-head">
+              <th class="column1">Image</th>
+              <th class="column2">Video</th>
+              <th class="column3">Price</th>
+              <th class="column4">Size</th>
+              <th class="column5">Bathroom</th>
+              <th class="column6">BedRooms</th>
+              <th class="column7">Address</th>
+              <th class="column8">PropertiesType</th>
+              <th class="column9">description</th>
+              <th class="column10">Edit</th>
+              <th class="column11">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let property of properties">
+              <td class="column1" style="width: 70%"><img src="{{property.images}}"></td>
+              <td class="column2">
+                <video width="150px" height="110px" src="{{property.videos}}" controls></video>
+              </td>
+              <td class="column3">{{property.price}}</td>
+              <td class="column4">{{property.size}}</td>
+              <td class="column5">{{property.bathrooms}}</td>
+              <td class="column6">{{property.bedrooms}}</td>
+              <td class="column7">{{property.addresses.street}}-{{property.addresses.districts.name}}
+                -{{property.addresses.districts.cities.name}}</td>
+              <td class="column8">{{property.propertiesTypes.name}}</td>
+              <td class="column9">{{property.description}}</td>
+              <td><a [routerLink]="['/edit-property', property.id]"><span class="fa fa-edit"></span></a></td>
+              <td>
+                <button class="btn-primary" (click)="deleteProperty(property.id)"><span class="fa fa-cut"></span>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<!--<section>-->
-<!--  <img src="../../assets/img/header3.png" height="88" width="1920"/>-->
-<!--  &lt;!&ndash;    <img src="../../../assets/img/bg.jpg" height="633" width="1920"/>&ndash;&gt;-->
-<!--</section>-->
-
-<!--<div>-->
-<!--  <table class="table table-hover">-->
-<!--    <tr>-->
-<!--      <th>Image</th>-->
-<!--      <th>Video</th>-->
-<!--      <th>Price</th>-->
-<!--      <th>Size</th>-->
-<!--      <th>Bathroom</th>-->
-<!--      <th>BedRooms</th>-->
-<!--      <th>Address</th>-->
-<!--      <th>Type</th>-->
-<!--      <th>Description</th>-->
-<!--      <th colspan="2">Action</th>-->
-<!--    </tr>-->
-
-<!--    <tbody>-->
-<!--    <tr *ngFor="let property of properties">-->
-<!--      <td><img src="{{property.images}}"></td>-->
-<!--      <td>-->
-<!--        <video width="150px" height="110px" src="{{property.videos}}" controls></video>-->
-<!--      </td>-->
-<!--      <td>{{property.price}}</td>-->
-<!--      <td>{{property.size}}</td>-->
-<!--      <td>{{property.bathrooms}}</td>-->
-<!--      <td>{{property.bedrooms}}</td>-->
-<!--      <td>{{property.addresses.street}}, {{property.addresses.districts.name}}-->
-<!--        , {{property.addresses.districts.cities.name}}</td>-->
-<!--      <td>{{property.propertiesTypes.name}}</td>-->
-<!--      <td>{{property.description}}</td>-->
-<!--      <td><a [routerLink]="['product-edit', property.id]"><span class="fa fa-edit"></span></a></td>-->
-<!--      <td>-->
-<!--        <button class=" btn btn-primary" (click)="deleteProperty(property.id)"><span class="fa fa-cut"></span></button>-->
-<!--      </td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-
-

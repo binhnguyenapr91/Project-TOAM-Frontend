@@ -13,7 +13,6 @@ import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 export class PropertyDetailComponent implements OnInit {
 
   propertyId: number;
-  propertyForm: FormGroup;
   property: IProperty;
 // khai biến để lấy next property
   nextPropertyId: number;
@@ -25,7 +24,6 @@ export class PropertyDetailComponent implements OnInit {
 
   constructor(private propertyService: PropertyService,
               private activatedRoute: ActivatedRoute,
-              private router: Router,
               public sanitizer: DomSanitizer) {
   }
 
@@ -46,6 +44,4 @@ export class PropertyDetailComponent implements OnInit {
       this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + "codegym" + "&output=embed");
     });
   }
-
-
 }

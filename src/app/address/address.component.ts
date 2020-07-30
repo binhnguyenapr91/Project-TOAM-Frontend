@@ -39,11 +39,13 @@ export class AddressComponent implements OnInit {
     if (this.formAddress.valid) {
       const {value} = this.formAddress;
       this.addressService.createAddress(value).subscribe(result => {
-        this.message = 'Success';
+        this.message = 'Bạn thêm địa chỉ thành công';
         this.router.navigate(['/create-property']);
+      }, error => {
+        this.message = 'Bạn thêm địa chỉ không thành công';
       });
     } else {
-      this.message = 'Not Success';
+      this.message = 'Bạn thêm địa chỉ không thành công';
     }
   }
 }

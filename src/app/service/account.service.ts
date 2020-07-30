@@ -52,6 +52,23 @@ export class AccountService {
   }
 
   deleteAccount(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.API_URL}/${id}`);
+    return this.httpClient.get(`${this.API_URL}/delete/${id}`);
+  }
+
+  getAccountById(id: number): Observable<IAccount> {
+    return this.httpClient.get<IAccount>(`${this.API_URL}/${id}`);
+  }
+
+  updateAccount(account: IAccount): Observable<IAccount> {
+    return this.httpClient.put<IAccount>(this.API_URL, account);
+  }
+
+  createAccount(account: IAccount): Observable<IAccount> {
+    return this.httpClient.post<IAccount>(this.API_URL, account);
+  }
+
+  affectStatusAccountById(id: number): Observable<IAccount> {
+    // @ts-ignore
+    return this.httpClient.post<IAccount>(`${this.API_URL}/edit/${id}`);
   }
 }

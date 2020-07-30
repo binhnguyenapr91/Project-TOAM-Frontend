@@ -1,13 +1,32 @@
+<app-layout-header></app-layout-header>
+<app-search-form></app-search-form>
+
+<div class="map-section" style="position: relative; margin-top: -68px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=codegym&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Map Section End -->
+
 <section class="hotel-rooms spad">
   <div class="container">
+    <div class="row">
+      <div class="col-lg-12 p-45">
+        <div class="found-items">
+          <h4>We found <span>{{properties.length}}</span> properties</h4>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-lg-4 col-md-6" *ngFor="let pro of properties;">
         <div class="room-items">
           <div>
-
-            <img src="{{pro.images}}" height="289" width="350"/>
-<!--            <img src="{{pro.images}}" height="289" width="350">-->
-<!--            <img src="../../../assets/img/single-property/{{pro.images}}.jpg" height="289" width="350"/>-->
+            <!--            <img src="{{pro.images}}" height="289" width="350">-->
+            <img src="../../../assets/img/single-property/{{pro.images}}.jpg" height="289" width="350"/>
           </div>
           <div class="room-text">
             <div class="room-details">
@@ -46,7 +65,8 @@
               <p>For Sale</p>
               <span>${{pro.price}}</span>
             </div>
-            <a [routerLink]="['property', pro.id]" class="site-btn btn-line">View Property</a>
+<!--            <a [routerLink]="['../property', pro.id]" class="site-btn btn-line">View Property</a>-->
+            <a href="http://localhost:4200/home/property/{{pro.id}}" class="site-btn btn-line">View Property</a>
           </div>
         </div>
       </div>
@@ -54,4 +74,4 @@
   </div>
 </section>
 
-
+<app-layout-footer></app-layout-footer>

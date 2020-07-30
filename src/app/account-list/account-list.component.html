@@ -1,8 +1,8 @@
 <section>
   <img src="../../assets/img/header3.png" height="88" width="1920"/>
-  <!--    <img src="../../../assets/img/bg.jpg" height="633" width="1920"/>-->
 </section>
 <div style="text-align: center" class="container">
+
   <!--<div class="dropdown show">
                 <a class="dropdown-toggle" href="/admin" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   List
@@ -15,6 +15,7 @@
     </div>
   </div>-->
 <!--  <h2>List User</h2>-->
+<button><a routerLink="/account-create">Tạo tài khoản</a></button>
 <table class="table table-hover">
 
   <tr>
@@ -31,13 +32,14 @@
   <tr *ngFor="let account of accounts">
     <td>{{account.id}}</td>
     <td>{{account.name}}</td>
-    <td>{{account.username}}</td>
+    <td><a [routerLink]="['/renter',account.id]">{{account.username}}</a></td>
     <td>{{account.email}}</td>
     <td>{{account.phone}}</td>
     <td>{{account.status}}</td>
-    <td><a [routerLink]="['/renter',account.id]">{{account.username}}</a></td>
-    <td><input [routerLink]="['account-update', account.id]" type="button" value="Edit" class="btn btn-outline-info">
-    </td>
+
+    <td><input (click)="affectStatusAccount(account.id)" type="button" value="Dis/Ena" class="btn btn-outline-warning"></td>
+<!--    <td><input type="button" value="Detail" class="btn btn-outline-success"></td>-->
+    <td><input [routerLink]="['../account-update', account.id]" type="button" value="Edit" class="btn btn-outline-info"></td>
     <td><input (click)="deleteAccount(account.id)" type="button" value="Delete" class="btn btn-outline-danger"></td>
   </tr>
   </tbody>
