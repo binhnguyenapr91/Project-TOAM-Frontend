@@ -84,12 +84,11 @@ export class PropertyDetailComponent implements OnInit {
   onSubmit() {
     const {value} = this.commentForm;
     this.commentService.createComment(value).subscribe(result => {
-      // this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
-      this.message = 'Đã gửi bình luận '
+      this.message = 'Comment sent!'
 
     }, error => {
-      this.message = 'Bạn cần có ký hợp đồng với chủ sở hữu để bình luận ';
+      this.message = 'You need to booked this property to review!';
       console.log(error);
     });
     this.setDefaultValue();
