@@ -9,11 +9,11 @@ import {BoardHostComponent} from './board-host/board-host.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {PropertiesComponent} from './properties/properties.component';
-
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
 import {AccountUpdateComponent} from './account-update/account-update.component';
+
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import {RenterDetailComponent} from './component/accountRenter-list/renter-detail/renter-detail.component';
 import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
@@ -23,7 +23,6 @@ import {SearchLayoutComponent} from './search-component/search-layout/search-lay
 import {SearchByTypeComponent} from './search-component/search-by-type/search-by-type.component';
 import {SearchByAllComponent} from './search-component/search-by-all/search-by-all.component';
 import {AccountCreateComponent} from './account-create/account-create.component';
-
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},

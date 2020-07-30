@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from "../../service/login.service";
-import {IAccount} from "../../interface/IAccount";
-import {AuthenticationService} from "../../service/authentication.service";
-import {first} from "rxjs/operators";
+import {LoginService} from '../../service/login.service';
+import {IAccount} from '../../interface/IAccount';
+import {AuthenticationService} from '../../service/authentication.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-details',
@@ -20,17 +20,17 @@ export class DetailsComponent implements OnInit {
     this.currentUser = this.authenticationService.currentUserValue;
   }
 
-  ngOnInit() {
+  ngOnInit(): any {
     this.loadAllUsers();
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: number): any {
     this.userService.delete(id)
       .pipe(first())
       .subscribe(() => this.loadAllUsers());
   }
 
-  private loadAllUsers() {
+  private loadAllUsers(): any {
     this.userService.getAll()
       .pipe(first())
       .subscribe(users => this.users = users);

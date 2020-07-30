@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="booking-form">
-          <form>
+          <form [formGroup]="formBooking" (ngSubmit)="onSubmit()">
             <div class="row no-margin">
               <div class="col-md-3">
                 <div class="form-header">
@@ -15,15 +15,18 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <span class="form-label">Check In</span>
-                      <input class="form-control" type="date">
+                      <input class="form-control" type="date" formControlName="beginTime" >
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <span class="form-label">Check out</span>
-                      <input class="form-control" type="date">
+                      <input class="form-control" type="date" formControlName="endTime">
                     </div>
                   </div>
+                  <input type="hidden" [(ngModel)]="now" formControlName="createTime">
+                  <input type="hidden" [(ngModel)]="properties" formControlName="properties">
+                  <input type="hidden" [(ngModel)]="renter" formControlName="renter">
                   <div class="col-md-2">
                     <div class="form-group">
                       <span class="form-label">Guests</span>
@@ -53,6 +56,9 @@
                   <button class="submit-btn">Check availability</button>
                 </div>
               </div>
+            </div>
+            <div class=".alert-warning" *ngIf="hasMessage">
+              <h3 style="text-align: center">{{message}}</h3>
             </div>
           </form>
         </div>

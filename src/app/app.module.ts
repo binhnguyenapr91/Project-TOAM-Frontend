@@ -33,17 +33,14 @@ import { CalendarComponent } from './component/calendar/calendar.component';
 import { PropertyEditComponent } from './property-edit/property-edit.component';
 import { RenterListComponent } from './component/accountRenter-list/renter-list/renter-list.component';
 import { RenterDetailComponent } from './component/accountRenter-list/renter-detail/renter-detail.component';
-
 import { AccountListComponent } from './account-list/account-list.component';
+import {DetailsComponent} from './component/details/details.component';
 import { AccountUpdateComponent } from './account-update/account-update.component';
-
 import { SearchLayoutComponent } from './search-component/search-layout/search-layout.component';
 import { SearchFormComponent } from './search-component/search-form/search-form.component';
 import { SearchByAllComponent } from './search-component/search-by-all/search-by-all.component';
 import { SearchByTypeComponent } from './search-component/search-by-type/search-by-type.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
-
-
 
 @NgModule({
   declarations: [
@@ -73,6 +70,8 @@ import { AccountCreateComponent } from './account-create/account-create.componen
     PropertyEditComponent,
     CommentComponent,
     AccountListComponent,
+    FakePropertyDetailComponent,
+    DetailsComponent
     SearchLayoutComponent,
     SearchFormComponent,
     SearchByAllComponent,
