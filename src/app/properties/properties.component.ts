@@ -12,6 +12,7 @@ import {IPropertyType} from '../interface/IPropertyType';
 export class PropertiesComponent implements OnInit {
   properties: IProperty[] = [];
   propertiesType: IPropertyType [] = [];
+  address: string;
 
   constructor(private propertyService: PropertyService) {
   }
@@ -35,6 +36,7 @@ export class PropertiesComponent implements OnInit {
       this.propertiesType = result;
     });
   }
+
 
   deleteProperty(id: number): void {
     if (confirm('Bạn có muốn xóa không ?')) {
