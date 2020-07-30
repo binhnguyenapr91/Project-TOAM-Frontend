@@ -24,6 +24,7 @@ import {SearchByTypeComponent} from './search-component/search-by-type/search-by
 import {SearchByAllComponent} from './search-component/search-by-all/search-by-all.component';
 import {AccountCreateComponent} from './account-create/account-create.component';
 
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -52,6 +53,8 @@ const routes: Routes = [
   },
   {path: 'accounts', component: AccountListComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home/property/:id', component: PropertyDetailComponent,
+  },
   {path: 'home/property/:id', component: PropertyDetailComponent},
   {path: 'renter/:id', component: RenterDetailComponent},
   {path: 'renter-list', component: RenterListComponent},

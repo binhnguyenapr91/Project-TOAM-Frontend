@@ -39,9 +39,7 @@ export class AccountService {
     return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
   }
 
-  getAccountById(id: number): Observable<IAccount> {
-    return this.httpClient.get<IAccount>(`${this.API_URL}/${id}`);
-  }
+
 
   getListRenter(): Observable<IAccount[]> {
     return this.httpClient.get<IAccount[]>(this.API_RENTER);

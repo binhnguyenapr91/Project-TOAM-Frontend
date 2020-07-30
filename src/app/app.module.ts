@@ -17,8 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { BoardHostComponent } from './board-host/board-host.component';
 import { BoardRenterComponent } from './board-renter/board-renter.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
-import { FakePropertyDetailComponent } from './component/fake-property-detail/fake-property-detail.component';
-import { CommentComponent } from './component/comment/comment.component';
+
 import { LayoutHeaderComponent } from './component/layout-header/layout-header.component';
 import { LayoutFooterComponent } from './component/layout-footer/layout-footer.component';
 import { PropertyListComponent } from './component/property-list/property-list.component';
@@ -34,13 +33,13 @@ import { PropertyEditComponent } from './property-edit/property-edit.component';
 import { RenterListComponent } from './component/accountRenter-list/renter-list/renter-list.component';
 import { RenterDetailComponent } from './component/accountRenter-list/renter-detail/renter-detail.component';
 import { AccountListComponent } from './account-list/account-list.component';
-import {DetailsComponent} from './component/details/details.component';
 import { AccountUpdateComponent } from './account-update/account-update.component';
 import { SearchLayoutComponent } from './search-component/search-layout/search-layout.component';
 import { SearchFormComponent } from './search-component/search-form/search-form.component';
 import { SearchByAllComponent } from './search-component/search-by-all/search-by-all.component';
 import { SearchByTypeComponent } from './search-component/search-by-type/search-by-type.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
+
 
 @NgModule({
   declarations: [
@@ -68,10 +67,7 @@ import { AccountCreateComponent } from './account-create/account-create.componen
     RenterListComponent,
     RenterDetailComponent,
     PropertyEditComponent,
-    CommentComponent,
     AccountListComponent,
-    FakePropertyDetailComponent,
-    DetailsComponent
     SearchLayoutComponent,
     SearchFormComponent,
     SearchByAllComponent,
