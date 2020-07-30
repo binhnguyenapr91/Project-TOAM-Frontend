@@ -165,7 +165,9 @@
             <div class="room-items">
               <div>
                 <div style="color: grey">
-                  <label class="btn-block btn btn-primary" style="background-color: #8AD144; color: #fff; border: none">Đánh giá</label>
+                  <label class="btn-block btn btn-primary" style="background-color: #8AD144; color: #fff; border: none">
+                    What do people think
+                  </label>
                   <fieldset *ngFor="let comments of commentList" style="border: solid lightblue;background: lavender">
                     <legend class="col-md-6" style="font-size:small;color:  black ;background: lightgray">Tài khoản : {{comments.account.name}}</legend>
                     <p> {{comments.comment}}</p>
@@ -183,11 +185,14 @@
                         </textarea>
                         <div class="btn btn-group-toggle offset-md-1" role="alert"
                              *ngIf="Field.get('comment').invalid && Field.get('comment').touched">
-                          <p>Bạn nghĩ sao về căn nhà này !</p>
+                          <p>What's on your mind?</p>
                         </div>
                       </fieldset>
                     </div>
-                    <button type="submit" class="btn-block btn btn-primary" style="background-color: #8AD144; color: #fff; border: none">Gửi bình luận</button>
+                    <div style="margin-left: 100px">
+                    <button type="submit" class="btn-block btn btn-primary" style="background-color: #8AD144; color: #fff; border: none">
+                      COMMENT</button>
+                    </div>
                   </form>
                   <div class="col-md-8 offset-md-1" style="word-wrap: break-word"><p>{{this.message}}</p></div>
 
