@@ -27,15 +27,10 @@ export class CommentService {
   deleteComment(id: number): Observable<any> {
     return this.http.delete(`${environment.apiComment}/${id}`);
   }
-  updateComment(comment: IComment): Observable<IComment> {
-    return this.http.put<IComment>(`${environment.apiComment}/${comment.id}`, comment);
-  }
 
-  getListComment(): Observable<IComment[]> {
-    return this.http.get<IComment[]>(`http://localhost:8080/api/comments`);
-  }
-
-  getCommentByPropertyId(propertyId:number): Observable<IComment[]>{
-    return this.http.get<IComment[]>(`http://localhost:8080/api/comments/property/${propertyId}`);
+  getCommentPropertyId(count = 10,propertyId:number): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`${environment.apiCommentProperty}${propertyId}`).pipe(
+      map(response => response.filter((book, i) => i < count))
+    );
   }
 }
