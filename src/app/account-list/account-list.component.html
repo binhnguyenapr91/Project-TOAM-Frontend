@@ -18,23 +18,21 @@
     <th>Email</th>
     <th>Phone</th>
     <th>Status</th>
-    <th colspan="4" style="text-align: center">Action</th>
+    <th colspan="3" style="text-align: center">Action</th>
   </tr>
 
   <tbody>
   <tr *ngFor="let account of accounts">
     <td>{{account.id}}</td>
     <td>{{account.name}}</td>
-    <td>{{account.username}}</td>
+    <td><a [routerLink]="['/renter',account.id]">{{account.username}}</a></td>
     <td>{{account.email}}</td>
     <td>{{account.phone}}</td>
     <td>{{account.status}}</td>
 
-    <td><input (click)="affectStatusAccount(account.id)" type="button" value="Dis/Enb" class="btn btn-outline-warning"></td>
-    <td><input type="button" value="Detail" class="btn btn-outline-success"></td>
+    <td><input (click)="affectStatusAccount(account.id)" type="button" value="Dis/Ena" class="btn btn-outline-warning"></td>
+<!--    <td><input type="button" value="Detail" class="btn btn-outline-success"></td>-->
     <td><input [routerLink]="['../account-update', account.id]" type="button" value="Edit" class="btn btn-outline-info"></td>
-    <td><a [routerLink]="['/renter',account.id]">{{account.username}}</a></td>
-    </td>
     <td><input (click)="deleteAccount(account.id)" type="button" value="Delete" class="btn btn-outline-danger"></td>
   </tr>
   </tbody>

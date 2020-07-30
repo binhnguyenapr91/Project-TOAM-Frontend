@@ -19,6 +19,9 @@ import {RenterDetailComponent} from './component/accountRenter-list/renter-detai
 import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
 import {AccountListComponent} from './account-list/account-list.component';
 import {PropertyEditComponent} from './property-edit/property-edit.component';
+import {SearchLayoutComponent} from "./search-component/search-layout/search-layout.component";
+import {SearchByTypeComponent} from "./search-component/search-by-type/search-by-type.component";
+import {SearchByAllComponent} from "./search-component/search-by-all/search-by-all.component";
 
 
 const routes: Routes = [
@@ -32,6 +35,14 @@ const routes: Routes = [
   {path: 'create-property', component: CreatePropertyComponent},
   {path: 'property', component: PropertiesComponent},
   {path: 'address', component: AddressListComponent},
+  {path: 'search', component: SearchLayoutComponent},
+  /*for search begin*/
+
+  {path: 'home/:name', component: SearchByTypeComponent},
+  {path:'home/:address/:bath/:bed/:price', component: SearchByAllComponent},
+  // {path:'home/:address/:bath/:bed/:price/property/:id', component: PropertyDetailComponent},
+  /*for search end*/
+
   {path: 'account-update/:id', component: AccountUpdateComponent},
   {
     path: 'create-address', component: AddressComponent
