@@ -63,8 +63,76 @@
               </div>
             </div>
           </div>
+          <div class="form-row">
+            <div class="name">Images</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="company" formControlName="images">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Videos</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="company" formControlName="videos">
+              </div>
+            </div>
+          </div>
           <div>
-            <button class="btn btn-danger" type="submit">Đăng kí nhà</button>
+            <div class="form-row">
+              <div class="name">Addresses</div>
+              <div class="value">
+                <div class="input-group">
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select name="subject" formControlName="addresses">
+                      <option selected="selected" *ngFor="let address of addresses" [ngValue]=address>{{address.street}}</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="name">District</div>
+              <div class="value">
+                <div class="input-group">
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select name="subject" formControlName="addresses">
+                      <option selected="selected" *ngFor="let district of addresses" [ngValue]=district>{{district.districts.name}}</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="name">Cities</div>
+              <div class="value">
+                <div class="input-group">
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select name="subject" formControlName="addresses">
+                      <option selected="selected" *ngFor="let city of addresses" [ngValue]=city>{{city.districts.cities.name}}</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="name">propertiesTypes</div>
+              <div class="value">
+                <div class="input-group">
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select name="subject" formControlName="propertiesTypes">
+                      <option selected="selected" *ngFor="let propertyType of Types" [ngValue]=propertyType>{{propertyType.name}}</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-danger" type="submit">Sửa nhà cho thuê</button>
           </div>
         </form>
       </div>

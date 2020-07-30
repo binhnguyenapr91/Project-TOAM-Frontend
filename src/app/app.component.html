@@ -1,5 +1,4 @@
 
-
 <!-- Header Section Begin -->
 <header class="header-section">
   <div class="container-fluid">
@@ -14,13 +13,14 @@
             <li>
               <a href="/home" class="nav-link" routerLink="home">TOAM</a>
             </li>
-            <li  *ngIf="showAdminBoard">
-              <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+            <li *ngIf="showAdminBoard">
+              <a class="nav-link" routerLink="../accounts">Accounts</a>
+              <a class="nav-link" routerLink="../property">Properties</a>
             </li>
-            <li  *ngIf="showHostBoard">
+            <li *ngIf="showHostBoard">
               <a href="/host" class="nav-link" routerLink="host">Host Board</a>
             </li>
-            <li  *ngIf="showRenterBoard">
+            <li *ngIf="showRenterBoard">
               <a href="/renter" class="nav-link" routerLink="renter">Renter Board</a>
             </li>
           </ul>
