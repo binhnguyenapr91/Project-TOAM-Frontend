@@ -7,6 +7,7 @@ import {IAccount} from '../../interface/IAccount';
 import {IProperty} from '../../interface/iproperty';
 import {TokenStorageService} from '../../_services/token-storage.service';
 import {AccountService} from '../../service/account.service';
+import {HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-calendar',
@@ -20,6 +21,9 @@ export class CalendarComponent implements OnInit {
   renter: IAccount;
   userInToken: IAccount;
   now = '2020-01-01';
+  contractId: number;
+  hasMessage: boolean;
+  message: string;
   formBooking: FormGroup = new FormGroup({
     createTime: new FormControl(''),
     beginTime: new FormControl(''),
@@ -31,7 +35,7 @@ export class CalendarComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private propertyService: PropertyService,
               private tokenStorage: TokenStorageService,
-              private accountService: AccountService
+              private accountService: AccountService,
   ) { }
 
   ngOnInit(): void{
@@ -53,6 +57,11 @@ export class CalendarComponent implements OnInit {
   }
 
   onSubmit(): any {
-    this.bookingService.createBooking(this.formBooking.value).subscribe();
+    this.hasMessage = true;
+    this.bookingService.createBooking(this.formBooking.value)
+      .subscribe(data => {
+      this.contractId = data.id;
+      console.log(this.contractId);
+    });
   }
 }
