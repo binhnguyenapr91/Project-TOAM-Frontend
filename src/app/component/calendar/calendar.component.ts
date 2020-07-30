@@ -57,11 +57,13 @@ export class CalendarComponent implements OnInit {
   }
 
   onSubmit(): any {
-    this.hasMessage = true;
+    this.hasMessage = false;
     this.bookingService.createBooking(this.formBooking.value)
       .subscribe(data => {
       this.contractId = data.id;
-      console.log(this.contractId);
-    });
+    }, error => {
+        this.hasMessage = true;
+        this.message = error.error.message;
+      });
   }
 }
