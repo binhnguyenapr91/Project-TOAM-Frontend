@@ -104,7 +104,6 @@ export class PropertyDetailComponent implements OnInit {
 
 
     }, error => {
-      this.message = 'Restart'
       this.onSubmit();
       console.log(error);
     });

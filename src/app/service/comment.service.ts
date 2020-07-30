@@ -33,4 +33,7 @@ export class CommentService {
       map(response => response.filter((book, i) => i < count))
     );
   }
+  getCommentHostId(hostId:number):Observable<IComment[]>{
+    return this.http.get<IComment[]>(`${environment.apiCommentHost}${hostId}`)
+  }
 }
