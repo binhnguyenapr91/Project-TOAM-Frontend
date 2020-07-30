@@ -70,8 +70,8 @@ export class CreatePropertyComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(6)]],
       price: ['', [Validators.required]],
       size: ['', [Validators.required]],
-      bathrooms: [''],
-      bedrooms: [''],
+      bathrooms: ['', [Validators.required]],
+      bedrooms: ['', [Validators.required]],
       description: ['', [Validators.required]],
       host: [''],
       addresses: [''],
@@ -120,10 +120,10 @@ export class CreatePropertyComponent implements OnInit {
     this.setDefaultValue();
     const {value} = this.propertyForm;
     this.propertyService.createProperty(value).subscribe(result => {
-      this.message = 'Bạn đã thêm mới thành công  nhà !!!';
+      alert('You have successfully added a new home !!!');
       console.log(value);
     }, error => {
-      this.message = 'Bạn đã thêm mới không thành công  nhà !!!';
+      alert(' Add New Failed Home');
     });
   }
 

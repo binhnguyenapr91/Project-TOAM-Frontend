@@ -26,7 +26,7 @@ export class AddressComponent implements OnInit {
 
   ngOnInit(): void {
     this.formAddress = this.fb.group({
-      street: ['', [Validators.required, Validators.minLength(6)]],
+      street: ['', [Validators.required, Validators.minLength(5)]],
       districts: [''],
     });
     this.districtService.getListDistricts().subscribe(result => {
@@ -39,13 +39,13 @@ export class AddressComponent implements OnInit {
     if (this.formAddress.valid) {
       const {value} = this.formAddress;
       this.addressService.createAddress(value).subscribe(result => {
-        this.message = 'Bạn thêm địa chỉ thành công';
+        alert('Bạn thêm địa chỉ thành công');
         this.router.navigate(['/create-property']);
       }, error => {
-        this.message = 'Bạn thêm địa chỉ không thành công';
+        alert('Bạn thêm địa chỉ không thành công');
       });
     } else {
-      this.message = 'Bạn thêm địa chỉ không thành công';
+      alert('Bạn thêm địa chỉ không thành công');
     }
   }
 }
