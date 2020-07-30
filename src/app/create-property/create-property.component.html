@@ -17,21 +17,21 @@
             <br>
             <br>
             <div class="uploadImage">
-              <label class="name" style="cursor: pointer; margin: auto" for="image">Upload
-                Images: <i class="fa fa-upload" aria-hidden="true"></i></label>
-              <input type="file" id="image" (change)="displayImage($event)" accept="image/*" hidden>
+              <label style="cursor: pointer; margin: auto" for="image"><i class="fa fa-upload" aria-hidden="true"></i> Upload
+                Images</label>
+              <input type="file" id="image" (change)="displayImage($event)" multiple accept="image/*" hidden>
             </div>
           </div>
           <div class="form-group">
-            <label class="name" for="file">Upload video: </label>
-            <input type="file" id="file" (change)="selectFile($event)">
+            <label for="file">Upload video:</label>
+            <input type="file" id="file" (change)="selectFile($event)" multiple>
           </div>
           <div class="form-row">
             <div class="name">Name</div>
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="company" formControlName="name">
-                <p style="color:red;" *ngIf="propertyForm.get('name').invalid && propertyForm.get('name').touched">Số kí tự nhiều hơn 6</p>
+                <p style="color:red;" *ngIf="propertyForm.get('name').invalid && propertyForm.get('name').touched">The number of characters is more than 6</p>
               </div>
             </div>
           </div>
@@ -40,7 +40,8 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="company" formControlName="price">
-                <p style="color:red;" *ngIf="propertyForm.get('price').invalid && propertyForm.get('price').touched">xin mời nhập price</p>
+                <p style="color:red;" *ngIf="propertyForm.get('price').invalid && propertyForm.get('price').touched">
+                  Please enter the price again !!</p>
               </div>
             </div>
           </div>
@@ -49,7 +50,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="size">
-                <p style="color:red;" *ngIf="propertyForm.get('size').invalid && propertyForm.get('size').touched">size không được để trống</p>
+                <p style="color:red;" *ngIf="propertyForm.get('size').invalid && propertyForm.get('size').touched"> Please enter the Size again !!</p>
               </div>
             </div>
           </div>
@@ -58,7 +59,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="bathrooms">
-                <p style="color:red;" *ngIf="propertyForm.get('bathrooms').invalid && propertyForm.get('bathrooms').touched">bathrooms không được để trống</p>
+                <p style="color:red;" *ngIf="propertyForm.get('bathrooms').invalid && propertyForm.get('bathrooms').touched">Please enter the bathrooms again !!</p>
               </div>
             </div>
           </div>
@@ -67,7 +68,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="bedrooms">
-                <p style="color:red;" *ngIf="propertyForm.get('bedrooms').invalid && propertyForm.get('bedrooms').touched">bedrooms không được để trống</p>
+                <p style="color:red;" *ngIf="propertyForm.get('bedrooms').invalid && propertyForm.get('bedrooms').touched">Please enter the bedrooms again !!</p>
               </div>
             </div>
           </div>
@@ -76,7 +77,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="description">
-                <p style="color:red;" *ngIf="propertyForm.get('description').invalid && propertyForm.get('description').touched">description không được để trống</p>
+                <p style="color:red;" *ngIf="propertyForm.get('description').invalid && propertyForm.get('description').touched">The number of characters is more than 6 !!</p>
               </div>
             </div>
           </div>
@@ -98,7 +99,7 @@
             <div class="value">
               <div class="input-group">
                 <div class="rs-select2 js-select-simple select--no-search">
-                  <select name="subject" formControlName="addresses" style="width: 150px">
+                  <select name="subject" formControlName="addresses">
                     <option selected="selected" *ngFor="let district of addresses" [ngValue]=district>{{district.districts.name}}</option>
                   </select>
                   <div class="select-dropdown"></div>
