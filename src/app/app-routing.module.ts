@@ -9,11 +9,11 @@ import {BoardHostComponent} from './board-host/board-host.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
 import {CreatePropertyComponent} from './create-property/create-property.component';
 import {PropertiesComponent} from './properties/properties.component';
-
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
 
 import {AccountUpdateComponent} from './account-update/account-update.component';
+
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import {RenterDetailComponent} from './component/accountRenter-list/renter-detail/renter-detail.component';
 import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
@@ -53,6 +53,8 @@ const routes: Routes = [
   },
   {path: 'accounts', component: AccountListComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home/property/:id', component: PropertyDetailComponent,
+  },
   {path: 'home/property/:id', component: PropertyDetailComponent},
   {path: 'renter/:id', component: RenterDetailComponent},
   {path: 'renter-list', component: RenterListComponent},

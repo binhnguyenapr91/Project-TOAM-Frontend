@@ -4,6 +4,7 @@ import {Observable, Subject} from "rxjs";
 import {IComment} from "../interface/IComment";
 import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
+import {IPropertyType} from "../interface/IPropertyType";
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,13 @@ export class CommentService {
   }
   updateComment(comment: IComment): Observable<IComment> {
     return this.http.put<IComment>(`${environment.apiComment}/${comment.id}`, comment);
+  }
+
+  getListComment(): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`http://localhost:8080/api/comments`);
+  }
+
+  getCommentByPropertyId(propertyId:number): Observable<IComment[]>{
+    return this.http.get<IComment[]>(`http://localhost:8080/api/comments/property/${propertyId}`);
   }
 }

@@ -1,0 +1,49 @@
+{
+  "createTime":"2020-01-01",
+  "beginTime":"2020-07-30",
+  "endTime":"2020-07-31",
+  "property":{
+    "id":1,
+    "name":"Warm Conner",
+    "size":45,
+    "bedrooms":2,
+    "bathrooms":1,
+    "price":200,
+    "description":"Small apartment for young family",
+    "images":"https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&w=1000&q=80",
+    "videos":"#",
+    "propertyStatus":{
+      "id":1,
+      "name":"OPEN"},
+    "propertiesTypes":{
+      "id":3,
+      "name":"apartment"},
+    "addresses":{
+      "id":1,
+      "street":"Mieu Dam",
+      "districts":{
+        "id":1,
+        "name":"Nam Tu Liem",
+        "prefix":"NTL",
+        "cities":{
+          "id":1,
+          "name":"Ha Noi",
+          "code":"HN"}
+      }
+    },
+    "host":{
+      "id":2,
+      "name":null,
+      "username":"testhost",
+      "password":"$2a$10$uuybBB1Q64Z8KeMBhjhOPuo7ILO17nBG49awuRSzTobOJqlwrvm2C",
+      "email":"host@gmail.com",
+      "phone":null,
+      "status":false,
+      "roles":[
+        {
+          "id":2,
+          "name":"ROLE_HOST"
+        }
+      ]
+    }
+  },"renter":null}

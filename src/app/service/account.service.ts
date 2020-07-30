@@ -39,6 +39,8 @@ export class AccountService {
     return this.httpClient.get<IAccount[]>(this.registerURL, httpOptions);
   }
 
+
+
   getListRenter(): Observable<IAccount[]> {
     return this.httpClient.get<IAccount[]>(this.API_RENTER);
   }
