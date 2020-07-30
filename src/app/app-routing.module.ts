@@ -23,6 +23,7 @@ import {SearchLayoutComponent} from './search-component/search-layout/search-lay
 import {SearchByTypeComponent} from './search-component/search-by-type/search-by-type.component';
 import {SearchByAllComponent} from './search-component/search-by-all/search-by-all.component';
 import {AccountCreateComponent} from './account-create/account-create.component';
+import {HistoryContractComponent} from './History/history-contract/history-contract.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {path: 'property', component: PropertiesComponent},
   {path: 'address', component: AddressListComponent},
   {path: 'search', component: SearchLayoutComponent},
+  {path: 'address-create', component: AddressComponent},
+  {
+    path: 'history', component: HistoryContractComponent
+  },
   /*for search begin*/
 
   {path: 'home/:name', component: SearchByTypeComponent},
@@ -53,7 +58,8 @@ const routes: Routes = [
   },
   {path: 'accounts', component: AccountListComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home/property/:id', component: PropertyDetailComponent,
+  {
+    path: 'home/property/:id', component: PropertyDetailComponent,
   },
   {path: 'home/property/:id', component: PropertyDetailComponent},
   {path: 'renter/:id', component: RenterDetailComponent},

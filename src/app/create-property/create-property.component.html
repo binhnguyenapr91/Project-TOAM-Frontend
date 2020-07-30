@@ -26,12 +26,12 @@
             <div class="uploadImage">
               <label style="cursor: pointer; margin: auto" for="image"><i class="fa fa-upload" aria-hidden="true"></i> Upload
                 Images</label>
-              <input type="file" id="image" (change)="displayImage($event)" accept="image/*" hidden>
+              <input type="file" id="image" (change)="displayImage($event)" multiple accept="image/*" hidden>
             </div>
           </div>
           <div class="form-group">
             <label for="file">Upload video:</label>
-            <input type="file" id="file" (change)="selectFile($event)">
+            <input type="file" id="file" (change)="selectFile($event)" multiple>
           </div>
           <div class="form-row">
             <div class="name">Name</div>

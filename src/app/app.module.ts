@@ -39,6 +39,7 @@ import { SearchFormComponent } from './search-component/search-form/search-form.
 import { SearchByAllComponent } from './search-component/search-by-all/search-by-all.component';
 import { SearchByTypeComponent } from './search-component/search-by-type/search-by-type.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
+import { HistoryContractComponent } from './History/history-contract/history-contract.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { AccountCreateComponent } from './account-create/account-create.componen
     SearchByAllComponent,
     SearchByTypeComponent,
     AccountCreateComponent,
+    HistoryContractComponent,
   ],
   imports: [
     BrowserModule,

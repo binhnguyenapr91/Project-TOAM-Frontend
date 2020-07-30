@@ -146,6 +146,9 @@ export class CreatePropertyComponent implements OnInit {
     this.selectedFile = event.target.files;
   }
 
+
+  // tslint:disable-next-line:typedef
+
   upload(): void {
     this.imageFile = this.selectedImage.item(0);
     this.file = this.selectedFile.item(0);

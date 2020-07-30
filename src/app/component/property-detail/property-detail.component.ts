@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {IProperty} from "../../interface/iproperty";
-import {PropertyService} from "../../service/property.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
-import {TokenStorageService} from "../../_services/token-storage.service";
-import {CommentService} from "../../service/comment.service";
-import {IComment} from "../../interface/IComment";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {IProperty} from '../../interface/iproperty';
+import {PropertyService} from '../../service/property.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {TokenStorageService} from '../../_services/token-storage.service';
+import {CommentService} from '../../service/comment.service';
+import {IComment} from '../../interface/IComment';
 
 @Component({
   selector: 'app-property-detail',
@@ -15,11 +15,11 @@ import {IComment} from "../../interface/IComment";
 })
 export class PropertyDetailComponent implements OnInit {
   propertyId: number;
-  commentList: IComment[]=[];
+  commentList: IComment[] = [];
   commentForm: FormGroup;
   propertyabcId: number;
-  accountabc: { id: number } = { id: 1}
-  propertyabc: { id: number } = { id: 1 }
+  accountabc: { id: number } = {id: 1};
+  propertyabc: { id: number } = {id: 1};
 
 
   message: string;
@@ -28,10 +28,7 @@ export class PropertyDetailComponent implements OnInit {
 // khai biến để lấy next property
   nextPropertyId: number;
   nextProperty: IProperty;
-//
-  name = 'Set iframe source';
-  url: string = '';
-  urlSafe: SafeResourceUrl;
+
 
   constructor(private propertyService: PropertyService,
               private activatedRoute: ActivatedRoute,
@@ -39,7 +36,7 @@ export class PropertyDetailComponent implements OnInit {
               public sanitizer: DomSanitizer,
               private fb: FormBuilder,
               private token: TokenStorageService,
-              private commentService: CommentService,) {
+              private commentService: CommentService) {
   }
 
   ngOnInit(): void {
@@ -60,14 +57,12 @@ export class PropertyDetailComponent implements OnInit {
         this.nextProperty = result;
       });
 //
-      this.url = "https://www.google.com/maps?q=";
-      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + "codegym" + "&output=embed");
     });
     //
 
     this.commentForm = this.fb.group({
-      id:[''],
-      comment: ['',[Validators.required, Validators.minLength(1)]],
+      id: [''],
+      comment: ['', [Validators.required, Validators.minLength(1)]],
       account: [''],
       properties: [''],
     });
@@ -81,12 +76,13 @@ export class PropertyDetailComponent implements OnInit {
 
   }
 
+  // tslint:disable-next-line:typedef
   onSubmit() {
     const {value} = this.commentForm;
     this.commentService.createComment(value).subscribe(result => {
       // this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
-      this.message = 'Đã gửi bình luận '
+      this.message = 'Đã gửi bình luận ';
 
     }, error => {
       this.message = 'Bạn cần có ký hợp đồng với chủ sở hữu để bình luận ';

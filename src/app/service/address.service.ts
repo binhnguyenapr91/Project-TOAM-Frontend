@@ -9,7 +9,7 @@ import {IAddress} from '../interface/IAddress';
 })
 export class AddressService {
   private readonly API_URL = 'http://localhost:8080/api/address';
-
+  // private readonly API_URL1 = 'http://localhost:8080/api/address/newAddress';
   constructor(private httpClient: HttpClient) {
   }
 
