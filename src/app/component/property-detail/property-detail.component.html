@@ -1,244 +1,205 @@
 <app-layout-header></app-layout-header>
 
-<!--&lt;!&ndash; Single Property Section Begin &ndash;&gt;-->
-<!--<div class="single-property">-->
-<!--  <div class="container">-->
-<!--    <div class="row spad-p">-->
-<!--      <div class="col-lg-12">-->
-<!--        <div class="property-title">-->
-<!--          <h3>{{property.name}}</h3>-->
-<!--          <a href="https://www.google.com/maps/place/{{property.addresses.street}}, {{property.addresses.districts.name}}, {{property.addresses.districts.cities.name}}" target="_blank">-->
-<!--            <i class="fa flaticon-placeholder"></i> {{property.addresses.street}}, {{property.addresses.districts.name}}, {{property.addresses.districts.cities.name}}</a>-->
-<!--        </div>-->
-<!--        <div class="property-price">-->
-<!--          <p>For Sale</p>-->
-<!--          <span>${{property.price}}</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
 
-<!--    &lt;!&ndash; Calendar Begin &ndash;&gt;-->
-<!--    <app-calendar></app-calendar>-->
-<!--    &lt;!&ndash; Calendar End &ndash;&gt;-->
+<!-- Single Property Section Begin -->
+<div class="single-property">
+  <div class="container">
+    <div class="row spad-p">
+      <div class="col-lg-12">
+        <div class="property-title">
+          <h3>{{property.name}}</h3>
+          <a
+            href="https://www.google.com/maps/place/{{property.addresses.street}}, {{property.addresses.districts.name}}, {{property.addresses.districts.cities.name}}"
+            target="_blank">
+            <i class="fa flaticon-placeholder"></i> {{property.addresses.street}}, {{property.addresses.districts.name}}
+            , {{property.addresses.districts.cities.name}}</a>
+        </div>
+        <div class="property-price">
+          <p>For Sale</p>
+          <span>${{property.price}}</span>
+        </div>
+      </div>
+    </div>
 
-<!--    <div class="row">-->
-<!--      <div class="col-lg-12">-->
-<!--        <div>-->
-<!--          <img src="{{property.images}}" height="643" width="1143"/>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <!-- Calendar Begin -->
+    <app-calendar></app-calendar>
+    <!-- Calendar End -->
 
-<!--  </div>-->
-<!--</div>-->
-<!--&lt;!&ndash; Single Property End &ndash;&gt;-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <img src="{{property.images}}" height="643" width="1143"/>
+        </div>
+      </div>
+    </div>
 
-<!--<section class="property-details">-->
-<!--  <div class="container">-->
-<!--    <div class="row sp-40 spt-40">-->
-<!--      <div class="col-lg-8">-->
-<!--        <div class="p-ins">-->
-<!--          <div class="row details-top">-->
-<!--            <div class="col-lg-12">-->
-<!--              <div class="t-details">-->
-<!--                <div class="register-id">-->
-<!--                  <p>Registered ID: <span>{{property.id}}</span></p>-->
-<!--                </div>-->
-<!--                <div class="popular-room-features single-property">-->
-<!--                  <div class="size">-->
-<!--                    <p>Lot Size</p>-->
-<!--                    <img src="../../../assets/img/rooms/size.png" alt="size">-->
-<!--                    <i class="flaticon-bath"></i>-->
-<!--                    <span> {{property.size}}</span>-->
-<!--                  </div>-->
-<!--                  <div class="beds">-->
-<!--                    <p>Beds</p>-->
-<!--                    <img src="../../../assets/img/rooms/bed.png" alt="bed">-->
-<!--                    <span> {{property.bedrooms}}</span>-->
-<!--                  </div>-->
-<!--                  <div class="baths">-->
-<!--                    <p>Baths</p>-->
-<!--                    <img src="../../../assets/img/rooms/bath.png" alt="bath">-->
-<!--                    <span> {{property.bathrooms}}</span>-->
-<!--                  </div>-->
-<!--                  <div class="garage">-->
-<!--                    <p>Type</p>-->
-<!--                    <img src="../../../assets/img/rooms/house.png" height="28" width="28" alt="type">-->
-<!--                    <span> {{property.propertiesTypes.name}}</span>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <div class="col-lg-12">-->
-<!--              <div class="property-description">-->
-<!--                <h4>Description</h4>-->
-<!--                <p>{{property.description}} </p>-->
-<!--              </div>-->
-<!--              <div class="property-features">-->
-<!--                <h4>Property Features</h4>-->
-<!--                <div class="property-table">-->
-<!--                  <table>-->
-<!--                    <tr>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Home theater</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Carpeting</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Attic fans</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Media room</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Concrete</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Ceiling fans</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Family room</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Bamboo</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Thermostats</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Gym/workout room</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Stone</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Single flush toilets</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Library</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Tile</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Window shutters</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Butler's pantry</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Laminate</td>-->
-<!--                      <td><img src="../../../assets/img/check.png" alt=""> Solar heat</td>-->
-<!--                    </tr>-->
-<!--                  </table>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="location-map">-->
-<!--                <h4>Location</h4>-->
-<!--&lt;!&ndash;                <iframe allowfullscreen [src]="urlSafe"></iframe>&ndash;&gt;-->
-<!--                <iframe src="https://www.google.com/maps?q=codegym&output=embed" allowfullscreen></iframe>-->
-<!--              </div>-->
+  </div>
+</div>
+<!-- Single Property End -->
+
+<section class="property-details">
+  <div class="container">
+    <div class="row sp-40 spt-40">
+      <div class="col-lg-8">
+        <div class="p-ins">
+          <div class="row details-top">
+            <div class="col-lg-12">
+              <div class="t-details">
+                <div class="register-id">
+                  <p>Registered ID: <span>{{property.id}}</span></p>
+                </div>
+                <div class="popular-room-features single-property">
+                  <div class="size">
+                    <p>Lot Size</p>
+                    <img src="../../../assets/img/rooms/size.png" alt="size">
+                    <i class="flaticon-bath"></i>
+                    <span> {{property.size}}</span>
+                  </div>
+                  <div class="beds">
+                    <p>Beds</p>
+                    <img src="../../../assets/img/rooms/bed.png" alt="bed">
+                    <span> {{property.bedrooms}}</span>
+                  </div>
+                  <div class="baths">
+                    <p>Baths</p>
+                    <img src="../../../assets/img/rooms/bath.png" alt="bath">
+                    <span> {{property.bathrooms}}</span>
+                  </div>
+                  <div class="garage">
+                    <p>Type</p>
+                    <img src="../../../assets/img/rooms/house.png" height="28" width="28" alt="type">
+                    <span> {{property.propertiesTypes.name}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="property-description">
+                <h4>Description</h4>
+                <p>{{property.description}} </p>
+              </div>
+              <div class="property-features">
+                <h4>Property Features</h4>
+                <div class="property-table">
+                  <table>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Home theater</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Carpeting</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Attic fans</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Media room</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Concrete</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Ceiling fans</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Family room</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Bamboo</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Thermostats</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Gym/workout room</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Stone</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Single flush toilets</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Library</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Tile</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Window shutters</td>
+                    </tr>
+                    <tr>
+                      <td><img src="../../../assets/img/check.png" alt=""> Butler's pantry</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Laminate</td>
+                      <td><img src="../../../assets/img/check.png" alt=""> Solar heat</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="location-map">
+                <h4>Location</h4>
+                <!--                <iframe allowfullscreen [src]="urlSafe"></iframe>-->
+                <iframe src="https://www.google.com/maps?q=codegym&output=embed" allowfullscreen></iframe>
+              </div>
 
 
+            </div>
+          </div>
+          <div class="row">
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="row pb-30">
+          <div class="col-lg-12">
+            <div class="contact-service">
+              <img src="../../../assets/img/single-property/thinh.png" alt="avatar" width="150" height="150">
+              <p>Listed by</p>
+              <h5>Host's name</h5>
+              <table>
+                <tr>
+                  <td>Office : <span>1-139-954-3228</span></td>
+                </tr>
+                <tr>
+                  <td>Mobile : <span>1-517-328-7751</span></td>
+                </tr>
+                <tr>
+                  <td>Fax : <span>1-458-284-9871</span></td>
+                </tr>
+                <tr>
+                  <td>WhatsApp : <span>1-812-117-2663</span></td>
+                </tr>
+                <tr>
+                  <td>Email : <span>oliver@homes.com</span></td>
+                </tr>
+              </table>
+              <a href="#" class="site-btn list-btn">Request to book</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="room-items">
 
 
-<form class="btn btn-block col-8 row-5" style="margin-top: 200px" [formGroup]="Field" (ngSubmit)="onSubmit()">
+              <div>
+                <div style="color: grey">
+                  <label class="btn-block btn btn-primary">Đánh giá</label>
+                  <fieldset *ngFor="let comments of commentList" style="border: solid lightblue;background: lavender">
+                    <legend class="col-md-6" style="font-size:small;color:  black ;background: lightgray">Tài khoản : {{comments.account.name}}</legend>
+                    <p> {{comments.comment}}</p>
+                  </fieldset>
 
-  <div class="form-group">
-    <label for="comment">Bình luận </label>
-    <input type="text"  class="form-control" id="comment" placeholder="something....">
-    <div class="btn btn-danger" role="alert" *ngIf="Field.get('comment').invalid && Field.get('comment').touched">
-      Nhập sai qui định !
+                </div>
+                <div>
+                  <form class="btn btn-block col-8 row-5" style="margin-top: 200px" [formGroup]="Field"
+                        (ngSubmit)="onSubmit()">
+                    <input type="hidden" formControlName="id" class="form-control">
+                    <div class="form-group">
+                      <fieldset style="width: 300px">
+                        <textarea style="border: solid lightblue" type="text" class="form-control "
+                                  formControlName="comment" id="comment">
+                        </textarea>
+                        <div class="btn btn-group-toggle offset-md-1" role="alert"
+                             *ngIf="Field.get('comment').invalid && Field.get('comment').touched">
+                          <p>Bạn nghĩ sao về căn nhà này !</p>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+                  </form>
+                  <div class="col-md-8 offset-md-1" style="word-wrap: break-word"><p>{{this.message}}</p></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="id">Id Comment </label>
-    <input type="text"  class="form-control" id="id" placeholder="something....">
-  </div>
-  <div class="form-group">
-    <label for="account">Id Account </label>
-    <input type="text"  class="form-control" id="account" [value]="accountabc.id" placeholder="something....">
-  </div>
-  <div class="form-group">
-    <label for="properties">Id Property </label>
-    <input type="text"  class="form-control" id="properties" [value]="propertyabc.id" placeholder="something....">
-  </div>
-  <button type="submit" class="btn btn-primary">Gửi bình luận</button>
-</form>
-
-
-
-
-
-
-
-
-
-
-
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-lg-4">-->
-<!--        <div class="row pb-30">-->
-<!--          <div class="col-lg-12">-->
-<!--            <div class="contact-service">-->
-<!--              <img src="../../../assets/img/single-property/thinh.png" alt="avatar" width="150" height="150">-->
-<!--              <p>Listed by</p>-->
-<!--              <h5>Host's name</h5>-->
-<!--              <table>-->
-<!--                <tr>-->
-<!--                  <td>Office : <span>1-139-954-3228</span></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td>Mobile : <span>1-517-328-7751</span></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td>Fax : <span>1-458-284-9871</span></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td>WhatsApp : <span>1-812-117-2663</span></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td>Email : <span>oliver@homes.com</span></td>-->
-<!--                </tr>-->
-<!--              </table>-->
-<!--              <a href="#" class="site-btn list-btn">Request to book</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--          <div class="col-lg-12">-->
-<!--            <div class="room-items">-->
-<!--              <div>-->
-<!--                <img src="../../../assets/img/single-property/{{nextProperty.images}}.jpg" height="289" width="350"/>-->
-<!--              </div>-->
-<!--              <div class="room-text">-->
-<!--                <div class="room-details">-->
-<!--                  <div class="room-title">-->
-<!--                    <h5>{{nextProperty.name}}</h5>-->
-<!--                    <a href="https://www.google.com/maps/place/{{nextProperty.addresses.street}}, {{nextProperty.addresses.districts.name}}, {{nextProperty.addresses.districts.cities.name}}" target="_blank">-->
-<!--                      <i class="flaticon-placeholder"></i> <span>{{nextProperty.addresses.street}}, {{nextProperty.addresses.districts.name}}, {{nextProperty.addresses.districts.cities.name}}</span></a>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="room-features">-->
-<!--                  <div class="room-info">-->
-<!--                    <div class="size">-->
-<!--                      <p>Lot Size</p>-->
-<!--                      <img src="../../../assets/img/rooms/size.png" alt="">-->
-<!--                      <i class="flaticon-bath"></i>-->
-<!--                      <span>{{nextProperty.size}}</span>-->
-<!--                    </div>-->
-<!--                    <div class="beds">-->
-<!--                      <p>Beds</p>-->
-<!--                      <img src="../../../assets/img/rooms/bed.png" alt="">-->
-<!--                      <span>{{nextProperty.bedrooms}}</span>-->
-<!--                    </div>-->
-<!--                    <div class="baths">-->
-<!--                      <p>Baths</p>-->
-<!--                      <img src="../../../assets/img/rooms/bath.png" alt="">-->
-<!--                      <span>{{nextProperty.bathrooms}}</span>-->
-<!--                    </div>-->
-<!--                    <div class="garage">-->
-<!--                      <p>Type</p>-->
-<!--                      <img src="../../../assets/img/rooms/house.png" alt="" height="28" width="28" alt="type">-->
-<!--                      <span>{{nextProperty.propertiesTypes.name}}</span>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="room-price">-->
-<!--                  <p>For Sale</p>-->
-<!--                  <span>${{nextProperty.price}}</span>-->
-<!--                </div>-->
-<!--                <a href="http://localhost:4200/home/property/{{nextPropertyId}}" class="site-btn btn-line">View Property</a>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+</section>
 
 <app-layout-footer></app-layout-footer>

@@ -34,4 +34,8 @@ export class CommentService {
   getListComment(): Observable<IComment[]> {
     return this.http.get<IComment[]>(`http://localhost:8080/api/comments`);
   }
+
+  getCommentByPropertyId(propertyId:number): Observable<IComment[]>{
+    return this.http.get<IComment[]>(`http://localhost:8080/api/comments/property/${propertyId}`);
+  }
 }

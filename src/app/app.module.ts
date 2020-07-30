@@ -17,7 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { BoardHostComponent } from './board-host/board-host.component';
 import { BoardRenterComponent } from './board-renter/board-renter.component';
 import {BoardAdminComponent} from './board-admin/board-admin.component';
-import { CommentComponent } from './component/comment/comment.component';
+
 import { LayoutHeaderComponent } from './component/layout-header/layout-header.component';
 import { LayoutFooterComponent } from './component/layout-footer/layout-footer.component';
 import { PropertyListComponent } from './component/property-list/property-list.component';
@@ -33,7 +33,7 @@ import { CalendarComponent } from './component/calendar/calendar.component';
 import { PropertyEditComponent } from './property-edit/property-edit.component';
 
 import { AccountListComponent } from './account-list/account-list.component';
-import { CommentListComponent } from './component/comment-list/comment-list.component';
+
 
 
 
@@ -59,9 +59,7 @@ import { CommentListComponent } from './component/comment-list/comment-list.comp
     PropertyDetailComponent,
     CalendarComponent,
     PropertyEditComponent,
-    CommentComponent,
     AccountListComponent,
-    CommentListComponent,
 
 
   ],

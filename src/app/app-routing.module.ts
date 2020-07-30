@@ -16,8 +16,7 @@ import {AddressComponent} from './address/address.component';
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 
 import {AccountListComponent} from "./account-list/account-list.component";
-import {CommentListComponent} from "./component/comment-list/comment-list.component";
-import {CommentComponent} from "./component/comment/comment.component";
+
 
 
 
@@ -38,18 +37,7 @@ const routes: Routes = [
   },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home/property/:id', component: PropertyDetailComponent,
-    children:[
-      {
-        path:'',
-        component: CommentComponent,
-      },
-      {
-        path:'',
-        component: CommentListComponent,
-      }
-    ]
   },
-  {path:'abc',component:CommentComponent,}
 ];
 
 @NgModule({
