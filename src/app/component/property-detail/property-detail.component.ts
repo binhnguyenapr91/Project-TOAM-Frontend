@@ -41,11 +41,14 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.accounts.id = this.token.getUser().id;
-    console.log(this.accounts);
+    this.accountabc.id = this.token.getUser().id;
+    console.log(this.accountabc);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
+
+      this.propertyabc.id = params.id;
+
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
         this.property = result;
       });

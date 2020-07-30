@@ -17,11 +17,12 @@ import {RenterDetailComponent} from './component/accountRenter-list/renter-detai
 import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
 import {AccountListComponent} from './account-list/account-list.component';
 import {PropertyEditComponent} from './property-edit/property-edit.component';
-import {SearchLayoutComponent} from "./search-component/search-layout/search-layout.component";
-import {SearchByTypeComponent} from "./search-component/search-by-type/search-by-type.component";
-import {SearchByAllComponent} from "./search-component/search-by-all/search-by-all.component";
+import {SearchLayoutComponent} from './search-component/search-layout/search-layout.component';
+import {SearchByTypeComponent} from './search-component/search-by-type/search-by-type.component';
+import {SearchByAllComponent} from './search-component/search-by-all/search-by-all.component';
 import {AuthGuard} from './_helpers/auth.guard';
 import {AccountCreateComponent} from './account-create/account-create.component';
+import {HostIncomeComponent} from './host-income/host-income.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -46,9 +47,10 @@ const routes: Routes = [
   {
     path: 'create-address', component: AddressComponent
   },
-  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard], },
+  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard],},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home/property/:id', component: PropertyDetailComponent,
+  {
+    path: 'home/property/:id', component: PropertyDetailComponent,
   },
   {path: 'home/property/:id', component: PropertyDetailComponent},
   {path: 'renter/:id', component: RenterDetailComponent},
@@ -57,7 +59,8 @@ const routes: Routes = [
     path: 'home/property/:id', component: PropertyDetailComponent
   }, {
     path: 'edit-property/:id', component: PropertyEditComponent
-  }
+  },
+  {path: 'host/host-income', component: HostIncomeComponent},
 ];
 
 @NgModule({
