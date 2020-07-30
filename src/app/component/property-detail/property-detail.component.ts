@@ -1,12 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {IProperty} from "../../interface/iproperty";
-import {PropertyService} from "../../service/property.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
-import {TokenStorageService} from "../../_services/token-storage.service";
-import {CommentService} from "../../service/comment.service";
-import {IComment} from "../../interface/IComment";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {IProperty} from '../../interface/iproperty';
+import {PropertyService} from '../../service/property.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {TokenStorageService} from '../../_services/token-storage.service';
+import {CommentService} from '../../service/comment.service';
+import {IComment} from '../../interface/IComment';
+import {Observable} from 'rxjs';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-property-detail',
@@ -18,8 +22,8 @@ export class PropertyDetailComponent implements OnInit {
   commentList: IComment[] = [];
   commentForm: FormGroup;
   commentNumber: 10;
-  accounts: { id: number } = {id: 1}
-  propertys: { id: number } = {id: 1}
+  accounts: { id: number } = {id: 1};
+  propertys: { id: number } = {id: 1};
   message: string;
   property: IProperty;
 
@@ -28,7 +32,7 @@ export class PropertyDetailComponent implements OnInit {
   nextProperty: IProperty;
 //
   name = 'Set iframe source';
-  url: string = '';
+  url = '';
   urlSafe: SafeResourceUrl;
 
   constructor(private propertyService: PropertyService,
@@ -37,17 +41,18 @@ export class PropertyDetailComponent implements OnInit {
               public sanitizer: DomSanitizer,
               private fb: FormBuilder,
               private token: TokenStorageService,
-              private commentService: CommentService,) {
+              private commentService: CommentService,
+              private http: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.accountabc.id = this.token.getUser().id;
-    console.log(this.accountabc);
+    this.accounts.id = this.token.getUser().id;
+    console.log(this.accounts);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
 
-      this.propertyabc.id = params.id;
+      this.propertys.id = params.id;
 
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
         this.property = result;
@@ -58,8 +63,8 @@ export class PropertyDetailComponent implements OnInit {
         this.nextProperty = result;
       });
 //
-      this.url = "https://www.google.com/maps?q=";
-      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + "codegym" + "&output=embed");
+      this.url = 'https://www.google.com/maps?q=';
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + 'codegym' + '&output=embed');
     });
     //
 
@@ -75,7 +80,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   getAllComment(): void {
-    this.commentService.getCommentPropertyId(this.commentNumber,this.propertyId).subscribe(result => {
+    this.commentService.getCommentPropertyId(this.commentNumber, this.propertyId).subscribe(result => {
       this.commentList = result;
       console.log(result);
     }, error => {
@@ -84,33 +89,33 @@ export class PropertyDetailComponent implements OnInit {
     });
   }
 
-  getAccountId() {
+  getAccountId(): any {
     this.accounts.id = this.token.getUser().id;
   }
 
-  getPropertyId() {
+  getPropertyId(): any {
     this.activatedRoute.params.subscribe(next => {
       this.propertys.id = next.id;
-    })
+    });
   }
 
-  onSubmit() {
+  onSubmit(): any {
     const {value} = this.commentForm;
     this.commentService.createComment(value).subscribe(result => {
       this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
-      this.message = 'Message Sent '
+      this.message = 'Message Sent ';
       // this.router.navigate(['/home/property/'+ this.propertyId])
       this.getAllComment();
 
 
     }, error => {
       this.message = 'You need to booked this property to review!';
-      this.message = 'Restart'
+      this.message = 'Restart';
       this.onSubmit();
       console.log(error);
     });
-    this.setDefaultValue(this.accounts,this.propertys);
+    this.setDefaultValue(this.accounts, this.propertys);
 
   }
 
@@ -118,7 +123,7 @@ export class PropertyDetailComponent implements OnInit {
     return this.commentForm;
   }
 
-  setDefaultValue(idAccount:{id:number},idProperty:{id:number}): void {
+  setDefaultValue(idAccount: {id: number}, idProperty: {id: number}): void {
     this.commentForm.get('account').setValue(idAccount);
     this.commentForm.get('properties').setValue(idProperty);
     // this.commentForm.get('id').setValue('');
