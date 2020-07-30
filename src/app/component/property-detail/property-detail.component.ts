@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {IProperty} from "../../interface/iproperty";
 import {PropertyService} from "../../service/property.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -91,11 +91,8 @@ export class PropertyDetailComponent implements OnInit {
     })
   }
 
-
   onSubmit() {
     const {value} = this.commentForm;
-    this.getAccountId();
-    this.getPropertyId();
     this.commentService.createComment(value).subscribe(result => {
       this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
@@ -105,6 +102,7 @@ export class PropertyDetailComponent implements OnInit {
 
 
     }, error => {
+      this.message = 'You need to booked this property to review!';
       this.message = 'Restart'
       this.onSubmit();
       console.log(error);
