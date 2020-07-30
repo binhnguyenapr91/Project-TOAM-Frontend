@@ -15,14 +15,12 @@ export class AddressListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
-    // @ts-ignore
     this.addressService.shouldRefresh.subscribe(result => {
       this.getAll();
     });
   }
 
-  // tslint:disable-next-line:typedef
-  getAll() {
+  getAll(): void {
     this.addressService.getAllAddress().subscribe(result => {
       this.address = result;
     });

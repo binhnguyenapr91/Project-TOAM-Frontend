@@ -1,0 +1,21 @@
+
+<div class="container" style="padding-top: 55px">
+  <table class="table table-dark">
+
+    <tr>
+      <td>#</td>
+      <td>Date</td>
+      <td>Quantity Of Contracts</td>
+      <td>Income Per Month</td>
+    </tr>
+
+    <tr *ngFor="let income of incomePerMonth; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{income.dateAndMonth}}</td>
+      <td>{{income.quantityOfContracts}}</td>
+      <td>{{income.valuePerMonth}}</td>
+    </tr>
+
+  </table>
+</div>
+<app-layout-footer></app-layout-footer>
