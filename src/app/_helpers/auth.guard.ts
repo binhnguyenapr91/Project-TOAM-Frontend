@@ -9,20 +9,19 @@ import {IAccount} from "../interface/IAccount";
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
   rolesAdmin: string;
+
   constructor(
     private router: Router,
     private token: TokenStorageService,
   ) {
     this.rolesAdmin = this.token.getUser().roles;
 
-    console.log( this.rolesAdmin);
-
   }
 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    if (this.rolesAdmin) {
+    if (this.rolesAdmin[0] === "ROLE_ADMIN") {
       return true;
     } else {
       this.router.navigate(['/'], {queryParams: {returnUrl: state.url}});
