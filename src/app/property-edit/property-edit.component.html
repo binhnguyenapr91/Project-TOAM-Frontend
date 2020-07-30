@@ -6,9 +6,12 @@
         <h2 class="title">Sửa nhà cho thuê</h2>
       </div>
       <div class="card-body">
-        <h3 style="text-align: center">{{message}}</h3>
+        <div class="alert alert-info">
+          <strong>{{message}}</strong>
+        </div>
         <h4><a routerLink="/property">List Property</a></h4>
         <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
+          <input type="hidden" formControlName="id" name="id" value="id">
           <div class="form-row">
             <div class="name">Name</div>
             <div class="value">
@@ -126,6 +129,20 @@
                   <div class="rs-select2 js-select-simple select--no-search">
                     <select name="subject" formControlName="propertiesTypes">
                       <option selected="selected" *ngFor="let propertyType of Types" [ngValue]=propertyType>{{propertyType.name}}</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="name">propertiesStatus</div>
+              <div class="value">
+                <div class="input-group">
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select name="subject" formControlName="propertyStatus" value="Hay chon Status">
+                      <option *ngFor="let propertyStatus of propertyStatuses"
+                              [ngValue]=propertyStatus selected>{{propertyStatus.name}}</option>
                     </select>
                     <div class="select-dropdown"></div>
                   </div>

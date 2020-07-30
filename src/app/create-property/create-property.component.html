@@ -87,7 +87,9 @@
         <h2 class="title">Tạo nhà cho thuê</h2>
       </div>
       <div class="card-body">
-        <h3 style="text-align: center">{{message}}</h3>
+        <div class="alert alert-success">
+          <strong>{{this.message}}</strong>
+        </div>
         <h3 style="color: rebeccapurple">{{this.idHost.username}}</h3>
         <h4><a routerLink="/property">List Property</a></h4>
         <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">

@@ -5,6 +5,7 @@ import {IDistrict} from '../interface/IDistrict';
 import {ICity} from '../interface/icity';
 import {CityService} from '../service/city.service';
 import {DistrictService} from '../service/district.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-address',
@@ -19,7 +20,8 @@ export class AddressComponent implements OnInit {
   constructor(private addressService: AddressService,
               private fb: FormBuilder,
               private cityService: CityService,
-              private districtService: DistrictService) {
+              private districtService: DistrictService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -37,10 +39,13 @@ export class AddressComponent implements OnInit {
     if (this.formAddress.valid) {
       const {value} = this.formAddress;
       this.addressService.createAddress(value).subscribe(result => {
-        this.message = 'Success';
+        this.message = 'Bạn thêm địa chỉ thành công';
+        this.router.navigate(['/create-property']);
+      }, error => {
+        this.message = 'Bạn thêm địa chỉ không thành công';
       });
     } else {
-      this.message = 'Not Success';
+      this.message = 'Bạn thêm địa chỉ không thành công';
     }
   }
 }
