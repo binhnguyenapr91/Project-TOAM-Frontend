@@ -1,17 +1,20 @@
 <div class="limiter">
+
   <div class="container-login100"
        style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
-    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+    <div  *ngIf="!isSuccessful" style="margin-top: 100px" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 
-      <a class="offset-md-4" routerLink=""> <span >{{message}}</span></a>
-      <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 					<span class="login100-form-title p-b-49">
-						<label style="font-family: 'Arial'">Đăng ký</label>
+						<label style="font-family: 'Arial'">Registration</label>
 					</span>
 
         <div class="wrap-input100 validate-input m-b-23 form-group" data-validate="Username is required">
 
-          <span class="label-input100">	<label for="username" style="font-family: 'Arial'"><i class="fa fa-user"> </i>  Tên đăng nhập</label> </span>
+          <span class="label-input100">	<label for="username" style="font-family: 'Arial'"><i class="fa fa-user"> </i> Username: </label> </span>
           <input
             type="text"
             class="form-control"
@@ -21,7 +24,7 @@
             minlength="3"
             maxlength="20"
             #username="ngModel"
-            placeholder="Điền tên tài khoản đăng nhập"
+            placeholder="Enter your username"
           />
           <div class="alert-danger" *ngIf="f.submitted && username.invalid">
             <div *ngIf="username.errors.required">Username is required</div>
@@ -36,7 +39,7 @@
         </div>
         <div class="wrap-input100 validate-input form-group" data-validate="Email is required">
           <span class="label-input100">	<label for="email" style="font-family: 'Arial'"><i
-            class="fa fa-address-card"> </i> Thư điện tử</label></span>
+            class="fa fa-address-card"> </i> Email: </label></span>
           <input
             type="email"
             class="form-control"
@@ -45,7 +48,7 @@
             required
             email
             #email="ngModel"
-            placeholder="Điền địa chỉ hòm thư điện tử của bạn"
+            placeholder="Enter your username"
           />
           <div class="alert-danger" *ngIf="f.submitted && email.invalid">
             <div *ngIf="email.errors.required">Email is required</div>
@@ -56,7 +59,7 @@
         </div>
         <div class="wrap-input100 validate-input form-group" data-validate="Password is required">
 
-          <span class="label-input100">	<label for="password" style="font-family: 'Arial'"><i class="fa fa-lock"> </i> Mật khẩu </label></span>
+          <span class="label-input100">	<label for="password" style="font-family: 'Arial'"><i class="fa fa-lock"> </i> Password: </label></span>
 
           <input
             type="password"
@@ -66,7 +69,7 @@
             required
             minlength="6"
             #password="ngModel"
-            placeholder="Điền mật khẩu của bạn"
+            placeholder="Enter your password"
           />
 
           <div class="alert-danger" *ngIf="f.submitted && password.invalid">
@@ -82,17 +85,17 @@
           <div class="wrap-login100-form-btn form-group">
             <div class="login100-form-bgbtn"></div>
             <button class="login100-form-btn">
-              <label style="font-family: 'Arial'">Đăng ký</label>
+              <label style="font-family: 'Arial'">Registration</label>
             </button>
           </div>
         </div>
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-          Đăng ký thất bại !<br/>{{ errorMessage }}
+          Registration fail!<br/>{{ errorMessage }}
         </div>
 
         <div class="txt1 text-center p-t-54 p-b-20">
 						<span>
-								<label style="font-family: 'Arial'">Hoặc sử dụng phương thức đăng ký khác ?</label>
+								<label style="font-family: 'Arial'">Or register by an other method!</label>
 						</span>
         </div>
         <div class="flex-c-m">
