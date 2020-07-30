@@ -11,7 +11,9 @@ import {CreatePropertyComponent} from './create-property/create-property.compone
 import {PropertiesComponent} from './properties/properties.component';
 import {AddressListComponent} from './address-list/address-list.component';
 import {AddressComponent} from './address/address.component';
-import {AccountUpdateComponent} from "./account-update/account-update.component";
+
+import {AccountUpdateComponent} from './account-update/account-update.component';
+
 import {PropertyDetailComponent} from './component/property-detail/property-detail.component';
 import {RenterDetailComponent} from './component/accountRenter-list/renter-detail/renter-detail.component';
 import {RenterListComponent} from './component/accountRenter-list/renter-list/renter-list.component';
@@ -21,6 +23,7 @@ import {SearchLayoutComponent} from "./search-component/search-layout/search-lay
 import {SearchByTypeComponent} from "./search-component/search-by-type/search-by-type.component";
 import {SearchByAllComponent} from "./search-component/search-by-all/search-by-all.component";
 import {AuthGuard} from "./_helpers/auth.guard";
+import {AccountCreateComponent} from './account-create/account-create.component';
 
 
 const routes: Routes = [
@@ -38,11 +41,14 @@ const routes: Routes = [
   /*for search begin*/
 
   {path: 'home/:name', component: SearchByTypeComponent},
-  {path:'home/:address/:bath/:bed/:price', component: SearchByAllComponent},
+  {path: 'home/:address/:bath/:bed/:price', component: SearchByAllComponent},
   // {path:'home/:address/:bath/:bed/:price/property/:id', component: PropertyDetailComponent},
   /*for search end*/
 
   {path: 'account-update/:id', component: AccountUpdateComponent},
+  {
+    path: 'account-create', component: AccountCreateComponent
+  },
   {
     path: 'create-address', component: AddressComponent
   },

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {IAccount} from "../interface/IAccount";
-import {AccountService} from "../service/account.service";
-import {error} from "@angular/compiler/src/util";
+import {Component, OnInit} from '@angular/core';
+import {IAccount} from '../interface/IAccount';
+import {AccountService} from '../service/account.service';
+
 
 @Component({
   selector: 'app-account-list',
@@ -10,6 +10,8 @@ import {error} from "@angular/compiler/src/util";
 })
 export class AccountListComponent implements OnInit {
   accounts: IAccount[] = [];
+  host: IAccount[] = [];
+  renter: IAccount[] = [];
 
   constructor(private accountService: AccountService) {
   }
@@ -17,11 +19,26 @@ export class AccountListComponent implements OnInit {
   ngOnInit(): void {
     this.getALL();
     this.accountService.shouldRefresh.subscribe(result => this.getALL());
+    this.accountService.getListHost().subscribe(result => {
+      this.host = result;
+    });
   }
 
   getALL(): void {
     this.accountService.getListAccount()
       .subscribe(result => (this.accounts = result), error => (this.accounts = []));
+  }
+
+  getAccountHost(): void {
+    this.accountService.getHostList().subscribe(result => {
+      this.accounts = result;
+    });
+  }
+
+  getAccountRenter(): void {
+    this.accountService.getListRenter().subscribe(result => {
+      this.accounts = result;
+    });
   }
 
   deleteAccount(id: number): void {
@@ -32,13 +49,13 @@ export class AccountListComponent implements OnInit {
     }
   }
 
-  affectStatusAccount(id: number): void{
+  affectStatusAccount(id: number): void {
     if (confirm('Are you sure?')) {
-      this.accountService.affectStatusAccountById(id).subscribe(result =>{
+      this.accountService.affectStatusAccountById(id).subscribe(result => {
         this.accountService.shouldRefresh.next();
-      },error1 => {
-        alert("sai roi")
-      })
+      }, error1 => {
+        alert('sai roi');
+      });
     }
   }
 }

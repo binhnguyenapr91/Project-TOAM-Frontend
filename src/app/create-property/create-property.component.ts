@@ -120,8 +120,10 @@ export class CreatePropertyComponent implements OnInit {
     this.setDefaultValue();
     const {value} = this.propertyForm;
     this.propertyService.createProperty(value).subscribe(result => {
-      this.message = 'them thanh cong';
+      this.message = 'Bạn đã thêm mới thành công  nhà !!!';
       console.log(value);
+    }, error => {
+      this.message = 'Bạn đã thêm mới không thành công  nhà !!!';
     });
   }
 

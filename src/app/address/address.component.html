@@ -1,5 +1,7 @@
 <div class="container">
-  <h1 style="text-align: center">{{message}}</h1>
+  <div class="alert alert-success">
+    <strong>{{this.message}}</strong>
+  </div>
   <h3>Create Address</h3>
   <a routerLink="/address" class="btn-primary" style="text-align: center">List Address</a>
   <form [formGroup]="formAddress" (ngSubmit)="onSubmit()">

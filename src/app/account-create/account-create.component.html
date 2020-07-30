@@ -1,0 +1,64 @@
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+      <div class="card-heading">
+        <h2 class="title">Thêm tài khoản người dùng</h2>
+      </div>
+      <div class="alert alert-success">
+        <strong>{{this.message}}</strong>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="accountForm" (ngSubmit)="createAccount()">
+          <div class="form-row">
+            <div class="name">Nhập tên</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="name" formControlName="name">
+                <p style="color:red;" *ngIf="accountForm.get('name').invalid && accountForm.get('name').touched">Số kí tự nhiều hơn 6</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Nhập tên tài khoản</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="username" formControlName="username">
+                <p style="color:red;" *ngIf="accountForm.get('username').invalid && accountForm.get('username').touched">Số kí tự nhiều hơn 6</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Mật khẩu</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="password" name="password" formControlName="password">
+                <p style="color:red;" *ngIf="accountForm.get('password').invalid && accountForm.get('password').touched">Số kí tự nhiều hơn 6</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Số điện thoại</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" name="phone" formControlName="phone">
+                <p style="color:red;" *ngIf="accountForm.get('phone').invalid && accountForm.get('phone').touched">Số kí tự nhiều hơn 6</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Email</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="email" name="email" formControlName="email">
+                <p style="color:red;" *ngIf="accountForm.get('email').invalid && accountForm.get('email').touched">Số kí tự nhiều hơn 6 @gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-danger" type="submit">Thêm tài khoản</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

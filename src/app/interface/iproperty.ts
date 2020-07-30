@@ -15,4 +15,5 @@ export interface IProperty {
   description: string;
   propertiesTypes: IPropertyType;
   host: IAccount;
+  propertyStatus: number;
 }

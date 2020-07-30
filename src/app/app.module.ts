@@ -38,6 +38,7 @@ import { SearchLayoutComponent } from './search-component/search-layout/search-l
 import { SearchFormComponent } from './search-component/search-form/search-form.component';
 import { SearchByAllComponent } from './search-component/search-by-all/search-by-all.component';
 import { SearchByTypeComponent } from './search-component/search-by-type/search-by-type.component';
+import { AccountCreateComponent } from './account-create/account-create.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { SearchByTypeComponent } from './search-component/search-by-type/search-
     SearchFormComponent,
     SearchByAllComponent,
     SearchByTypeComponent,
+    AccountCreateComponent,
   ],
   imports: [
     BrowserModule,
