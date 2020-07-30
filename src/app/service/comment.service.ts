@@ -4,7 +4,7 @@ import {Observable, Subject} from "rxjs";
 import {IComment} from "../interface/IComment";
 import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
-import {IPropertyType} from "../interface/IPropertyType";
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +28,12 @@ export class CommentService {
     return this.http.delete(`${environment.apiComment}/${id}`);
   }
 
-  getCommentPropertyId(count = 10,propertyId:number): Observable<IComment[]> {
+  getCommentPropertyId(count: number, propertyId: number): Observable<IComment[]> {
     return this.http.get<IComment[]>(`${environment.apiCommentProperty}${propertyId}`).pipe(
       map(response => response.filter((book, i) => i < count))
     );
+  }
+  getCommentHostId(hostId:number):Observable<IComment[]>{
+    return this.http.get<IComment[]>(`${environment.apiCommentHost}${hostId}`)
   }
 }
