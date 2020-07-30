@@ -1,27 +1,32 @@
 //chan user khac dang nhap vao route -> su dung o app.rounting.ts bao ve homepage route
 
-import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import {AuthenticationService} from "../service/authentication.service";
+import {Injectable} from '@angular/core';
+import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {TokenStorageService} from "../_services/token-storage.service";
+import {IAccount} from "../interface/IAccount";
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
+  rolesAdmin: string;
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
-  ) {}
+    private token: TokenStorageService,
+  ) {
+    this.rolesAdmin = this.token.getUser().roles;
+
+    console.log( this.rolesAdmin);
+
+  }
+
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const currentUser = this.authenticationService.currentUserValue;
-    if (currentUser) {
-      // authorised so return true
-      return true;
-    }
 
-    // not logged in so redirect to login page with the return url
-    // this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-    this.router.navigate(['/'], { queryParams: { returnUrl: state.url }});
-    return false;
+    if (this.rolesAdmin) {
+      return true;
+    } else {
+      this.router.navigate(['/'], {queryParams: {returnUrl: state.url}});
+      return false;
+    }
   }
 }
