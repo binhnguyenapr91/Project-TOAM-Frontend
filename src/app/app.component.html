@@ -1,4 +1,3 @@
-
 <!-- Header Section Begin -->
 <header class="header-section">
   <div class="container-fluid">
@@ -14,29 +13,29 @@
               <a href="/home" class="nav-link" routerLink="home">TOAM</a>
             </li>
             <li *ngIf="showAdminBoard">
-              <a class="btn btn-success" style="background-color: rgb(138, 209, 68); border-color: rgb(138, 209, 68)" routerLink="../accounts">Accounts</a>
-              <a class="btn btn-success" style="background-color: rgb(138, 209, 68); border-color: rgb(138, 209, 68)" routerLink="../property">Properties</a>
+              <a routerLink="../accounts">Accounts</a>
+              <a routerLink="../property">Properties</a>
             </li>
             <li *ngIf="showHostBoard">
-              <a href="/host"class="btn btn-success" style="background-color: rgb(138, 209, 68); border-color: rgb(138, 209, 68)" routerLink="host">Host Board</a>
+              <a href="/host" routerLink="host">Host board</a>
             </li>
             <li *ngIf="showRenterBoard">
-              <a href="/renter" class="btn btn-success" style="background-color: rgb(138, 209, 68); border-color: rgb(138, 209, 68)" routerLink="renter">Renter Board</a>
+              <a href="/renter" routerLink="renter">Renter board</a>
             </li>
           </ul>
 
         </div>
         <ul class="main-menu" *ngIf="!isLoggedIn">
-          <li><a href="/register" class="btn btn-success" style="background-color: rgb(138, 209, 68); border-color: rgb(138, 209, 68)" routerLink="register">Register</a></li>
-          <li><a href="/login" class="btn btn-success" style="background-color: rgb(138, 209, 68); border-color: rgb(138, 209, 68)" routerLink="login">Sign In</a></li>
+          <li><a href="/register" routerLink="register">Register</a></li>
+          <li><a href="/login" routerLink="login">Log in</a></li>
         </ul>
 
         <ul class="main-menu" *ngIf="isLoggedIn">
           <li>
-            <a href="/profile" class="btn btn-success" style="background-color: rgb(138, 209, 68); border-color: rgb(138, 209, 68)" routerLink="profile">{{ username }}</a>
+            <a routerLink="profile">{{ username }}</a>
           </li>
           <li>
-            <a class="btn btn-danger" style="background-color: #30304e;border-color: #30304e; color:white" (click)="logout()">Log Out</a>
+            <a href="/" style="color:white" (click)="logout()">Log out</a>
           </li>
         </ul>
 
@@ -46,5 +45,4 @@
   </div>
 </header>
 <!-- Header Section End -->
-
 <router-outlet></router-outlet>
