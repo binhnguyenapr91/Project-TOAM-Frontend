@@ -40,6 +40,7 @@ import { SearchByAllComponent } from './search-component/search-by-all/search-by
 import { SearchByTypeComponent } from './search-component/search-by-type/search-by-type.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
 import { HistoryContractComponent } from './History/history-contract/history-contract.component';
+import { HostIncomeComponent } from './host-income/host-income.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { HistoryContractComponent } from './History/history-contract/history-con
     SearchByTypeComponent,
     AccountCreateComponent,
     HistoryContractComponent,
+    HostIncomeComponent,
   ],
   imports: [
     BrowserModule,

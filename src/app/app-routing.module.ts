@@ -53,7 +53,7 @@ const routes: Routes = [
   {
     path: 'create-address', component: AddressComponent
   },
-  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard],},
+  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {
     path: 'home/property/:id', component: PropertyDetailComponent,

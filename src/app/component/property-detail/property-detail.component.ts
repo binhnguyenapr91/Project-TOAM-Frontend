@@ -40,8 +40,6 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.accounts.id = this.token.getUser().id;
-    console.log(this.accounts);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
@@ -80,10 +78,12 @@ export class PropertyDetailComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
   getAccountId() {
     this.accounts.id = this.token.getUser().id;
   }
 
+  // tslint:disable-next-line:typedef
   getPropertyId() {
     this.activatedRoute.params.subscribe(next => {
       this.propertys.id = next.id;
@@ -91,6 +91,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
 
+  // tslint:disable-next-line:typedef
   onSubmit() {
     const {value} = this.commentForm;
     this.getAccountId();
