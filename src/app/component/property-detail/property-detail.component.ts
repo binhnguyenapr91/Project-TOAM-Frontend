@@ -7,7 +7,6 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {TokenStorageService} from '../../_services/token-storage.service';
 import {CommentService} from '../../service/comment.service';
 import {IComment} from '../../interface/IComment';
-
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-detail.component.html',
@@ -94,8 +93,6 @@ export class PropertyDetailComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     const {value} = this.commentForm;
-    this.getAccountId();
-    this.getPropertyId();
     this.commentService.createComment(value).subscribe(result => {
       this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
@@ -105,7 +102,7 @@ export class PropertyDetailComponent implements OnInit {
 
 
     }, error => {
-      this.message = 'Restart';
+      this.message = 'You need to booked this property to review!';
       this.onSubmit();
       console.log(error);
     });
@@ -116,7 +113,6 @@ export class PropertyDetailComponent implements OnInit {
   get Field(): FormGroup {
     return this.commentForm;
   }
-
   setDefaultValue(idAccount: { id: number }, idProperty: { id: number }): void {
     this.commentForm.get('account').setValue(idAccount);
     this.commentForm.get('properties').setValue(idProperty);
