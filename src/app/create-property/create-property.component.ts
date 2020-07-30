@@ -42,16 +42,14 @@ export class CreatePropertyComponent implements OnInit {
   hosts: IAccount [] = [];
   addresses: IAddress [] = [];
   districts: IDistrict [] = [];
-  host: { password: string; name: string; id: number; username: string; status: boolean; token: string } = {
+  host: { password: string; email: string; phone: string; name: string; id: number; username: string; status: boolean; token: string } = {
     id: 0,
     name: '',
     username: '',
     password: '',
-    status: true,
-    // role: {
-    //   id: 0,
-    //   name: ''
-    // },
+    email: '',
+    phone: '',
+    status: false,
     token: ''
   };
 
@@ -93,14 +91,14 @@ export class CreatePropertyComponent implements OnInit {
       this.Types = [];
       console.log(error);
     });
-    this.accountService.getListHost().subscribe(result => {
-      this.hosts = result;
-      console.log(this.hosts);
-    }, error => {
-      this.hosts = [];
-      alert('không thể lấy host');
-      console.log(error);
-    });
+    // this.accountService.getListHost().subscribe(result => {
+    //   this.hosts = result;
+    //   console.log(this.hosts);
+    // }, error => {
+    //   this.hosts = [];
+    //   alert('không thể lấy host');
+    //   console.log(error);
+    // });
     this.addressService.getAllAddress().subscribe(result => {
       this.addresses = result;
       console.log(result);

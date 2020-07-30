@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IAccount} from "../interface/IAccount";
 import {AccountService} from "../service/account.service";
+import {error} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-account-list',
@@ -28,6 +29,16 @@ export class AccountListComponent implements OnInit {
       this.accountService.deleteAccount(id).subscribe(result => {
         this.accountService.shouldRefresh.next();
       });
+    }
+  }
+
+  affectStatusAccount(id: number): void{
+    if (confirm('Are you sure?')) {
+      this.accountService.affectStatusAccountById(id).subscribe(result =>{
+        this.accountService.shouldRefresh.next();
+      },error1 => {
+        alert("sai roi")
+      })
     }
   }
 }

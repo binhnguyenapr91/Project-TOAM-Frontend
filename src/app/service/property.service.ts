@@ -42,6 +42,15 @@ export class PropertyService {
   }
 
   updatePropertyId(property: IProperty): Observable<IProperty> {
-    return this.httpClient.put<IProperty>(`${this.API_URL}/${property.id}`, property);
+    return this.httpClient.put<IProperty>(this.API_URL, property);
   }
+
+  searchByType(name: string): Observable<IProperty[]> {
+    return this.httpClient.get<IProperty[]>(`${this.API_URL}/type/${name}`);
+  }
+
+  searchByAll(address: string, bath: number, bed: number, price: number): Observable<IProperty[]> {
+    return this.httpClient.get<IProperty[]>(`${this.API_URL}/filter/${address}/${bath}/${bed}/${price}`);
+  }
+
 }
