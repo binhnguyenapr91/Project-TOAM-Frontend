@@ -1,15 +1,8 @@
-<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-  <div class="wrapper wrapper--w790">
-    <div class="card card-5">
-      <div class="card-heading">
-        <h2 class="title">Tạo nhà cho thuê</h2>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          <strong>{{this.message}}</strong>
-        </div>
-        <h3 style="color: rebeccapurple">{{this.idHost.username}}</h3>
-        <h4><a routerLink="/property">List Property</a></h4>
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+        <h3 style="text-align: center">Create property form</h3>
         <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
           <div *ngIf="currentFileUpload" class="progress">
             <div class="progress-bar progress-bar-info progress-bar-striped"
@@ -24,13 +17,13 @@
             <br>
             <br>
             <div class="uploadImage">
-              <label style="cursor: pointer; margin: auto" for="image"><i class="fa fa-upload" aria-hidden="true"></i> Upload
-                Images</label>
+              <label class="name" style="cursor: pointer; margin: auto" for="image">Upload
+                Images: <i class="fa fa-upload" aria-hidden="true"></i></label>
               <input type="file" id="image" (change)="displayImage($event)" accept="image/*" hidden>
             </div>
           </div>
           <div class="form-group">
-            <label for="file">Upload video:</label>
+            <label class="name" for="file">Upload video: </label>
             <input type="file" id="file" (change)="selectFile($event)">
           </div>
           <div class="form-row">
@@ -92,7 +85,7 @@
             <div class="value">
               <div class="input-group">
                 <div class="rs-select2 js-select-simple select--no-search">
-                  <select name="subject" formControlName="addresses">
+                  <select name="subject" formControlName="addresses" style="width: 150px">
                     <option selected="selected" *ngFor="let address of addresses" [ngValue]=address>{{address.street}}</option>
                   </select>
                   <div class="select-dropdown"></div>
@@ -105,7 +98,7 @@
             <div class="value">
               <div class="input-group">
                 <div class="rs-select2 js-select-simple select--no-search">
-                  <select name="subject" formControlName="addresses">
+                  <select name="subject" formControlName="addresses" style="width: 150px">
                     <option selected="selected" *ngFor="let district of addresses" [ngValue]=district>{{district.districts.name}}</option>
                   </select>
                   <div class="select-dropdown"></div>
@@ -118,7 +111,7 @@
             <div class="value">
               <div class="input-group">
                 <div class="rs-select2 js-select-simple select--no-search">
-                  <select name="subject" formControlName="addresses">
+                  <select name="subject" formControlName="addresses" style="width: 150px">
                     <option selected="selected" *ngFor="let city of addresses" [ngValue]=city>{{city.districts.cities.name}}</option>
                   </select>
                   <div class="select-dropdown"></div>
@@ -127,11 +120,11 @@
             </div>
           </div>
           <div class="form-row">
-            <div class="name">propertiesTypes</div>
+            <div class="name">Properties type:</div>
             <div class="value">
               <div class="input-group">
                 <div class="rs-select2 js-select-simple select--no-search">
-                  <select name="subject" formControlName="propertiesTypes">
+                  <select name="subject" formControlName="propertiesTypes" style="width: 150px">
                     <option selected="selected" *ngFor="let propertyType of Types" [ngValue]=propertyType>{{propertyType.name}}</option>
                   </select>
                   <div class="select-dropdown"></div>
@@ -140,10 +133,9 @@
             </div>
           </div>
           <div>
-            <button class="btn btn--radius-2 btn--red" type="submit">Tạo nhà cho thuê</button>
+            <button class="btn btn-danger" type="submit">Create Property</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div>
