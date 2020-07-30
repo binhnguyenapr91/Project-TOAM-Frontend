@@ -1,30 +1,31 @@
-<div class="container">
-  <h2 class="container btn-primary">Danh sach Address <span class="fa fa-gear fa-spin"></span></h2>
-  <a routerLink="/create-address" class="btn-primary">Create Address</a>
-  <table class="table table" style="color: black">
-    <thead>
-    <tr class="btn-danger">
-      <th>ID</th>
-      <th>Street</th>
-      <th>District</th>
-      <th>City</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let address of address" class="btn-dark">
-      <td>{{address.id}}</td>
-      <td>{{address.street}}</td>
-      <td>{{address.districts.name}}</td>
-      <td>{{address.districts.cities.name}}</td>
-      <td><a [routerLink]="['/address-edit', address.id]"><span class="fa fa-edit"></span></a></td>
-      <td>
-        <button (click)="deleteAddress(address.id)" class="btn-primary"><span class="fa fa-cut"></span></button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px;background-color: white;border-radius: 20px;text-align: center">
+      <a class="btn btn-success" routerLink="/address-create" style="margin: 5px">New Address</a>
+      <br>
+      <table class="table table-hover">
+        <thead>
+        <th>ID</th>
+        <th>Street</th>
+        <th>District</th>
+        <th>City</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let address of address">
+          <td class="column1">{{address.id}}</td>
+          <td class="column2">{{address.street}}</td>
+          <td class="column3">{{address.districts.name}}</td>
+          <td class="column4">{{address.districts.cities.name}}</td>
+          <td><a [routerLink]="['/address-update',address.id]"><span class="fa fa-edit"></span></a></td>
+          <td>
+            <button (click)="deleteAddress(address.id)" class="btn-primary"><span class="fa fa-cut"></span></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-

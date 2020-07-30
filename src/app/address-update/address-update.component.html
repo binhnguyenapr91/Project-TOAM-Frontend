@@ -1,14 +1,47 @@
-<div class="container">
-  <h1 style="text-align: center">{{message}}</h1>
-  <h3>Update Address</h3>
-  <a routerLink="/address" class="btn-primary" style="text-align: center">Back</a>
-  <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
-    <input type="hidden" formGroupName="id">
-    <div class="form-group">
-      <label for="street">Street</label>
-      <input type="text" class="form-control" id="street" formControlName="street">
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <h4 style="text-align: center">Update Address</h4>
+      <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id" name="id" value="id">
+        <div class="form-row">
+          <div class="name">Street</div>
+          <div class="value">
+            <div class="input-group">
+              <input class="input--style-5" type="text" name="size" formControlName="street">
+            </div>
+          </div>
+        </div>
+          <div class="form-row">
+            <div class="name">District</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select style="width: 100px" name="subject" formControlName="districts">
+                    <option selected="selected" *ngFor="let district of districts" [ngValue]=district>{{district.name}}</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Cities</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select style="width: 100px" name="subject" formControlName="districts">
+                    <option selected="selected" *ngFor="let city of districts" [ngValue]=city>{{city.cities.name}}</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-danger" type="submit">Update Addresses</button>
+      </form>
     </div>
-    <button type="submit" class="btn-primary">Submit</button>
-  </form>
+  </div>
 </div>
 

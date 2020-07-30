@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AddressService} from '../service/address.service';
 import {ActivatedRoute} from '@angular/router';
+import {DistrictService} from '../service/district.service';
+import {IDistrict} from '../interface/IDistrict';
 
 @Component({
   selector: 'app-address-update',
@@ -11,31 +13,37 @@ import {ActivatedRoute} from '@angular/router';
 export class AddressUpdateComponent implements OnInit {
   message: string;
   addressId: string;
+  districts: IDistrict [] = [];
   addressForm: FormGroup = new FormGroup({
     id: new FormControl(''),
-    street: new FormControl('')
+    street: new FormControl(''),
+    districts: new FormControl('')
   });
 
   constructor(private activatedRoute: ActivatedRoute,
-              private addressService: AddressService) {
+              private addressService: AddressService,
+              private districtService: DistrictService) {
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.addressId = params.id;
-      // @ts-ignore
-      this.addressService.getAddressById().subscribe(result => {
+      this.addressService.getAddressById(this.addressId).subscribe(result => {
         this.addressForm.setValue(result);
+      });
+      this.districtService.getListDistricts().subscribe(result => {
+        this.districts = result;
       });
     });
   }
+
   onSubmit(): void {
     if (this.addressId) {
       this.addressService.updateAddress(this.addressForm.value).subscribe(result => {
-        this.message = 'update success';
+        alert('update address success !!');
       });
     } else {
-      this.message = 'update no success';
+      alert('update address no success !!');
     }
   }
 }

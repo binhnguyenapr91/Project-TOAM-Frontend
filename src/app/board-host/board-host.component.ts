@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../_services/user.service';
-import {IAccount} from "../interface/IAccount";
-import {AccountService} from "../service/account.service";
+import {IAccount} from '../interface/IAccount';
+import {AccountService} from '../service/account.service';
+import {ValuePerMonthService} from '../service/value-per-month.service';
+import {ValuePerMonth} from '../interface/ValuePerMonth';
 
 @Component({
   selector: 'app-board-host',
@@ -10,6 +12,7 @@ import {AccountService} from "../service/account.service";
 })
 export class BoardHostComponent implements OnInit {
   accounts: IAccount[] = [];
+
 
   constructor(private accountService: AccountService) {
   }
@@ -20,9 +23,10 @@ export class BoardHostComponent implements OnInit {
   }
 
   getALLbyHost(): void {
-    this.accountService.getListHost()
+    this.accountService.getHostList()
       .subscribe(result => (this.accounts = result), error => (this.accounts = []));
   }
+
 
   /*deleteHost(id: number): void {
     if (confirm('Are you sure to delete?')) {

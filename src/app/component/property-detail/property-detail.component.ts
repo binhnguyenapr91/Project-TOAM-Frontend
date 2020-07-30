@@ -7,11 +7,6 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {TokenStorageService} from '../../_services/token-storage.service';
 import {CommentService} from '../../service/comment.service';
 import {IComment} from '../../interface/IComment';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-detail.component.html',
@@ -30,7 +25,6 @@ export class PropertyDetailComponent implements OnInit {
 // khai biến để lấy next property
   nextPropertyId: number;
   nextProperty: IProperty;
-//
   name = 'Set iframe source';
   url = '';
   urlSafe: SafeResourceUrl;
@@ -41,19 +35,13 @@ export class PropertyDetailComponent implements OnInit {
               public sanitizer: DomSanitizer,
               private fb: FormBuilder,
               private token: TokenStorageService,
-              private commentService: CommentService,
-              private http: HttpClient) {
+              private commentService: CommentService) {
   }
 
   ngOnInit(): void {
-    this.accounts.id = this.token.getUser().id;
-    console.log(this.accounts);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
-
-      this.propertys.id = params.id;
-
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
         this.property = result;
       });
@@ -89,17 +77,21 @@ export class PropertyDetailComponent implements OnInit {
     });
   }
 
-  getAccountId(): any {
+  // tslint:disable-next-line:typedef
+  getAccountId() {
     this.accounts.id = this.token.getUser().id;
   }
 
-  getPropertyId(): any {
+  // tslint:disable-next-line:typedef
+  getPropertyId() {
     this.activatedRoute.params.subscribe(next => {
       this.propertys.id = next.id;
     });
   }
 
-  onSubmit(): any {
+
+  // tslint:disable-next-line:typedef
+  onSubmit() {
     const {value} = this.commentForm;
     this.commentService.createComment(value).subscribe(result => {
       this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
@@ -111,7 +103,6 @@ export class PropertyDetailComponent implements OnInit {
 
     }, error => {
       this.message = 'You need to booked this property to review!';
-      this.message = 'Restart';
       this.onSubmit();
       console.log(error);
     });
@@ -122,8 +113,7 @@ export class PropertyDetailComponent implements OnInit {
   get Field(): FormGroup {
     return this.commentForm;
   }
-
-  setDefaultValue(idAccount: {id: number}, idProperty: {id: number}): void {
+  setDefaultValue(idAccount: { id: number }, idProperty: { id: number }): void {
     this.commentForm.get('account').setValue(idAccount);
     this.commentForm.get('properties').setValue(idProperty);
     // this.commentForm.get('id').setValue('');
