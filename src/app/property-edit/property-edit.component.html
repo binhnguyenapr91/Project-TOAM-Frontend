@@ -1,15 +1,8 @@
-
-<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-  <div class="wrapper wrapper--w790">
-    <div class="card card-5">
-      <div class="card-heading">
-        <h2 class="title">Sửa nhà cho thuê</h2>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-info">
-          <strong>{{message}}</strong>
-        </div>
-        <h4><a routerLink="/property">List Property</a></h4>
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+        <h4 style="text-align: center">Update property</h4>
         <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
           <input type="hidden" formControlName="id" name="id" value="id">
           <div class="form-row">
@@ -17,7 +10,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="company" formControlName="name">
-                <p style="color:red;" *ngIf="formEdit.get('name').invalid && formEdit.get('name').touched">Số kí tự nhiều hơn 6</p>
+                <p style="color:red;" *ngIf="formEdit.get('name').invalid && formEdit.get('name').touched">Character must more than 6</p>
               </div>
             </div>
           </div>
@@ -26,7 +19,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="company" formControlName="price">
-                <p style="color:red;" *ngIf="formEdit.get('price').invalid && formEdit.get('price').touched">xin mời nhập price</p>
+                <p style="color:red;" *ngIf="formEdit.get('price').invalid && formEdit.get('price').touched">Price can not be empty</p>
               </div>
             </div>
           </div>
@@ -35,7 +28,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="size">
-                <p style="color:red;" *ngIf="formEdit.get('size').invalid && formEdit.get('size').touched">size không được để trống</p>
+                <p style="color:red;" *ngIf="formEdit.get('size').invalid && formEdit.get('size').touched">Size can not be empty</p>
               </div>
             </div>
           </div>
@@ -44,7 +37,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="bathrooms">
-                <p style="color:red;" *ngIf="formEdit.get('bathrooms').invalid && formEdit.get('bathrooms').touched">bathrooms không được để trống</p>
+                <p style="color:red;" *ngIf="formEdit.get('bathrooms').invalid && formEdit.get('bathrooms').touched">Bathroom can not be empty</p>
               </div>
             </div>
           </div>
@@ -53,7 +46,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="bedrooms">
-                <p style="color:red;" *ngIf="formEdit.get('bedrooms').invalid && formEdit.get('bedrooms').touched">bedrooms không được để trống</p>
+                <p style="color:red;" *ngIf="formEdit.get('bedrooms').invalid && formEdit.get('bedrooms').touched">Bedroom can not be empty</p>
               </div>
             </div>
           </div>
@@ -62,7 +55,7 @@
             <div class="value">
               <div class="input-group">
                 <input class="input--style-5" type="text" name="size" formControlName="description">
-                <p style="color:red;" *ngIf="formEdit.get('description').invalid && formEdit.get('description').touched">description không được để trống</p>
+                <p style="color:red;" *ngIf="formEdit.get('description').invalid && formEdit.get('description').touched">Description can not be empty</p>
               </div>
             </div>
           </div>
@@ -88,7 +81,7 @@
               <div class="value">
                 <div class="input-group">
                   <div class="rs-select2 js-select-simple select--no-search">
-                    <select name="subject" formControlName="addresses">
+                    <select style="width: 100px" name="subject" formControlName="addresses">
                       <option selected="selected" *ngFor="let address of addresses" [ngValue]=address>{{address.street}}</option>
                     </select>
                     <div class="select-dropdown"></div>
@@ -101,7 +94,7 @@
               <div class="value">
                 <div class="input-group">
                   <div class="rs-select2 js-select-simple select--no-search">
-                    <select name="subject" formControlName="addresses">
+                    <select style="width: 100px" name="subject" formControlName="addresses">
                       <option selected="selected" *ngFor="let district of addresses" [ngValue]=district>{{district.districts.name}}</option>
                     </select>
                     <div class="select-dropdown"></div>
@@ -114,7 +107,7 @@
               <div class="value">
                 <div class="input-group">
                   <div class="rs-select2 js-select-simple select--no-search">
-                    <select name="subject" formControlName="addresses">
+                    <select style="width: 100px" name="subject" formControlName="addresses">
                       <option selected="selected" *ngFor="let city of addresses" [ngValue]=city>{{city.districts.cities.name}}</option>
                     </select>
                     <div class="select-dropdown"></div>
@@ -123,11 +116,11 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="name">propertiesTypes</div>
+              <div class="name">Types</div>
               <div class="value">
                 <div class="input-group">
                   <div class="rs-select2 js-select-simple select--no-search">
-                    <select name="subject" formControlName="propertiesTypes">
+                    <select  style="width: 100px" name="subject" formControlName="propertiesTypes">
                       <option selected="selected" *ngFor="let propertyType of Types" [ngValue]=propertyType>{{propertyType.name}}</option>
                     </select>
                     <div class="select-dropdown"></div>
@@ -136,11 +129,11 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="name">propertiesStatus</div>
+              <div class="name">Status</div>
               <div class="value">
                 <div class="input-group">
                   <div class="rs-select2 js-select-simple select--no-search">
-                    <select name="subject" formControlName="propertyStatus" value="Hay chon Status">
+                    <select style="width: 100px" name="subject" formControlName="propertyStatus" value="Hay chon Status">
                       <option *ngFor="let propertyStatus of propertyStatuses"
                               [ngValue]=propertyStatus selected>{{propertyStatus.name}}</option>
                     </select>
@@ -149,10 +142,10 @@
                 </div>
               </div>
             </div>
-            <button class="btn btn-danger" type="submit">Sửa nhà cho thuê</button>
+            <button class="btn btn-danger" type="submit">Update</button>
+            <a class="btn btn-danger" routerLink="/property" style="margin-left: 15px">Back</a>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div>

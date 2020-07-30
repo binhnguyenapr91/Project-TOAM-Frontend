@@ -1,5 +1,5 @@
 <!-- Header Section Begin -->
-<div><header class="header-section btn-dark" style="position: fixed">
+<header class="header-section">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
@@ -17,10 +17,10 @@
               <a routerLink="../property">Properties</a>
             </li>
             <li *ngIf="showHostBoard">
-              <a routerLink="host">Host board</a>
+              <a  routerLink="host">Host board</a>
             </li>
             <li *ngIf="showRenterBoard">
-              <a routerLink="renter">Renter board</a>
+              <a  routerLink="renter">Renter board</a>
             </li>
           </ul>
 
@@ -35,7 +35,7 @@
             <a routerLink="profile">{{ username }}</a>
           </li>
           <li>
-            <a  style="color:white" (click)="logout()">Log out</a>
+            <a style="color:white" (click)="logout()">Log out</a>
           </li>
         </ul>
 
@@ -44,6 +44,5 @@
     </div>
   </div>
 </header>
-</div>
 <!-- Header Section End -->
 <router-outlet></router-outlet>
