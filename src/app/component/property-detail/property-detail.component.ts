@@ -17,13 +17,12 @@ export class PropertyDetailComponent implements OnInit {
   propertyId: number;
   commentList: IComment[] = [];
   commentForm: FormGroup;
-  propertyabcId: number;
-  accountabc: { id: number } = {id: 1}
-  propertyabc: { id: number } = {id: 1}
-
+  commentNumber: 10;
+  accounts: { id: number } = {id: 1}
+  propertys: { id: number } = {id: 1}
   message: string;
-
   property: IProperty;
+
 // khai biến để lấy next property
   nextPropertyId: number;
   nextProperty: IProperty;
@@ -42,14 +41,11 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.accountabc.id = this.token.getUser().id;
-    console.log(this.accountabc);
+    this.accounts.id = this.token.getUser().id;
+    console.log(this.accounts);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
-
-      this.propertyabc.id = params.id;
-
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
         this.property = result;
       });
@@ -76,7 +72,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   getAllComment(): void {
-    this.commentService.getCommentByPropertyId(this.propertyId).subscribe(result => {
+    this.commentService.getCommentPropertyId(this.commentNumber,this.propertyId).subscribe(result => {
       this.commentList = result;
       console.log(result);
     }, error => {
@@ -86,12 +82,12 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   getAccountId() {
-    this.accountabc.id = this.token.getUser().id;
+    this.accounts.id = this.token.getUser().id;
   }
 
   getPropertyId() {
     this.activatedRoute.params.subscribe(next => {
-      this.propertyabc.id = next.id;
+      this.propertys.id = next.id;
     })
   }
 
@@ -103,16 +99,17 @@ export class PropertyDetailComponent implements OnInit {
     this.commentService.createComment(value).subscribe(result => {
       this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
-      this.message = 'Đã gửi bình luận '
+      this.message = 'Message Sent '
       // this.router.navigate(['/home/property/'+ this.propertyId])
       this.getAllComment();
 
 
     }, error => {
-      this.message = 'Restart ';
+      this.message = 'Restart'
+      this.onSubmit();
       console.log(error);
     });
-    this.setDefaultValue(this.accountabc,this.propertyabc);
+    this.setDefaultValue(this.accounts,this.propertys);
 
   }
 
@@ -120,9 +117,9 @@ export class PropertyDetailComponent implements OnInit {
     return this.commentForm;
   }
 
-  setDefaultValue(a:{id:number},b:{id:number}): void {
-    this.commentForm.get('account').setValue(a);
-    this.commentForm.get('properties').setValue(b);
+  setDefaultValue(idAccount:{id:number},idProperty:{id:number}): void {
+    this.commentForm.get('account').setValue(idAccount);
+    this.commentForm.get('properties').setValue(idProperty);
     // this.commentForm.get('id').setValue('');
   }
 

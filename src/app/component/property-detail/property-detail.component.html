@@ -166,9 +166,9 @@
 
               <div>
                 <div style="color: grey">
-                  <button class="btn btn-success col-md-12" disabled type="button">Đánh giá</button>
+                  <label class="badge badge-success col-md-12" style="height: 50px;alignment: center; padding: 20px;font-size: medium;background-color: #8AD144; color: #fff" >HOW ABOUT THIS PROPERTY</label>
                   <fieldset *ngFor="let comments of commentList" style="border:solid whitesmoke ;box-shadow:lightblue ;border-radius: 10px">
-                    <legend class="col-md-6" style="font-size:medium;color:black "> <p style="font-size: small">{{comments.account.name}}</p></legend>
+                    <legend class="col-md-6" style="font-size:medium;color:crimson "> <p style="font-size: small">{{comments.account.name}}</p></legend>
                     <p class="offset-md-1"> {{comments.comment}}</p>
                   </fieldset>
 
@@ -184,11 +184,11 @@
                         </textarea>
                         <div class="btn btn-group-toggle offset-md-1" role="alert"
                              *ngIf="Field.get('comment').invalid && Field.get('comment').touched">
-                          <p>Bạn nghĩ sao về căn nhà này !</p>
+                          <p>What do you think about this house !</p>
                         </div>
                       </fieldset>
                     </div>
-                    <button type="submit" class="btn btn-success">Gửi bình luận</button>
+                    <button type="submit" class="btn btn-success offset-md-6" style="background-color: #8AD144; color: #fff">COMMENT</button>
                   </form>
                   <div class="col-md-8 offset-md-1" style="word-wrap: break-word"><p>{{this.message}}</p></div>
 
