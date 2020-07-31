@@ -14,8 +14,8 @@ export class ContractService {
 
   constructor(private  httpClient: HttpClient) {
   }
-  getAllContractByHostId(id: number): Observable<IContract> {
-    return this.httpClient.get<IContract>(`${this.API_URL}/host/${id}`);
+  getAllContractByHostId(id: number): Observable<IContract[]> {
+    return this.httpClient.get<IContract[]>(`${this.API_URL}/host/${id}`);
   }
   updateContract(contract: IContract): Observable<IContract> {
     return this.httpClient.put<IContract>(this.API_URL, contract);

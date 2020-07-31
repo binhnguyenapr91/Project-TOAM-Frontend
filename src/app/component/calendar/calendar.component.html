@@ -1,3 +1,4 @@
+<hr>
 <div id="booking" class="section">
   <div class="section-center">
     <div class="container">
@@ -6,9 +7,6 @@
           <form [formGroup]="formBooking" (ngSubmit)="onSubmit()">
             <div class="row no-margin">
               <div class="col-md-3">
-                <div class="form-header">
-                  <h2>Book Now</h2>
-                </div>
               </div>
               <div class="col-md-7">
                 <div class="row no-margin">
@@ -53,12 +51,9 @@
               </div>
               <div class="col-md-2">
                 <div class="form-btn">
-                  <button class="submit-btn">Check availability</button>
+                  <button class="submit-btn">Book Now</button>
                 </div>
               </div>
-            </div>
-            <div class=".alert-warning" *ngIf="hasMessage">
-              <h3 style="text-align: center">{{message}}</h3>
             </div>
           </form>
         </div>
@@ -66,3 +61,4 @@
     </div>
   </div>
 </div>
+<hr>
