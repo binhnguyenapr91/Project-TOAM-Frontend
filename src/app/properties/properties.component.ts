@@ -39,7 +39,7 @@ export class PropertiesComponent implements OnInit {
 
 
   deleteProperty(id: number): void {
-    if (confirm('Bạn có muốn xóa không ?')) {
+    if (confirm(' You  want to delete ??? ')) {
       this.propertyService.deleteProperty(id).subscribe(result => {
         this.propertyService.shouldRefresh.next();
       });
