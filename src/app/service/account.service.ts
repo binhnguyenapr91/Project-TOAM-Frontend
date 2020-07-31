@@ -19,7 +19,7 @@ export class AccountService {
   shouldRefresh = new Subject<any>();
 
   private registerURL = environment.RegisterUrl;
-  private readonly API_RENTER = 'http://localhost:8080/api/account/renter';
+  private readonly API_RENTER = 'http://localhost:8080/api/account/renter/information';
   private readonly API_HOST = 'http://localhost:8080/api/account/host';
   private readonly API_DETAIL = 'http://localhost:8080/api/account';
 

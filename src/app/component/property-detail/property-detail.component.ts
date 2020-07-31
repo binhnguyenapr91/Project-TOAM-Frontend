@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {IProperty} from "../../interface/iproperty";
-import {PropertyService} from "../../service/property.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
-import {TokenStorageService} from "../../_services/token-storage.service";
-import {CommentService} from "../../service/comment.service";
-import {IComment} from "../../interface/IComment";
-
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {IProperty} from '../../interface/iproperty';
+import {PropertyService} from '../../service/property.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {TokenStorageService} from '../../_services/token-storage.service';
+import {CommentService} from '../../service/comment.service';
+import {IComment} from '../../interface/IComment';
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-detail.component.html',
@@ -15,22 +14,19 @@ import {IComment} from "../../interface/IComment";
 })
 export class PropertyDetailComponent implements OnInit {
   propertyId: number;
-  commentList: IComment[]=[];
+  commentList: IComment[] = [];
   commentForm: FormGroup;
-  propertyabcId: number;
-  accountabc: { id: number } = { id: 1}
-  propertyabc: { id: number } = { id: 1 }
-
-
+  commentNumber: 10;
+  accounts: { id: number } = {id: 1};
+  propertys: { id: number } = {id: 1};
   message: string;
-
   property: IProperty;
+
 // khai biến để lấy next property
   nextPropertyId: number;
   nextProperty: IProperty;
-//
   name = 'Set iframe source';
-  url: string = '';
+  url = '';
   urlSafe: SafeResourceUrl;
 
   constructor(private propertyService: PropertyService,
@@ -39,18 +35,13 @@ export class PropertyDetailComponent implements OnInit {
               public sanitizer: DomSanitizer,
               private fb: FormBuilder,
               private token: TokenStorageService,
-              private commentService: CommentService,) {
+              private commentService: CommentService) {
   }
 
   ngOnInit(): void {
-    this.accountabc.id = this.token.getUser().id;
-    console.log(this.accountabc);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
-
-      this.propertyabc.id = params.id;
-
       this.propertyService.getPropertyById(this.propertyId).subscribe(result => {
         this.property = result;
       });
@@ -60,53 +51,71 @@ export class PropertyDetailComponent implements OnInit {
         this.nextProperty = result;
       });
 //
-      this.url = "https://www.google.com/maps?q=";
-      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + "codegym" + "&output=embed");
+      this.url = 'https://www.google.com/maps?q=';
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + 'codegym' + '&output=embed');
     });
     //
 
     this.commentForm = this.fb.group({
-      id:[''],
-      comment: ['',[Validators.required, Validators.minLength(1)]],
+      id: [''],
+      comment: ['', [Validators.required, Validators.minLength(1)]],
       account: [''],
       properties: [''],
     });
 
-    this.commentService.getCommentByPropertyId(this.propertyId).subscribe(result => {
+    this.getAllComment();
+
+  }
+
+  getAllComment(): void {
+    this.commentService.getCommentPropertyId(this.commentNumber, this.propertyId).subscribe(result => {
       this.commentList = result;
       console.log(result);
     }, error => {
       this.commentList = [];
+      console.log(error);
     });
-
   }
 
+  // tslint:disable-next-line:typedef
+  getAccountId() {
+    this.accounts.id = this.token.getUser().id;
+  }
+
+  // tslint:disable-next-line:typedef
+  getPropertyId() {
+    this.activatedRoute.params.subscribe(next => {
+      this.propertys.id = next.id;
+    });
+  }
+
+
+  // tslint:disable-next-line:typedef
   onSubmit() {
     const {value} = this.commentForm;
     this.commentService.createComment(value).subscribe(result => {
+      this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
-      this.message = 'Comment sent!'
+      this.message = 'Message Sent ';
+      // this.router.navigate(['/home/property/'+ this.propertyId])
+      this.getAllComment();
+
 
     }, error => {
       this.message = 'You need to booked this property to review!';
+      this.onSubmit();
       console.log(error);
     });
-    this.setDefaultValue();
-
-    console.log('ID account la: ' + this.accountabc.id);
-    console.log('id property la: ' + this.propertyabc.id);
-
-    // }
+    this.setDefaultValue(this.accounts, this.propertys);
 
   }
 
   get Field(): FormGroup {
     return this.commentForm;
   }
-
-  setDefaultValue(): void {
-    this.commentForm.get('account').setValue(this.accountabc);
-    this.commentForm.get('properties').setValue(this.propertyabc);
+  setDefaultValue(idAccount: { id: number }, idProperty: { id: number }): void {
+    this.commentForm.get('account').setValue(idAccount);
+    this.commentForm.get('properties').setValue(idProperty);
     // this.commentForm.get('id').setValue('');
   }
 

@@ -1,0 +1,26 @@
+<div class="limiter">
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+          <table>
+            <thead>
+            <tr class="table100-head">
+              <th class="column1">dateAndMonth</th>
+              <th class="column2">quantityOfContracts</th>
+              <th class="column3">valuePerMonth</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let history of histories">
+              <td class="column1">{{history.dateAndMonth}}</td>
+              <td class="column2">{{history.quantityOfContracts}}</td>
+              <td class="column3">{{history.valuePerMonth}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
