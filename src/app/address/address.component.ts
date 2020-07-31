@@ -42,10 +42,10 @@ export class AddressComponent implements OnInit {
       const {value} = this.formAddress;
       this.addressService.createAddress(value).subscribe(result => {
         this.addresses.unshift(result);
-        alert('');
+        alert('You add the address successfully!');
         this.router.navigate(['/create-property']);
       }, error => {
-        alert('You add the address successfully');
+        alert('You add the address fail');
       });
     } else {
       alert('You add the address failed');

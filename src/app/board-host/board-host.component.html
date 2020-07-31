@@ -11,7 +11,6 @@
       <th>Checkin</th>
       <th>Checkout</th>
       <th>Property name</th>
-      <th colspan="2">Action</th>
     </thead>
     <tbody>
     <tr *ngFor="let contract of contracts">
@@ -20,7 +19,6 @@
       <td>{{contract.beginTime}}</td>
       <td>{{contract.endTime}}</td>
       <td>{{contract.properties.name}}</td>
-      <td><input type="button" value="Edit" class="btn btn-outline-info"></td>
     </tr>
     </tbody>
   </table>

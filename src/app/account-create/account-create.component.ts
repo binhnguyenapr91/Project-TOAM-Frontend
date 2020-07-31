@@ -40,8 +40,10 @@ export class AccountCreateComponent implements OnInit {
       this.accountService.createAccount(value).subscribe(result => {
         this.message = 'Bạn thêm tài khoản thành công';
         // this.router.navigate(['/accounts']);
+        alert('Create account success!');
       }, error => {
         this.message = 'Bạn thêm tài khoản không thành công';
+        alert("Create account fail!");
       });
     } else {
       this.message = 'Bạn thêm tài khoản không thành công';
