@@ -71,7 +71,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   getAllComment(): void {
-    this.commentService.getCommentPropertyId(3,this.propertyId).subscribe(result => {
+    this.commentService.getCommentPropertyId(10,this.propertyId).subscribe(result => {
       this.commentList = result;
       console.log(result);
     }, error => {
@@ -98,9 +98,10 @@ export class PropertyDetailComponent implements OnInit {
     this.commentService.createComment(value).subscribe(result => {
       this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
-      this.message = 'Message Sent '
+      // this.message = 'Message Sent '
       // this.router.navigate(['/home/property/'+ this.propertyId])
       this.getAllComment();
+      this.commentForm.get('comment').setValue('');
 
 
     }, error => {
