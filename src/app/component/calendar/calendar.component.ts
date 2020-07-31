@@ -61,9 +61,11 @@ export class CalendarComponent implements OnInit {
     this.bookingService.createBooking(this.formBooking.value)
       .subscribe(data => {
       this.contractId = data.id;
+      this.message = 'Your contract created successfull!';
+      alert(this.message);
     }, error => {
-        this.hasMessage = true;
         this.message = error.error.message;
+        alert(this.message);
       });
   }
 }

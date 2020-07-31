@@ -1,30 +1,25 @@
 <div class="limiter">
   <div class="container-login100" style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
     <div style="margin-top: 100px;background-color: white;border-radius: 20px;text-align: center">
+      <a class="btn btn-danger" routerLink="/host/host-income">History Contract</a>
+      <a class="btn btn-danger" routerLink="/address-create" style="margin: 10px">Create Property</a>
   <table class="table table-hover">
-    <a routerLink="/host/host-income">History Contract</a>
 
     <thead>
       <th>ID</th>
       <th>Create time</th>
       <th>Checkin</th>
       <th>Checkout</th>
-      <th>Property</th>
-      <th>Renter</th>
-      <th>Phone</th>
-      <th>Status</th>
-
+      <th>Property name</th>
       <th colspan="2">Action</th>
     </thead>
     <tbody>
     <tr *ngFor="let contract of contracts">
       <td>{{contract.id}}</td>
       <td>{{contract.createTime}}</td>
-      <td>{{contract.checkinTime}}</td>
-      <td>{{contract.checkoutTime}}</td>
-      <td>{{contract.property.id}}</td>
-      <td>{{contract.renter.name}}</td>
-      <td>{{contract.contractStatus}}</td>
+      <td>{{contract.beginTime}}</td>
+      <td>{{contract.endTime}}</td>
+      <td>{{contract.properties.name}}</td>
       <td><input type="button" value="Edit" class="btn btn-outline-info"></td>
     </tr>
     </tbody>
