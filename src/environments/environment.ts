@@ -10,6 +10,8 @@ export const environment = {
   apiUrl: 'http://localhost:8080/api/authenticate',
   apiComment: 'http://localhost:8080/api/comments/create/property',
   apiCommentProperty:'http://localhost:8080/api/comments/property/',
+  apiCommentHost:'http://localhost:8080/api/comments/host/',
+  apiCotractRenter:'http://localhost:8080/api/contract/renter/',
   firebaseConfig: {
     apiKey: 'AIzaSyBG4Ew-e1zAxBLnNqXnCo1JHJSwLR3SqOo',
     authDomain: 'homestay-5d356.firebaseapp.com',

@@ -16,9 +16,11 @@ export class PropertyDetailComponent implements OnInit {
   propertyId: number;
   commentList: IComment[] = [];
   commentForm: FormGroup;
+
   commentNumber: 10;
   accounts: { id: number } = {id: 1};
   propertys: { id: number } = {id: 1};
+
   message: string;
   property: IProperty;
 
@@ -68,7 +70,9 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   getAllComment(): void {
-    this.commentService.getCommentPropertyId(this.commentNumber, this.propertyId).subscribe(result => {
+
+    this.commentService.getCommentPropertyId(3,this.propertyId).subscribe(result => {
+
       this.commentList = result;
       console.log(result);
     }, error => {
