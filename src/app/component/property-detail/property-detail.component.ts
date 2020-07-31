@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IProperty} from '../../interface/iproperty';
 import {PropertyService} from '../../service/property.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -16,19 +16,17 @@ export class PropertyDetailComponent implements OnInit {
   propertyId: number;
   commentList: IComment[] = [];
   commentForm: FormGroup;
-
-  commentNumber: 10;
-  accounts: { id: number } = {id: 1};
-  propertys: { id: number } = {id: 1};
-
+  accounts: { id: number } = {id: 1}
+  propertys: { id: number } = {id: 1}
   message: string;
   property: IProperty;
 
 // khai biến để lấy next property
   nextPropertyId: number;
   nextProperty: IProperty;
+//
   name = 'Set iframe source';
-  url = '';
+  url: string = '';
   urlSafe: SafeResourceUrl;
 
   constructor(private propertyService: PropertyService,
@@ -70,9 +68,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   getAllComment(): void {
-
-    this.commentService.getCommentPropertyId(3,this.propertyId).subscribe(result => {
-
+    this.commentService.getCommentPropertyId(5,this.propertyId).subscribe(result => {
       this.commentList = result;
       console.log(result);
     }, error => {
@@ -81,12 +77,10 @@ export class PropertyDetailComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line:typedef
   getAccountId() {
     this.accounts.id = this.token.getUser().id;
   }
 
-  // tslint:disable-next-line:typedef
   getPropertyId() {
     this.activatedRoute.params.subscribe(next => {
       this.propertys.id = next.id;
@@ -94,19 +88,20 @@ export class PropertyDetailComponent implements OnInit {
   }
 
 
-  // tslint:disable-next-line:typedef
   onSubmit() {
     const {value} = this.commentForm;
+    this.getAccountId();
+    this.getPropertyId();
     this.commentService.createComment(value).subscribe(result => {
       this.commentService.shouldRefresh.next('Gửi thông điệp gì đó!');
       console.log(result);
-      this.message = 'Message Sent ';
+      // this.message = 'Message Sent '
       // this.router.navigate(['/home/property/'+ this.propertyId])
       this.getAllComment();
+      this.commentForm.get('comment').setValue('');
 
 
     }, error => {
-      this.message = 'You need to booked this property to review!';
       this.onSubmit();
       console.log(error);
     });
