@@ -16,8 +16,8 @@ import {IDistrict} from '../interface/IDistrict';
 import {DistrictService} from '../service/district.service';
 import {TokenStorageService} from '../_services/token-storage.service';
 
-const FRONT_LINK = 'https://firebasestorage.googleapis.com/v0/b/homestay-5d356.appspot.com/o/uploads%2F';
-const BACK_LINK = '?alt=media&token=0377e3d3-8406-4e40-aad9-4a5b62f46e8f';
+const FRONT_LINK = 'https://firebasestorage.googleapis.com/v0/b/toam-f11e6.appspot.com/o/uploads%2F';
+const BACK_LINK = '?alt=media&token=2265a5e3-a515-4e4c-8581-93c12cd19ebb';
 
 @Component({
   selector: 'app-create-property',

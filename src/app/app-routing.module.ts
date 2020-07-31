@@ -22,10 +22,11 @@ import {SearchByTypeComponent} from './search-component/search-by-type/search-by
 import {SearchByAllComponent} from './search-component/search-by-all/search-by-all.component';
 import {AuthGuard} from './_helpers/auth.guard';
 import {AccountCreateComponent} from './account-create/account-create.component';
-import {HistoryContractComponent} from './History/history-contract/history-contract.component';
 import {AddressUpdateComponent} from './address-update/address-update.component';
+import {HostIncomeComponent} from './host-income/host-income.component';
 
 const routes: Routes = [
+  {path: 'host/host-income', component: HostIncomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -39,9 +40,6 @@ const routes: Routes = [
   {path: 'search', component: SearchLayoutComponent},
   {path: 'address-create', component: AddressComponent},
   {path: 'address-update/:id', component: AddressUpdateComponent},
-  {
-    path: 'history', component: HistoryContractComponent
-  },
   /*for search begin*/
   {path: 'home/:name', component: SearchByTypeComponent},
   {path: 'home/:address/:bath/:bed/:price', component: SearchByAllComponent},
