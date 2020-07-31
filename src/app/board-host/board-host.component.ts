@@ -1,9 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from '../_services/user.service';
-import {IAccount} from '../interface/IAccount';
-import {AccountService} from '../service/account.service';
-import {ValuePerMonthService} from '../service/value-per-month.service';
-import {ValuePerMonth} from '../interface/ValuePerMonth';
+import { Component, OnInit } from '@angular/core';
+import {IContract} from '../interface/IContract';
+import {ContractService} from '../service/contract.service';
 
 @Component({
   selector: 'app-board-host',
@@ -11,28 +8,21 @@ import {ValuePerMonth} from '../interface/ValuePerMonth';
   styleUrls: ['./board-host.component.css']
 })
 export class BoardHostComponent implements OnInit {
-  accounts: IAccount[] = [];
-
-
-  constructor(private accountService: AccountService) {
+  contracts: IContract[] = [];
+  constructor(private contractService: ContractService) {
   }
 
   ngOnInit(): void {
-    this.getALLbyHost();
-    this.accountService.shouldRefresh.subscribe(result => this.getALLbyHost());
+    this.getAll();
+    this.contractService.shouldRefresh.subscribe(result => {
+      this.getAll();
+    });
   }
 
-  getALLbyHost(): void {
-    this.accountService.getHostList()
-      .subscribe(result => (this.accounts = result), error => (this.accounts = []));
+  private getAll(): any {
+    this.contractService.getAllContractByHostId(14).subscribe(result => {
+      this.contracts = result;
+      console.log(result);
+    });
   }
-
-
-  /*deleteHost(id: number): void {
-    if (confirm('Are you sure to delete?')) {
-      this.accountService.deleteAccount(id).subscribe(result => {
-        this.accountService.shouldRefresh.next();
-      });
-    }
-  }*/
 }

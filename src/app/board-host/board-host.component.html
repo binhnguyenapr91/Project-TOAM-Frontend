@@ -5,22 +5,25 @@
     <a routerLink="/history">History Contract</a>
     <thead>
       <th>ID</th>
-      <th>Name</th>
-      <th>UserName</th>
-      <th>Email</th>
+      <th>Create time</th>
+      <th>Checkin</th>
+      <th>Checkout</th>
+      <th>Property</th>
+      <th>Renter</th>
       <th>Phone</th>
       <th>Status</th>
+
       <th colspan="2">Action</th>
     </thead>
     <tbody>
-    <tr *ngFor="let account of accounts">
-      <td>{{account.id}}</td>
-      <td>{{account.name}}</td>
-      <td><a [routerLink]="['/renter',account.id]">{{account.username}}</a></td>
-      <td>{{account.email}}</td>
-      <td>{{account.phone}}</td>
-      <td>{{account.password}}</td>
-      <td>{{account.status}}</td>
+    <tr *ngFor="let contract of contracts">
+      <td>{{contract.id}}</td>
+      <td>{{contract.createTime}}</td>
+      <td>{{contract.checkinTime}}</td>
+      <td>{{contract.checkoutTime}}</td>
+      <td>{{contract.property.id}}</td>
+      <td>{{contract.renter.name}}</td>
+      <td>{{contract.contractStatus}}</td>
       <td><input type="button" value="Edit" class="btn btn-outline-info"></td>
     </tr>
     </tbody>
