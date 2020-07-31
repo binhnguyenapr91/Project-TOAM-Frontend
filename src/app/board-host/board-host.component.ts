@@ -21,7 +21,7 @@ export class BoardHostComponent implements OnInit {
 
   private getAll(): any {
     this.contractService.getAllContractByHostId(14).subscribe(result => {
-      this.contracts = result;
+     // this.contracts = result;
       console.log(result);
     });
   }
