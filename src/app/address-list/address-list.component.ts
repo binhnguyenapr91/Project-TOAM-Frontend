@@ -15,21 +15,19 @@ export class AddressListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
-    // @ts-ignore
     this.addressService.shouldRefresh.subscribe(result => {
       this.getAll();
     });
   }
 
-  // tslint:disable-next-line:typedef
-  getAll() {
+  getAll(): void {
     this.addressService.getAllAddress().subscribe(result => {
       this.address = result;
     });
   }
 
   deleteAddress(id: number): void {
-    if (confirm('I want to delete ?')) {
+    if (confirm('You want to delete?')) {
       this.addressService.deleteAddress(id).subscribe(result => {
         this.addressService.shouldRefresh.next();
       });

@@ -1,22 +1,49 @@
-<div class="container">
-  <div class="alert alert-success">
-    <strong>{{this.message}}</strong>
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <h3 style="text-align: center">Create Address form</h3>
+      <form [formGroup]="formAddress" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="name">Name</div>
+          <div class="value">
+            <div class="input-group">
+              <input class="input--style-5" type="text" name="company" formControlName="street">
+              <p style="color:red;" *ngIf="formAddress.get('street').invalid && formAddress.get('street').touched">The number of characters is more than 5</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="name">District</div>
+          <div class="value">
+            <div class="input-group">
+              <div class="rs-select2 js-select-simple select--no-search">
+                <select name="subject" formControlName="districts" style="width: 150px">
+                  <option selected="selected" *ngFor="let districts of districts" [ngValue]=districts>{{districts.name}}</option>
+                </select>
+                <div class="select-dropdown"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="name">Cities</div>
+          <div class="value">
+            <div class="input-group">
+              <div class="rs-select2 js-select-simple select--no-search">
+                <select name="subject" formControlName="districts">
+                  <option selected="selected" *ngFor="let cities of districts" [ngValue]=cities>{{cities.cities.name}}</option>
+                </select>
+                <div class="select-dropdown"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-danger col-6" type="submit">Create Address</button>
+          <a routerLink="/address" class="btn btn-success col-6" style="text-align: center">List Address</a>
+        </div>
+      </form>
+    </div>
   </div>
-  <h3>Create Address</h3>
-  <a routerLink="/address" class="btn-primary" style="text-align: center">List Address</a>
-  <form [formGroup]="formAddress" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="street">Street</label>
-      <input type="text" class="form-control" id="street" formControlName="street">
-    </div>
-    <div class="form-group">
-      <label for="district">District</label>
-      <select id="district" class="form-control" formControlName="districts" required>
-        <option *ngFor="let district of districts" [ngValue]=district>
-          {{district.name}}
-        </option>
-      </select>
-    </div>
-    <button type="submit" class="btn-primary">Submit</button>
-  </form>
 </div>

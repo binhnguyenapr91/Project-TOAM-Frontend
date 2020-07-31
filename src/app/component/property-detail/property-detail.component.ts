@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IProperty} from "../../interface/iproperty";
-import {PropertyService} from "../../service/property.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
-import {TokenStorageService} from "../../_services/token-storage.service";
-import {CommentService} from "../../service/comment.service";
-import {IComment} from "../../interface/IComment";
-
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {IProperty} from '../../interface/iproperty';
+import {PropertyService} from '../../service/property.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {TokenStorageService} from '../../_services/token-storage.service';
+import {CommentService} from '../../service/comment.service';
+import {IComment} from '../../interface/IComment';
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-detail.component.html',
@@ -36,12 +35,10 @@ export class PropertyDetailComponent implements OnInit {
               public sanitizer: DomSanitizer,
               private fb: FormBuilder,
               private token: TokenStorageService,
-              private commentService: CommentService,) {
+              private commentService: CommentService) {
   }
 
   ngOnInit(): void {
-      // this.accounts.id = this.token.getUser().id;
-    console.log(this.accounts);
     this.activatedRoute.params.subscribe(params => {
 // lấy về property theo id
       this.propertyId = params.id;
@@ -54,8 +51,8 @@ export class PropertyDetailComponent implements OnInit {
         this.nextProperty = result;
       });
 //
-      this.url = "https://www.google.com/maps?q=";
-      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + "codegym" + "&output=embed");
+      this.url = 'https://www.google.com/maps?q=';
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + 'codegym' + '&output=embed');
     });
     //
 
@@ -87,7 +84,7 @@ export class PropertyDetailComponent implements OnInit {
   getPropertyId() {
     this.activatedRoute.params.subscribe(next => {
       this.propertys.id = next.id;
-    })
+    });
   }
 
 
@@ -108,15 +105,14 @@ export class PropertyDetailComponent implements OnInit {
       this.onSubmit();
       console.log(error);
     });
-    this.setDefaultValue(this.accounts,this.propertys);
+    this.setDefaultValue(this.accounts, this.propertys);
 
   }
 
   get Field(): FormGroup {
     return this.commentForm;
   }
-
-  setDefaultValue(idAccount:{id:number},idProperty:{id:number}): void {
+  setDefaultValue(idAccount: { id: number }, idProperty: { id: number }): void {
     this.commentForm.get('account').setValue(idAccount);
     this.commentForm.get('properties').setValue(idProperty);
     // this.commentForm.get('id').setValue('');
