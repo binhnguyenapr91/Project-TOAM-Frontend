@@ -71,7 +71,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   getAllComment(): void {
-    this.commentService.getCommentPropertyId(10,this.propertyId).subscribe(result => {
+    this.commentService.getCommentPropertyId(5,this.propertyId).subscribe(result => {
       this.commentList = result;
       console.log(result);
     }, error => {
