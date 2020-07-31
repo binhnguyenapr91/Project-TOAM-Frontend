@@ -11,16 +11,16 @@ export const environment = {
   apiComment: 'http://localhost:8080/api/comments/create/property',
   apiCommentProperty:'http://localhost:8080/api/comments/property/',
   apiCommentHost:'http://localhost:8080/api/comments/host/',
-  apiCotractRenter:'http://localhost:8080/api/contract/renter/',
+  apiContractRenter:'http://localhost:8080/api/contract/renter/',
   firebaseConfig: {
-    apiKey: 'AIzaSyBG4Ew-e1zAxBLnNqXnCo1JHJSwLR3SqOo',
-    authDomain: 'homestay-5d356.firebaseapp.com',
-    databaseURL: 'https://homestay-5d356.firebaseio.com',
-    projectId: 'homestay-5d356',
-    storageBucket: 'homestay-5d356.appspot.com',
-    messagingSenderId: '448950554170',
-    appId: '1:448950554170:web:a0cf7192ddb4c2410bef03',
-    measurementId: 'G-X06PCHWRW5'
+    apiKey: "AIzaSyDTfJMPWGlO9Aw4IUzOcM6fVvpF0QznnKg",
+    authDomain: "toam-f11e6.firebaseapp.com",
+    databaseURL: "https://toam-f11e6.firebaseio.com",
+    projectId: "toam-f11e6",
+    storageBucket: "toam-f11e6.appspot.com",
+    messagingSenderId: "393186894661",
+    appId: "1:393186894661:web:dcd57e6d2151828eda542c",
+    measurementId: "G-D481C2YP4E"
   }
 };
 
