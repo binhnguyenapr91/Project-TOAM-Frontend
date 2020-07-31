@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../_services/auth.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,8 @@ export class RegisterComponent implements OnInit {
   errorMessage = '';
   message: string;
 
-  constructor(private authService: AuthService,private router:Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -24,9 +25,10 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.message= "Đăng ký thành công";
-        setTimeout(()=>{
-          this.router.navigate([''])},1500
+        this.message = 'Registration successful';
+        setTimeout(() => {
+            this.router.navigate(['']);
+          }, 1500
         );
       },
       err => {

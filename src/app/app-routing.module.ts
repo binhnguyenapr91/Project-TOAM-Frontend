@@ -22,7 +22,8 @@ import {SearchByTypeComponent} from './search-component/search-by-type/search-by
 import {SearchByAllComponent} from './search-component/search-by-all/search-by-all.component';
 import {AuthGuard} from './_helpers/auth.guard';
 import {AccountCreateComponent} from './account-create/account-create.component';
-import {HostIncomeComponent} from './host-income/host-income.component';
+import {HistoryContractComponent} from './History/history-contract/history-contract.component';
+import {AddressUpdateComponent} from './address-update/address-update.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -36,6 +37,11 @@ const routes: Routes = [
   {path: 'property', component: PropertiesComponent},
   {path: 'address', component: AddressListComponent},
   {path: 'search', component: SearchLayoutComponent},
+  {path: 'address-create', component: AddressComponent},
+  {path: 'address-update/:id', component: AddressUpdateComponent},
+  {
+    path: 'history', component: HistoryContractComponent
+  },
   /*for search begin*/
   {path: 'home/:name', component: SearchByTypeComponent},
   {path: 'home/:address/:bath/:bed/:price', component: SearchByAllComponent},
@@ -47,7 +53,7 @@ const routes: Routes = [
   {
     path: 'create-address', component: AddressComponent
   },
-  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard],},
+  {path: 'accounts', component: AccountListComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {
     path: 'home/property/:id', component: PropertyDetailComponent,
@@ -59,8 +65,7 @@ const routes: Routes = [
     path: 'home/property/:id', component: PropertyDetailComponent
   }, {
     path: 'edit-property/:id', component: PropertyEditComponent
-  },
-  {path: 'host/host-income', component: HostIncomeComponent},
+  }
 ];
 
 @NgModule({

@@ -53,4 +53,8 @@ export class PropertyService {
     return this.httpClient.get<IProperty[]>(`${this.API_URL}/filter/${address}/${bath}/${bed}/${price}`);
   }
 
+  getPropertyByHostId(hostId:number):Observable<IProperty[]>{
+    return this.httpClient.get<IProperty[]>(`http://localhost:8080/api/property/host/${hostId}`)
+  }
+
 }

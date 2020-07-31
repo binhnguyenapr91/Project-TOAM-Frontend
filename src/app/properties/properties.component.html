@@ -1,48 +1,50 @@
 <div class="limiter">
-  <div class="container-login100" style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
     <div style="margin-top: 100px;background-color: white;border-radius: 20px;text-align: center">
       <a class="btn btn-success" routerLink="/create-property" style="margin: 5px">Create Property</a>
+      <a class="btn btn-success" routerLink="/address-create" style="margin: 5px">New Address</a>
       <br>
       <span>Filter by property type: </span>
       <select (click)="findPropertyByPropertyType($event.target.value)">
         <option *ngFor="let pro of propertiesType" [value]="pro.name">{{pro.name}}</option>
       </select>
       <table class="table table-hover">
-            <thead>
-              <th>Image</th>
-              <th>Video</th>
-              <th>Price</th>
-              <th>Size</th>
-              <th>Bathroom</th>
-              <th>BedRooms</th>
-              <th>Address</th>
-              <th>PropertiesType</th>
-              <th>Description</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </thead>
-            <tbody>
-            <tr *ngFor="let property of properties">
-              <td class="column1" style="width: 70%"><img src="{{property.images}}"></td>
-              <td class="column2">
-                <video width="150px" height="110px" src="{{property.videos}}" controls></video>
-              </td>
-              <td class="column3">{{property.price}}</td>
-              <td class="column4">{{property.size}}</td>
-              <td class="column5">{{property.bathrooms}}</td>
-              <td class="column6">{{property.bedrooms}}</td>
-              <td class="column7">{{property.addresses.street}}-{{property.addresses.districts.name}}
-                -{{property.addresses.districts.cities.name}}</td>
-              <td class="column8">{{property.propertiesTypes.name}}</td>
-              <td class="column9">{{property.description}}</td>
-              <td><a [routerLink]="['/edit-property', property.id]"><span class="fa fa-edit"></span></a></td>
-              <td>
-                <button class="btn-primary" (click)="deleteProperty(property.id)"><span class="fa fa-cut"></span>
-                </button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <thead>
+        <th>Image</th>
+        <th>Video</th>
+        <th>Price</th>
+        <th>Size</th>
+        <th>Bathroom</th>
+        <th>BedRooms</th>
+        <th>Address</th>
+        <th>PropertiesType</th>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let property of properties">
+          <td class="column1" style="width: 70%"><img src="{{property.images}}"></td>
+          <td class="column2">
+            <video width="150px" height="110px" src="{{property.videos}}" controls></video>
+          </td>
+          <td class="column3">{{property.price}}</td>
+          <td class="column4">{{property.size}}</td>
+          <td class="column5">{{property.bathrooms}}</td>
+          <td class="column6">{{property.bedrooms}}</td>
+          <td class="column7">{{property.addresses.street}}-{{property.addresses.districts.name}}
+            -{{property.addresses.districts.cities.name}}</td>
+          <td class="column8">{{property.propertiesTypes.name}}</td>
+          <td class="column9">{{property.description}}</td>
+          <td><a [routerLink]="['/edit-property', property.id]"><span class="fa fa-edit"></span></a></td>
+          <td>
+            <button class="btn-primary" (click)="deleteProperty(property.id)"><span class="fa fa-cut"></span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
