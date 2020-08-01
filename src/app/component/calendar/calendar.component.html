@@ -1,0 +1,64 @@
+<hr>
+<div id="booking" class="section">
+  <div class="section-center">
+    <div class="container">
+      <div class="row">
+        <div class="booking-form">
+          <form [formGroup]="formBooking" (ngSubmit)="onSubmit()">
+            <div class="row no-margin">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-7">
+                <div class="row no-margin">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <span class="form-label">Check In</span>
+                      <input class="form-control" type="date" formControlName="beginTime" >
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <span class="form-label">Check out</span>
+                      <input class="form-control" type="date" formControlName="endTime">
+                    </div>
+                  </div>
+                  <input type="hidden" [(ngModel)]="now" formControlName="createTime">
+                  <input type="hidden" [(ngModel)]="properties" formControlName="properties">
+                  <input type="hidden" [(ngModel)]="renter" formControlName="renter">
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">Guests</span>
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <span class="form-label">Kids</span>
+                      <select class="form-control">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-btn">
+                  <button class="submit-btn">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>

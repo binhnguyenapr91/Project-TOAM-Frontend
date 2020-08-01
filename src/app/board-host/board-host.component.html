@@ -1,5 +1,27 @@
-<div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px;background-color: white;border-radius: 20px;text-align: center">
+      <a class="btn btn-danger" routerLink="/host/host-income">History Contract</a>
+      <a class="btn btn-danger" routerLink="/address-create" style="margin: 10px">Create Property</a>
+  <table class="table table-hover">
+
+    <thead>
+      <th>ID</th>
+      <th>Create time</th>
+      <th>Checkin</th>
+      <th>Checkout</th>
+      <th>Property name</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contract of contracts">
+      <td>{{contract.id}}</td>
+      <td>{{contract.createTime}}</td>
+      <td>{{contract.beginTime}}</td>
+      <td>{{contract.endTime}}</td>
+      <td>{{contract.properties.name}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../_services/user.service';
+import {IContract} from '../interface/IContract';
+import {ContractService} from '../service/contract.service';
 
 @Component({
   selector: 'app-board-host',
@@ -7,19 +8,21 @@ import {UserService} from '../_services/user.service';
   styleUrls: ['./board-host.component.css']
 })
 export class BoardHostComponent implements OnInit {
-
-  content: string;
-
-  constructor(private userService: UserService) { }
+  contracts: IContract[] = [];
+  constructor(private contractService: ContractService) {
+  }
 
   ngOnInit(): void {
-    this.userService.getHostBoard().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    this.getAll();
+    this.contractService.shouldRefresh.subscribe(result => {
+      this.getAll();
+    });
+  }
+
+  private getAll(): any {
+    this.contractService.getAllContractByHostId(2).subscribe(result => {
+      this.contracts = result;
+      console.log(result);
+    });
   }
 }

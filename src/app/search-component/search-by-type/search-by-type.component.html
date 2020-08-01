@@ -1,0 +1,76 @@
+<app-layout-header></app-layout-header>
+<app-search-form></app-search-form>
+
+<div class="map-section" style="position: relative; margin-top: -68px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=codegym&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Map Section End -->
+
+<section class="hotel-rooms spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 p-45">
+        <div class="found-items">
+          <h4>We found <span>{{properties.length}}</span> properties</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6" *ngFor="let pro of properties;">
+        <div class="room-items">
+          <div>
+<!--            <img src="{{pro.images}}" height="289" width="350">-->
+                        <img src="../../../assets/img/single-property/{{pro.images}}.jpg" height="289" width="350"/>
+          </div>
+          <div class="room-text">
+            <div class="room-details">
+              <div class="room-title">
+                <h5>{{pro.name}}</h5>
+                <a href="https://www.google.com/maps/place/{{pro.addresses.street}}, {{pro.addresses.districts.name}}, {{pro.addresses.districts.cities.name}}" target="_blank"><i class="flaticon-placeholder"></i>
+                  <span>{{pro.addresses.street}}, {{pro.addresses.districts.name}}, {{pro.addresses.districts.cities.name}}</span></a>
+              </div>
+            </div>
+            <div class="room-features">
+              <div class="room-info">
+                <div class="size">
+                  <p>Lot Size</p>
+                  <img src="../../../assets/img/rooms/size.png" alt="">
+                  <i class="flaticon-bath"></i>
+                  <span>{{pro.size}}</span>
+                </div>
+                <div class="beds">
+                  <p>Beds</p>
+                  <img src="../../../assets/img/rooms/bed.png" alt="Beds">
+                  <span>{{pro.bedrooms}}</span>
+                </div>
+                <div class="baths">
+                  <p>Baths</p>
+                  <img src="../../../assets/img/rooms/bath.png" alt="Baths">
+                  <span>{{pro.bathrooms}}</span>
+                </div>
+                <div class="garage">
+                  <p>Type</p>
+                  <img src="../../../assets/img/rooms/house.png" height="28" width="28" alt="type"/>
+                  <span>{{pro.propertiesTypes.name}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-price">
+              <p>For Sale</p>
+              <span>${{pro.price}}</span>
+            </div>
+            <a [routerLink]="['../property', pro.id]" class="site-btn btn-line">View Property</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-layout-footer></app-layout-footer>

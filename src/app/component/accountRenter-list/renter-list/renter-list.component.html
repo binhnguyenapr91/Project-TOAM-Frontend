@@ -1,0 +1,31 @@
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px;background-color: white;border-radius: 20px;text-align: center">
+        <table class="table table-hover">
+          <thead>
+            <th class="column1">ID</th>
+            <th class="column2">Name</th>
+            <th class="column3">UserName</th>
+            <th class="column4">Password</th>
+            <th class="column5">Email</th>
+            <th class="column6">Phone</th>
+            <th class="column7">Edit</th>
+            <th class="column8">Delete</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let renter of renters">
+            <td class="column1">{{renter.id}}</td>
+            <td class="column2">{{renter.name}}</td>
+            <td class="column3"><a [routerLink]="['/renter',renter.id]">{{renter.username}}</a></td>
+            <td class="column4">{{renter.password}}</td>
+            <td class="column5">{{renter.email}}}</td>
+            <td class="column8">{{renter.phone}}</td>
+            <td><a [routerLink]="['product-edit', renter.id]"><span class="fa fa-edit"></span></a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+

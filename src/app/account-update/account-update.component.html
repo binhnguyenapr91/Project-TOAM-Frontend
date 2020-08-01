@@ -1,0 +1,56 @@
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div style="margin-top: 100px" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <h4 style="text-align: center">Update account</h4>
+  <form [formGroup]="accountForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <input type="hidden" class="form-control" formGroupName="id" name="id">
+    </div>
+    <div class="form-row">
+        <div class="name">
+          Name
+        </div>
+        <div class="value">
+          <div class="input-group">
+            <input class="input--style-5" type="text" formControlName="name" name="name">
+          </div>
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="name">
+        Username
+      </div>
+      <div class="value">
+        <div class="input-group">
+          <input class="input--style-5" type="text" formControlName="username" name="username">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="name">
+        Email
+      </div>
+      <div class="value">
+        <div class="input-group">
+          <input class="input--style-5" type="email" formControlName="email" name="email" aria-describedby="emailHelp">
+        </div>
+      </div>
+
+    </div>
+    <div class="form-row">
+      <div class="name">
+        Phone
+      </div>
+      <div class="value">
+        <div class="input-group"><input class="input--style-5" type="text" formControlName="phone" name="phone"></div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Submit</button>
+    <button type="submit" (click)="backToList()" class="btn btn-danger" style="margin-left: 15px">Back</button>
+  </form>
+
+</div>
+  </div>
+</div>

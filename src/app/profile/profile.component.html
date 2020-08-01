@@ -1,26 +1,94 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
-    <h3>
-      <strong>{{ currentUser.username }}</strong> Profile
-    </h3>
-  </header>
-  <p>
-    <strong>Token:</strong>
-    {{ currentUser.accessToken.substring(0, 20) }} ...
-    {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-  </p>
-  <p>
-    <strong>Email:</strong>
-    {{ currentUser.email }}
-  </p>
-  <strong>Roles:</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
-</div>
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <div *ngIf="currentUser; else loggedOut">
+        <header class="jumbotron"
+                style="background-image: url('https://img.freepik.com/free-vector/abstract-blue-white-wave-background_41814-377.jpg?size=626&ext=jpg');background-size: cover;border-radius: 10px">
+          <h4 style="color: brown" class="">
+            Profile of <strong>{{ currentUser.username }}</strong>
+          </h4>
+        </header>
+        <p>
+          <strong>Email:</strong>
+          {{ currentUser.email }}
+        </p>
+        <div>
+          <div *ngFor="let role of currentUser.roles">
 
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
+            <div *ngIf="role===isRoleList[0].name">
+
+              <strong>List Assests </strong>
+              <table class="col-md-10">
+                <tr>
+                  <th>Id</th>
+                  <th>Property Address</th>
+                  <th>Type</th>
+                  <th>Price</th>
+                </tr>
+                <tr *ngFor="let property of properties; index as i">
+                  <td> {{i + 1}}</td>
+                  <td>{{property.addresses.street}} - {{property.addresses.districts.name}}
+                    - {{property.addresses.districts.cities.name}}</td>
+                  <td>{{property.propertiesTypes.name}}</td>
+                  <td>{{property.price}}</td>
+                </tr>
+              </table>
+
+              <div *ngIf="comments[0] !== undefined ">
+                <strong>List Review </strong>
+                <table class="col-md-10">
+                  <tr>
+                    <th>Id</th>
+                    <th>Content</th>
+                    <th>Property Address</th>
+                  </tr>
+                  <tr *ngFor="let comment of comments; index as i">
+                    <th>{{i + 1}}</th>
+                    <td></td>
+                    <td>{{comment.comment}}</td>
+                    <td>{{comment.properties.addresses.street}}
+                      - {{comment.properties.addresses.districts.name}}
+                      - {{comment.properties.addresses.districts.cities.name}}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+
+            <div *ngIf="role===isRoleList[1].name">
+              <strong>List Contract </strong>
+              <table class="col-md-10">
+                <tr>
+                  <th>Id</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Price</th>
+                  <th>Address</th>
+                </tr>
+                <tr *ngFor="let contract of contracts; index as i">
+                  <td> {{i + 1}}</td>
+                  <td>{{contract.checkinTime.getDate()}}
+                  </td>
+                  <td>{{contract.checkoutTime.getDate()}}</td>
+                  <td>{{contract.property.price}}</td>
+                  <td>{{contract.property.addresses.street}} -
+                    {{contract.property.addresses.districts.name}} -
+                    {{contract.property.addresses.districts.cities}}
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+      <ng-template #loggedOut>
+        Please login.
+      </ng-template>
+    </div>
+  </div>
+</div>

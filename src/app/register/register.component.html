@@ -1,80 +1,121 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
-    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          name="username"
-          [(ngModel)]="form.username"
-          required
-          minlength="3"
-          maxlength="20"
-          #username="ngModel"
-        />
-        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
-          <div *ngIf="username.errors.required">Username is required</div>
-          <div *ngIf="username.errors.minlength">
-            Username must be at least 3 characters
-          </div>
-          <div *ngIf="username.errors.maxlength">
-            Username must be at most 20 characters
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          name="email"
-          [(ngModel)]="form.email"
-          required
-          email
-          #email="ngModel"
-        />
-        <div class="alert-danger" *ngIf="f.submitted && email.invalid">
-          <div *ngIf="email.errors.required">Email is required</div>
-          <div *ngIf="email.errors.email">
-            Email must be a valid email address
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="form.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
-      </div>
-
-      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
-      </div>
-    </form>
-
+<div class="limiter">
+  <div class="container-login100"
+       style="background-image: url('assets/loginTemplate/images/bg-01.jpg');background-size: cover">
     <div class="alert alert-success" *ngIf="isSuccessful">
       Your registration is successful!
     </div>
+    <div  *ngIf="!isSuccessful" style="margin-top: 100px" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+					<span class="login100-form-title p-b-49">
+						<label style="font-family: 'Arial'">Registration</label>
+					</span>
+
+        <div class="wrap-input100 validate-input m-b-23 form-group" data-validate="Username is required">
+
+          <span class="label-input100">	<label for="username" style="font-family: 'Arial'"><i class="fa fa-user"> </i> Username: </label> </span>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            minlength="3"
+            maxlength="20"
+            #username="ngModel"
+            placeholder="Enter your username"
+          />
+          <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+              Username must be at least 3 characters
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Username must be at most 20 characters
+            </div>
+          </div>
+
+        </div>
+        <div class="wrap-input100 validate-input form-group" data-validate="Email is required">
+          <span class="label-input100">	<label for="email" style="font-family: 'Arial'"><i
+            class="fa fa-address-card"> </i> Email: </label></span>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            email
+            #email="ngModel"
+            placeholder="Enter your username"
+          />
+          <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="wrap-input100 validate-input form-group" data-validate="Password is required">
+
+          <span class="label-input100">	<label for="password" style="font-family: 'Arial'"><i class="fa fa-lock"> </i> Password: </label></span>
+
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            placeholder="Enter your password"
+          />
+
+          <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container-login100-form-btn ">
+          <div class="wrap-login100-form-btn form-group">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn">
+              <label style="font-family: 'Arial'">Registration</label>
+            </button>
+          </div>
+        </div>
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Registration fail!<br/>{{ errorMessage }}
+        </div>
+
+        <div class="txt1 text-center p-t-54 p-b-20">
+						<span>
+								<label style="font-family: 'Arial'">Or register by an other method!</label>
+						</span>
+        </div>
+        <div class="flex-c-m">
+          <a href="#" class="login100-social-item bg1">
+            <i class="fa fa-facebook"></i>
+          </a>
+
+          <a href="#" class="login100-social-item bg2">
+            <i class="fa fa-twitter"></i>
+          </a>
+
+          <a href="#" class="login100-social-item bg3">
+            <i class="fa fa-google"></i>
+          </a>
+        </div>
+
+      </form>
+    </div>
+
   </div>
 </div>
+
+
+<div id="dropDownSelect1"></div>

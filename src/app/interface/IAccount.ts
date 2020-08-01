@@ -4,9 +4,13 @@ export interface IAccount {
   id: number;
   name: string;
   username: string;
+  createdDate: Date
   password: string;
   status: boolean;
-  role: IRole;
+  phone: string;
+  email: string;
+  create_date: string;
+  // role: IRole;
   token: string; // thuan
 }
 
